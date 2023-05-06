@@ -1,0 +1,346 @@
+// * {border: 1px solid grey;}
+.bg-grey-lines {
+    background-color: rgb(190, 190, 190);
+    background-image: url(../imgs/bg/bg-grey.png);
+    background-size: cover;
+}
+
+.my-container {
+    margin-bottom: 0;
+
+    .top-tabs {
+        color: $color-text-link;
+        display: flex;
+        justify-content: center;
+
+        .tab-sections {
+            width: 150px;
+            height: 110px;
+            transition: .5s ease-out;
+            cursor: pointer;
+            @media(max-width: 480px){max-height: 9rem;}
+            @media(max-width: 361px){max-height: 8rem;}
+
+            .image {
+                min-width: 5rem;
+                img {
+                    max-width: 100%;
+                }
+            }
+
+            h6 {
+                text-align: center;
+                padding: .3rem;
+                font-weight: 600;
+            }
+
+            &:hover,
+            &.active {
+                background-color: red;
+
+                .image {
+
+                    img {
+                        max-width: 100%;
+                        filter: brightness(1000%);
+                        -webkit-filter: brightness(1000%);
+                    }
+                }
+
+                h6 {
+                    color: #fff;
+                    text-align: center;
+                    padding: .3rem;
+                    letter-spacing: .5px;
+                }
+            }
+        }
+
+    }
+
+
+    .banner-machine {
+        position: relative;
+
+        img {
+            max-width: 100%;
+        }
+
+        .flow-vertical {
+            width: 3vw;
+            max-width: 5rem;
+            position: absolute;
+            top: 1vw;
+            right: 25%;
+            height: 93%;
+            overflow: hidden;
+
+            div {
+                position: relative;
+
+                img {
+                    max-width: 100%;
+                    position: absolute;
+                    top: -90px;
+                    left: 0px;
+                    animation: flowVertical 5s linear infinite;
+
+                    &:nth-child(1) {
+                        animation-delay: 0s
+                    }
+
+                    &:nth-child(2) {
+                        animation-delay: 1.3s
+                    }
+
+                    &:nth-child(3) {
+                        animation-delay: 2.6s
+                    }
+
+                    &:nth-child(4) {
+                        animation-delay: 3.9s
+                    }
+                }
+            }
+
+            @keyframes flowVertical {
+                100% {
+                    top: 23vw;
+                }
+            }
+        }
+
+        .marq-box {
+            width: 3vw;
+            max-width: 5rem;
+            position: absolute;
+            top: 1vw;
+            right: 25%;
+            max-height: 90%;
+            overflow: hidden;
+
+            marquee img {
+                max-width: 100%;
+            }
+        }
+
+        .flow-horizontal {
+            position: absolute;
+            top: 54%;
+            right: 2%;
+            max-width: 345px;
+            // width: 21.5vw;
+            width: 27%;
+            overflow: hidden;
+            height: 2.8vw;
+
+            div {
+                position: relative;
+
+                img {
+                    max-width: 5.3vw;
+                    position: absolute;
+                    top: 0px;
+                    left: -90px;
+                    animation: marquee 5s linear infinite;
+
+                    &:nth-child(1) {
+                        animation-delay: 0s
+                    }
+
+                    &:nth-child(2) {
+                        animation-delay: 1.3s
+                    }
+
+                    &:nth-child(3) {
+                        animation-delay: 2.6s
+                    }
+
+                    &:nth-child(4) {
+                        animation-delay: 3.9s
+                    }
+
+                    //    &:nth-child(5){ animation-delay: 0s}
+                    //    &:nth-child(6){ animation-delay: 0s}
+                }
+            }
+
+            @keyframes marquee {
+                100% {
+                    left: 20vw;
+                }
+            }
+
+        }
+    }
+
+    // ------------------------------------ Multi Tabs Container
+    .my-slider-container {
+
+        // *{border: 1px solid grey;}
+
+        .my-slider {
+            display: flex;
+            align-items: center;
+
+            .control-left-ts .far,
+            .control-right-ts .far {
+                font-size: 3rem;
+                padding: 2rem 1rem;
+                cursor: pointer;
+                color: $color-primary;
+                transition: .5s ease-out;
+
+                &:hover {
+                    color: $color-primary;
+                }
+            }
+
+            .scroll-container {
+                margin-top: .5rem;
+                overflow-x: hidden;
+                @media(max-width: 480px){overflow-x: scroll;}
+                scroll-behavior: smooth;
+                white-space: nowrap;
+
+                .scroll-items {
+                    width: 1450px;
+
+                    span {
+                        font-size: 1.8rem;
+                        font-weight: 600;
+                        color: $color-text-link;
+                        text-decoration: none;
+                        padding: 0 1rem;
+                        text-align: center;
+                        cursor: pointer;
+
+                        &:hover,
+                        &.active {
+                            color: $color-text-link-hover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // ------------------------------------ Multi Tabs Container
+}
+
+.dynamic-container {
+
+    .dc-inner {
+        display: none;
+
+        &:nth-child(1) {
+            display: block;
+        }
+
+        h1 {
+            margin-left: 3rem;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-content: flex-start;
+            flex-flow: row wrap;
+
+            .tab {
+                width: 30rem;
+                // height: 55rem;
+                padding: 1rem;
+                margin: .8rem;
+                display: flex;
+                flex-flow: column nowrap;
+
+                a {
+                    color: #333;
+                    text-decoration: none;
+
+                    .image {
+                        width: 100%;
+
+                        img {
+                            max-width: 100%
+                        }
+                    }
+
+                    h3 {
+                        color: $color-primary;
+                        font-weight: 700;
+                    }
+
+                    p {
+                        font-size: 1.4rem;
+                        font-weight: 500;
+                    }
+
+                    h4 {
+                        color: $color-primary;
+                        font-weight: 600;
+                    }
+                }
+
+                .button-box {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .btns {
+                        display: flex;
+
+                        button {
+                            width: 3rem;
+                            height: 3rem;
+                            margin: .3rem .5rem .3rem 0;
+                            padding: 0;
+                            outline: none;
+                        }
+
+                        img {
+                            max-width: 100%;
+                        }
+                    }
+                }
+
+                button {
+                    background-color: $color-primary;
+                    color: #fff;
+                    font-size: 1.4rem;
+                    padding: .4rem 1.5rem;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                .sachet-type {
+                    h4 {
+                        font-weight: 600;
+                        padding: .5rem 0 0 0;
+                        margin-bottom: -.3rem;
+                    }
+
+                    .sachets {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: space-between;
+
+                        .sachet {
+                            width: 4rem;
+
+                            img {
+                                max-width: 100%;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+// * {border: .1px solid grey;}

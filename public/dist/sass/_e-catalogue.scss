@@ -1,0 +1,9 @@
+.e-catalogue {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    a {
+        padding: 1rem 3rem;
+    }
+}

@@ -1,0 +1,171 @@
+// -------------------------- Base
+$color-primary: rgb(252, 0, 0);
+$color-primary-hover: darken($color-primary,10%);
+
+$color-secondary: #082866;
+$color-text: #333;
+$color-text-light: #9D9996;
+$color-text-invert: #fff;
+$color-text-link: #9D9996;
+$color-tab-preview: rgb(77, 77, 77);
+$color-text-link-hover: $color-primary;
+// *{border: .1px solid grey;}
+
+@mixin easeOut {
+    transition: 300ms ease-out;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // border: .5px solid grey;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    // font-family: 'Encode Sans Condensed', sans-serif;
+    font-family: 'Questrial', sans-serif;
+    // font-family: 'Catamaran', sans-serif;
+    // font-family: 'Work Sans', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5rem;
+    color: $color-text;
+}
+
+// ------------------------------- Layout Config
+.my-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.heading-primary {
+    h1 {
+        text-align: center;
+        color: $color-primary;
+        font-size: 3.5rem;
+        padding-top: 0.8rem;
+        font-weight: 700;
+        line-height: 1;
+        padding: 2.5rem 0;
+        text-shadow: -1px 1px 5px #a0a0a0;
+
+        span {
+            font-weight: 400;
+        }
+    }
+}
+
+.bg-split-grey {
+    background-color: rgb(190, 190, 190);
+    background-image: url(../imgs/bg-split.png);
+    background-size: cover;
+}
+
+.bg-split-red {
+    background-color: rgb(190, 190, 190);
+    background-image: url(../imgs/bg-split-red.png);
+    background-size: cover;
+}
+
+.btn-red-grad {
+    color: #fff;
+    font-weight: 600;
+    padding: .5rem 2rem;
+    // border-radius: 2rem;
+    // border: 4px ridge grey;
+    border: none;
+    background-color: $color-primary;
+    text-shadow: -1px 1px 2px #333;
+    box-shadow: 0px 1px 3px 1px #333;
+}
+
+// --------------- Breed Crumb Tab
+.bg-breed-crumb {
+    box-shadow: -4px 7px 20px -10px rgba(0, 0, 0, 0.75) inset;
+}
+
+.breed-crumb-box {
+    // *{border: 1px solid grey;}
+    padding: 1rem 0;
+    @media(max-width:992px){display: none;}
+
+    a {
+        text-decoration: none;
+        color: $color-text-link;
+        font-size: 1.3rem;
+        font-weight: 600;
+        padding: 0 1rem;
+        border-right: 2px solid $color-text-link;
+
+        &:first-child {
+            border-right: none;
+            padding: 0;
+        }
+
+        &:last-child {
+            border-right: none;
+        }
+
+        .fa-home {
+            font-size: 1.6rem;
+        }
+
+        &.active {
+            color: $color-text-link-hover;
+            font-weight: 700;
+        }
+    }
+}
+
+
+.heading-products {
+    background-color: $color-primary;
+    color: #fff;
+    font-size: 2.5rem;
+    max-width: 30rem;
+    margin: 0 auto;
+    font-weight: 700;
+    text-align: center;
+    padding: 1rem 0;
+
+    @media(max-width:992px){background-color: transparent;color: $color-primary;}
+}
+// --------------- Breed Crumb Tab
+
+.btn-main {
+    color: #fff;
+    background-color: $color-primary;
+    border: none;
+    padding: .5rem 1.5rem;
+    transition: .3s ease-out;
+    font-weight: 500;
+    text-shadow: -1px 1px 2px #333;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: darken($color-primary, 10%);
+    }
+}
+
+.top-border-line {
+    border: 2px solid $color-primary;
+    margin-bottom: .3rem;
+
+}
+@import "header";
+@import "mobo-menu";
+@import "hero";
+@import "footer";
+@import "section-about";
+@import "1_machines";
+@import "product-preview";
+@import "snack-processing";
+@import "contact-us";
+@import "e-catalogue";
+

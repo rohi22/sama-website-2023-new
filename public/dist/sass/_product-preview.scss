@@ -1,0 +1,254 @@
+.heading-tab-preview {
+    color: $color-primary;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 1;
+    padding: 1.5rem 0;
+
+    @media(max-width: 768px) {
+        text-align: center;
+
+        &:first-child {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+.product-preview-inner {
+    padding: 1rem 0;
+
+    .box {
+        display: flex;
+        flex-flow: row nowrap;
+
+        @media(max-width: 1120px) {
+            flex-flow: column
+        }
+
+        justify-content: center;
+        align-items: center;
+
+        .text-box {
+            padding: 0 1rem;
+
+            h2 {
+                font-size: 2.2rem;
+                font-weight: 700;
+                letter-spacing: .5px;
+                line-height: 1.5;
+            }
+
+            p {
+                color: $color-text;
+                text-align: justify;
+                font-size: 1.7rem;
+            }
+        }
+
+        .image-box {
+            padding: 0 1rem;
+
+            .image {
+                min-width: 45rem;
+
+                @media(max-width: 768px) {
+                    min-width: 30rem;
+                    width: 100%;
+                }
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.bg-m-bags {
+    border-top: 2px solid #a7a7a7;
+    border-bottom: 2px solid #a7a7a7;
+}
+
+.machine-bags {
+    padding: 1rem;
+
+    .images {
+        display: flex;
+        justify-content: space-evenly;
+        flex-flow: row wrap;
+
+        .image {
+            margin: 1.5rem;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.yt-video-box {
+    padding: 2rem 0;
+    display: flex;
+    flex-flow: row nowrap;
+
+    @media(max-width: 850px) {
+        flex-flow: column;
+        align-items: flex-start;
+    }
+
+    justify-content: space-evenly;
+    align-items: center;
+
+    .box-yt {
+        color: $color-text;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+
+        .thumbnail {
+            a {
+                text-decoration: none;
+
+                .fa-youtube {
+                    color: $color-primary;
+                    font-size: 8rem;
+                    line-height: 1;
+                    padding: 1rem 1rem 1rem 0;
+                    transition: .5s ease-out;
+
+                    @media(max-width: 500px) {
+                        font-size: 6rem;
+                        line-height: 0;
+                    }
+
+                    &:hover {
+                        color: darken($color-primary, 10%);
+                    }
+                }
+
+                .fa-download {
+                    color: #fff;
+                    font-size: 2.5rem;
+                    border-radius: 50%;
+                    padding: 2.5rem;
+                    margin-right: 1rem;
+                    background-color: $color-primary;
+                    transition: .5s ease-out;
+
+                    @media(max-width: 500px) {
+                        font-size: 2rem;
+
+                    }
+
+                    // background: lighten($color-primary, 10%);
+                    // background: -moz-linear-gradient(-45deg, rgba(248, 80, 50, 1) 0%, rgba(241, 111, 92, 1) 50%, rgba(246, 41, 12, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
+                    // background: -webkit-linear-gradient(-45deg, rgba(248, 80, 50, 1) 0%, rgba(241, 111, 92, 1) 50%, rgba(246, 41, 12, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
+                    // background: linear-gradient(135deg, rgba(248, 80, 50, 1) 0%, rgba(241, 111, 92, 1) 50%, rgba(246, 41, 12, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
+                    // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f85032', endColorstr='#e73827', GradientType=1);
+
+                    &:hover {
+                        background-color: darken($color-primary, 10%);
+                    }
+                }
+            }
+        }
+
+        .info {
+            h3 {
+                line-height: 1;
+                font-weight: 700;
+            }
+
+            h5 {}
+
+            a {}
+        }
+    }
+
+    .box-download {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: $color-primary;
+            font-weight: 600;
+            font-size: 2rem;
+
+            .fa-download {
+                color: #fff;
+                font-size: 4rem;
+                border-radius: 50%;
+                padding: 1rem;
+                margin-right: .5rem;
+                background: lighten($color-primary, 10%);
+                background: -moz-linear-gradient(-45deg, rgba(248, 80, 50, 1) 0%, rgba(241, 111, 92, 1) 50%, rgba(246, 41, 12, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
+                background: -webkit-linear-gradient(-45deg, rgba(248, 80, 50, 1) 0%, rgba(241, 111, 92, 1) 50%, rgba(246, 41, 12, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
+                background: linear-gradient(135deg, rgba(248, 80, 50, 1) 0%, rgba(241, 111, 92, 1) 50%, rgba(246, 41, 12, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f85032', endColorstr='#e73827', GradientType=1);
+            }
+        }
+    }
+
+
+}
+
+.overflow-table-box {
+    @media(max-width: 992px) {
+        overflow-x: scroll;
+    }
+
+    table {
+        min-width: 80rem;
+
+        th {
+            text-transform: uppercase;
+        }
+    }
+}
+
+.description-box {
+
+    h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: .5px;
+        line-height: 1.5;
+    }
+
+    p,
+    li {
+        color: $color-text;
+        font-size: 1.7rem;
+        font-weight: 500;
+    }
+
+    p {
+        text-align: justify;
+
+
+
+    }
+
+    li {
+        text-align: left;
+        @media(max-width:768px){
+            counter-increment: foo;
+            display: table-row;
+    
+            &:before {
+                content: counter(foo) ".";
+                display: table-cell;
+            }
+        }
+    }
+
+}
+
+* {
+    // border: .1px solid grey;
+}

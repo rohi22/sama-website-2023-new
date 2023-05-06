@@ -1,0 +1,30 @@
+
+// ------------------------------ nav-link Color and Hover
+$navbar-dark-color: #b4b4b4;
+$navbar-dark-hover-color: fff;
+$navbar-dark-active-color: fff;
+
+// $navbar-light-color: rgba($primary, .5);
+// $navbar-light-hover-color: rgba($primary, .7);
+// $navbar-light-active-color: rgba($primary, .9);
+
+
+$carousel-control-color: red;
+$carousel-control-icon-width: 30px;
+
+// -------------- Style From Here
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+
+// @import "../../node_modules/bootstrap/scss/utilities";
+
+// Optional
+// @import "../../node_modules/bootstrap/scss/reboot";
+// @import "../../node_modules/bootstrap/scss/type";
+// @import "../../node_modules/bootstrap/scss/images";
+// @import "../../node_modules/bootstrap/scss/code";
+// @import "../../node_modules/bootstrap/scss/grid";

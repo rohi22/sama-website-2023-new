@@ -1,0 +1,225 @@
+.section-snack-processing {
+    margin-bottom: 5rem;
+
+    .inner-box {
+        padding-top: 5rem;
+        display: flex;
+        // max-height: 750px;
+        flex-flow: row nowrap;
+        @media (max-width:865px){flex-flow: column;}
+
+        // flex-flow: row wrap;
+
+        .col-one {
+            margin-right: 2rem;
+            width: 65rem;
+            @media (max-width:1100px){width: 50%;}
+            @media (max-width:865px){width: 100%}
+            @media (max-width:580px){margin-right: 0;}
+            // max-width: 55rem;
+
+
+            h2 {
+                color: $color-primary;
+                font-weight: 700;
+                letter-spacing: .3px;
+            }
+
+            p {
+                color: $color-text;
+                text-align: justify;
+                font-size: 1.7rem;
+            }
+
+            .btn-box {
+                display: flex;
+                justify-content: space-between;
+
+                a {
+                    text-decoration: none;
+                    color: $color-primary;
+                    font-weight: 600;
+                    // line-height: 0;
+                   
+
+                    .fa-download {
+                        color: #fff;
+                        
+                        border-radius: 50%;
+                        padding: 1rem;
+                        margin-right: .5rem;
+                        background: lighten($color-primary,10%);
+                        background: -moz-linear-gradient(-45deg, rgba(248, 80, 50, 1) 0%, rgba(241, 111, 92, 1) 50%, rgba(246, 41, 12, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
+                        background: -webkit-linear-gradient(-45deg, rgba(248, 80, 50, 1) 0%, rgba(241, 111, 92, 1) 50%, rgba(246, 41, 12, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
+                        background: linear-gradient(135deg, rgba(248, 80, 50, 1) 0%, rgba(241, 111, 92, 1) 50%, rgba(246, 41, 12, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f85032', endColorstr='#e73827', GradientType=1);
+                    }
+                   
+                        @media(max-width: 380px){
+                            span {
+                                display: none;
+                            }
+                        }
+
+                    
+                }
+            }
+            // *{border: .1px solid grey;}
+
+            .image-row {
+                display: flex;
+                justify-content: center;
+                flex-flow: row nowrap;
+                @media(max-width:480px){flex-flow: row wrap;}
+                margin: .5rem 0;
+
+                a {
+                    width: 10rem;
+                    height: 8rem;
+                    margin: 1.5rem;
+                    @media(max-width:480px){margin: 1rem; margin-top: 2rem;}
+                    // @media(max-width:480px){width: 20rem;}
+
+                    &:first-child {
+                        margin-left: 0;
+                        @media(max-width:480px){margin-left: 1rem;}
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                        @media(max-width:480px){margin-right: 1rem;}
+                    }
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            .yt-video-box {
+                text-decoration: none;
+                color: $color-text;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-start;
+                align-items: center;
+
+                .thumbnail {
+                    a {
+                        text-decoration: none;
+
+                        .fa-youtube {
+                            color: red;
+                            font-size: 6rem;
+                            line-height: 1;
+                            padding: .5rem 1rem .5rem 0;
+                            transition: .5s ease-out;
+                            @media(max-width:400px){
+                                font-size: 5rem;
+                            padding: .5rem .5rem .5rem 0;
+                            }
+
+                            &:hover {
+                                color: #c20000;
+                            }
+                        }
+                    }
+                }
+
+                .info {
+                    h3 {
+                        font-weight: 700;
+                        font-size: 1.6rem;
+                    }
+
+                    h5 {
+                        font-size: 1.2rem;
+                        line-height: .5;
+                    }
+
+                    a {
+                        font-size: 1.4rem;
+                        line-height: 1;
+                    }
+                    @media(max-width:400px){
+                        h3 {
+                            font-weight: 700;
+                            font-size: 1.4rem;
+                        }
+    
+                        h5 {
+                            font-size: 1.1rem;
+                            line-height: .5;
+                        }
+    
+                        a {
+                            font-size: 1.3rem;
+                            line-height: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .col-two {
+            
+            .image {
+                width: 100%;
+                // min-width: 40rem;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.my-paginition {
+    // *{border: .1px solid grey;}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+
+    .btn-prev,
+    .btn-next {
+        font-size: 2.5rem;
+        color: $color-text;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+        @include easeOut;
+
+        &:hover,
+        &:focus {
+            color: $color-primary;
+        }
+    }
+
+    .scroll-container {
+
+        .inner {
+
+            button {
+                font-size: 2.5rem;
+                font-weight: 800;
+                color: $color-text;
+                padding: 0 1rem;
+                background: none;
+                border: none;
+                cursor: pointer;
+                transition: .3s ease-out;
+
+                &:hover,
+                &:focus {
+                    color: $color-primary;
+                    outline: none;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
