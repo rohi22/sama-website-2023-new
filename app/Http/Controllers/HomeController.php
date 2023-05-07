@@ -17,6 +17,7 @@ use App\SubscribeEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mail;
+use Config;
 
 class HomeController extends Controller
 {
@@ -45,13 +46,13 @@ class HomeController extends Controller
                 $data = [
                     'full_name' => 'Samaengineering',
                     'subject' => 'Get Quote',
-                    'message' => $quote->message,
+                    'msg' => $quote->message,
                     'q_email' => $quote->email,
                     'number' => $quote->number,
-                    'email' => 'talk@samaengineering.com' // technologiesmbt@gmail.com'
+                    'email' => Config::get('mail.mail_to') // technologiesmbt@gmail.com'
                 ];
                 
-                // $this->sendEmail($view, $data);
+                $this->sendEmail($view, $data);
                 
                 return ['status' => 'success', 'msg' => 'Quote successfully submitted.'];
             }else{
@@ -443,6 +444,23 @@ class HomeController extends Controller
             $table->phone    = $request->phone;
             $table->save();
             
+
+            $view= 'emails.contact-us';
+            $data = [
+                'full_name' => 'Samaengineering',
+                'name' => $request->name,
+                'user_email' => $request->email,
+                'contact' => $request->phone,
+                'country' => '',
+                'city' => '',
+                'company' => $request->company,
+                'msg' => '',
+                'subject' => 'Contact US',
+                'email' => Config::get('mail.mail_to')//'talk@samaengineering.com'
+            ];
+            
+             $this->sendEmail($view,$data);
+
             return "Data submitted successfully..";
             
         }else{
@@ -489,6 +507,23 @@ class HomeController extends Controller
         $table->phone    = request('phone');
         $table->msg      = request('msg');
         $table->save();
+
+        $view= 'emails.contact-us';
+        $data = [
+            'full_name' => 'Samaengineering',
+            'name' => request('name'),
+            'user_email' => request('email'),
+            'contact' => request('phone'),
+            'country' => request('country'),
+            'city' => request('city'),
+            'company' => request('company'),
+            'msg' => request('msg'),
+            'subject' => 'Contact US',
+            'email' => Config::get('mail.mail_to')//'talk@samaengineering.com'
+        ];
+        
+         $this->sendEmail($view,$data);
+
         return "Data submitted successfully..";
     }
     public function subscribe_email(Request $request)
@@ -558,6 +593,7 @@ class HomeController extends Controller
         $data = [
             'full_name' => $sparePart->name,
             'company' => $sparePart->company,
+            'subject' => 'Spare Parts',
             'address' => $sparePart->address,
             'phone' => $sparePart->phone,
             'country' => $sparePart->country_name,
@@ -566,10 +602,10 @@ class HomeController extends Controller
             'model' => $sparePart->model,
             'parts' => $sparePart->parts,
             'any_detail' => $sparePart->any_detail,
-            'email' => 'talk@samaengineering.com'
+            'email' => 'noman.shaikh49@yahoo.com'//'talk@samaengineering.com'
         ];
         
-        // $this->sendEmail($view,$data);
+         $this->sendEmail($view,$data);
         
         // end
         
