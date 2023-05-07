@@ -172,8 +172,18 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{url('/about-us')}}" title="About Us">About Us</a></li>
                                 <li><a href="{{url('/contact-us-page')}}">Contact Us</a></li>
-                                <li><a href="{{url('/users')}}">Home Contact</a></li>
                                 <li><a href="{{url('/industries')}}">Industries</a></li>
+                            </ul>
+                        </li>
+                        @endif
+
+                        @if(session('role') == 'admin' || session('role') == 1)
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-question-circle"></i><span class="hide-menu">Queries</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="{{url('/users')}}">Home / Contact</a></li>
+                                <li><a href="{{url('/admin/all-quote')}}" title="Add User">All Quote</a></li>
+                                <li><a href="{{url('/spare_part_list')}}">Spare Parts</a></li>
+                                <li><a href="{{url('/become_agent_list')}}">Become an agent</a></li>
                             </ul>
                         </li>
                         @endif
@@ -227,8 +237,8 @@
                                 <li><a href="{{url('/commodities')}}">Commodities</a></li>
                                 <li><a href="{{url('/product/new')}}">Add Product</a></li>
                                 <li><a href="{{url('/products')}}">Products</a></li>
-                                <li><a href="{{url('/spare_part_list')}}">Spare Parts</a></li>
-                                <li><a href="{{url('/become_agent_list')}}">Become an agent</a></li>
+                                
+                                
 
                                 <li><a href="{{url('/tag/tag-list')}}">Tags</a></li>
                             </ul>

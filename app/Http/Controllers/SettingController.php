@@ -430,7 +430,7 @@ class SettingController extends Controller
     				->join('city','city.id','=','spare_parts.city')
     				->get(['spare_parts.*','country.Name as country_name','city.Name as city_name']);
     
-    	return view('setting/spare_part_list')->with(['data'=>$data]);
+    	return view('setting.spare_part_list')->with(['data'=>$data]);
     }
     public function spare_part_delete($id)
     {
@@ -443,7 +443,7 @@ class SettingController extends Controller
     				->join('country','country.Code','=','become_agents.country')
     				->join('city','city.id','=','become_agents.city')
     				->get(['become_agents.*','country.Name as country_name','city.Name as city_name']); 
-    	return view('setting/become_agent_list')->with(['data'=>$data]);			
+    	return view('setting.become_agent_list')->with(['data'=>$data]);			
     }
     public function become_agent_delete($id)
     {
