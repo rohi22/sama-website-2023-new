@@ -144,68 +144,19 @@
    <div class="container position-relative">
       <div class="row">
          <div class="col-lg-12">
-            <ul class="InSlider owl-carousel mt-3" style="--SH:50px;">
+            <ul class="InSlider owl-carousel mt-3" style="--SH:50px;">`
+            @foreach($industry as $indus)
                <li>
-                  <a href="list.html" class="d-flex py-5 px-3 flex-column text-center">
+                  <a href="{{$indus->url}}" class="d-flex py-5 px-3 flex-column text-center">
                   <span>
-                  <img class="SvgImage" src="{{asset('dist/revamp/images/machines.png')}}"  />
+                  <img class="SvgImage" src="{{asset('dist/revamp/images/'.$indus->image)}}"  />
                   </span>
                   <span class="mt-4">
-                  Machines
+                     {{$indus->title}}
                   </span>
                   </a>
                </li>
-               <li>
-                  <a href="list2.html" class="d-flex py-5 px-3 flex-column text-center">
-                  <span>
-                  <img class="SvgImage" src="{{asset('dist/revamp/images/processing-lines.png')}}"  />
-                  </span>
-                  <span class="mt-4">
-                  Processing Line
-                  </span>
-                  </a>
-               </li>
-               <li>
-                  <a href="" class="d-flex py-5 px-3 flex-column text-center">
-                  <span>
-                  <img class="SvgImage" src="{{asset('dist/revamp/images/bakery.png')}}"  />
-                  </span>
-                  <span class="mt-4">
-                  Bakery Series
-                  </span>
-                  </a>
-               </li>
-               <li>
-                  <a href="" class="d-flex py-5 px-3 flex-column text-center">
-                  <span>
-                  <img class="SvgImage" src="{{asset('dist/revamp/images/pharmaceutical.png')}}"  />
-                  </span>
-                  <span class="mt-4">
-                  Pharmaceutical
-                  </span>
-                  </a>
-               </li>
-               <li class="sama-inslider-snack">
-                  <a href="" class="d-flex py-5 px-3 flex-column text-center">
-                  <span>
-                  <img class="SvgImage" src="{{asset('dist/revamp/images/snack.png')}}"  />
-                  </span>
-                  <span class="mt-4">
-                  Snack Processing
-                  </span>
-                  </a>
-               </li>
-               <li>
-                  <a href="" class="d-flex py-5 px-3 flex-column text-center">
-                     <span>
-                        <!--<img class="SvgImage" src="{{asset('dist/revamp/images/accessories.svg')}}"  />-->
-                        <img class="SvgImage" src="{{asset('dist/revamp/images/accessories.png')}}"  />
-                     </span>
-                     <span class="mt-4">
-                     Accessories
-                     </span>
-                  </a>
-               </li>
+              @endforeach
             </ul>
          </div>
       </div>

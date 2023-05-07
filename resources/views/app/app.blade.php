@@ -173,6 +173,7 @@
                                 <li><a href="{{url('/about-us')}}" title="About Us">About Us</a></li>
                                 <li><a href="{{url('/contact-us-page')}}">Contact Us</a></li>
                                 <li><a href="{{url('/users')}}">Home Contact</a></li>
+                                <li><a href="{{url('/industries')}}">Industries</a></li>
                             </ul>
                         </li>
                         @endif
