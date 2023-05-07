@@ -768,7 +768,8 @@ footer .social_Links a:hover {
 
 .Flyoutbtn span:nth-child(2) {
     width: auto;
-    padding-right: 15px;
+    padding-right: 10px;
+    padding-left: 5px;
 }
 
 .Flyoutbtn span:nth-child(2),
@@ -776,6 +777,9 @@ footer .social_Links a:hover {
     transition: all 0.3s;
     display: none;
 }
+.Flyoutbtn span i {
+    font-size: 20px;
+}   
 
 .Flyoutbtn:hover {
     transform: translateX(-0%);
