@@ -105,7 +105,24 @@ Route::group(['middleware' => 'usersession'], function () {
     Route::post('/slider/assign_category','SliderController@assign_category');
     Route::post('/slider/get_gallery_images','SliderController@get_gallery_images');
     Route::post('/slider/get_bullets','SliderController@get_bullets');
-	
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Industries
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    Route::get('industries','IndustryController@index');
+    Route::get('/industry/new','IndustryController@create');
+    Route::post('/industry/new','IndustryController@store');
+    Route::get('/industry/edit/{id}','IndustryController@edit');
+    Route::post('/industry/edit/{id}','IndustryController@update');
+    Route::get('/industry/delete/{id}','IndustryController@destroy');
+    
+
     /*
     |--------------------------------------------------------------------------
     | Home Slider

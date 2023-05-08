@@ -12,7 +12,7 @@ class HomeSliderController extends Controller
     function index(){
         $sliders = HomeSlider::all();
         $home_back_img = DB::table('home_slider_background_images')->first();
-        return view('/home_slider/all')->with(['sliders'=>$sliders,'home_back_img'=>$home_back_img]);
+        return view('home_slider.all')->with(['sliders'=>$sliders,'home_back_img'=>$home_back_img]);
     }
     function create()
     {

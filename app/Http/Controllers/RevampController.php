@@ -14,6 +14,7 @@ use App\Product;
 use App\SparePart;
 use App\BecomeAgent;
 use App\SubscribeEmail;
+use App\Industry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mail;
@@ -38,6 +39,8 @@ class RevampController extends Controller
         
         $data['castStudies'] = DB::table('blog_posts')->where('p_status',1)->where('p_case_studies',1)->get();
 
+        $data['industry'] = industry::all();
+        
         return view('revamp.pages.index',$data);
     }
     

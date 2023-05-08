@@ -63,6 +63,23 @@
 .title-text span{
     font-size:2.5rem !important;
 }
+
+@media screen and (max-width : 1920px){
+  .desktop_slider{
+  display:block;
+  }
+  .mobile_slider{
+  display:none;
+  }
+}
+@media screen and (max-width : 906px){
+ .desktop_slider{
+  display:none;
+  }
+ .mobile_slider{
+  display:block !important;
+  }
+}
 </style>
 <style>
 
@@ -83,7 +100,7 @@
   
   
   
-<div class="container-fluid" style="display:none;padding-left:0px;padding-right:0px;" id="show_catalogue">
+<div class="container-fluid mobile_slider" style="display:none;padding-left:0px;padding-right:0px;" id="show_catalogue">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -142,7 +159,7 @@
 </div>
 <!--Desktop Slider-->
 
-<div class="container-fluid bg-fc hero" id="hide_catalogue" style="margin-bottom:1.5rem;padding-left:0px;padding-right:0px;">
+<div class="container-fluid bg-fc hero desktop_slider" id="hide_catalogue" style="margin-bottom:1.5rem;padding-left:0px;padding-right:0px;">
         <div class="my-container" style="padding-left:0px;padding-right:0px;max-width:100% !important;position: relative; overflow:hidden;">
 
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
