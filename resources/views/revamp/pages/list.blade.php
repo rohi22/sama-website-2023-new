@@ -29,6 +29,37 @@
         background-color: #EC2424;
         border-color: #EC2424;
     }
+
+.sama-breadcrumbs li a {
+    color: #000;
+    text-transform: uppercase;
+}
+
+.sama-breadcrumbs li.active a {
+    color: #ec2424;
+}
+.sama-breadcrumbs li a:hover {
+    color: #ec2424 !important;
+}
+ul.pagination {
+    width: 100%;
+    justify-content: center;
+    column-gap: 1%;
+}
+
+.pagination li .page-link {
+    padding: 10px 18px !important;
+    background-color: #F7F7F7;
+    color: #ADAEB0;
+    font-weight: 500;
+    border: none;
+}
+
+.pagination li.active .page-link,.pagination li .page-link:hover {
+    background-color: #EC2424;
+    color: #fff;
+}
+
 </style>
 @endpush
 @section('content')
@@ -55,12 +86,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <ul class="d-flex flex-row w-100">
+                    <ul class="d-flex flex-row w-100 sama-breadcrumbs">
                         <li class="me-3">
-                            <a href="{{url('/')}}" class="text-TColor"><i class="fa fa-home me-2"></i> HOME &nbsp;&nbsp; |</a>
+                            <a href="{{url('/')}}" ><i class="fa fa-home me-2"></i> HOME &nbsp;&nbsp; </a>|
                         </li>
-                        <li class="text-TColor">
-                           @if(isset($slug)) <a href="{{url('category/'.$slug)}}" style="color:#EC2424">{{ucwords(str_slug($slug,' '))}} </a>@endif
+                        <li class="text-TColor active">
+                           @if(isset($slug)) <a href="{{url('category/'.$slug)}}"  >{{ucwords(str_slug($slug,' '))}} </a>@endif
                         </li>
                     </ul>
                 </div>

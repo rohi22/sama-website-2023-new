@@ -42,26 +42,64 @@
         display: flex;
         gap: 5px;
     }
+    .sama-breadcrumbs li a {
+    color: #000 !important;
+    text-transform: uppercase;
+}
+
+.sama-breadcrumbs li.active a {
+    color: #ec2424;
+}
+.sama-breadcrumbs li {
+    color: #000;
+}
+
+.sama-breadcrumbs li.active {
+    color: #ec2424;
+    text-transform: uppercase;
+}
+.sama-breadcrumbs li a:hover {
+    color: #ec2424 !important;
+}
+ul.pagination {
+    width: 100%;
+    justify-content: center;
+    column-gap: 1%;
+}
+
+.pagination li .page-link {
+    padding: 10px 18px !important;
+    background-color: #F7F7F7;
+    color: #ADAEB0;
+    font-weight: 500;
+    border: none;
+}
+
+.pagination li.active .page-link,.pagination li .page-link:hover {
+    background-color: #EC2424;
+    color: #fff;
+}
 </style>
 @endpush
 @section('content')
 @php $bag_images = DB::table('product_main_images')->where('p_id','=',$product->id)->get(); @endphp
     <section class="py-3 bg-LGray">
+
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <ul class="d-flex flex-row w-100">
+              <ul class="d-flex flex-row w-100 sama-breadcrumbs">
                 <li>
-                    <a href="{{url('/')}}" class="text-TColor"><i class="fa fa-home me-2"></i> HOME &nbsp;&nbsp; |</a>
+                    <a href="{{url('/')}}" class="text-TColor"><i class="fa fa-home me-2"></i> HOME &nbsp;&nbsp; </a>|
                 </li>
                 
                 @if(isset($data) && !empty($data))
                 <li class="text-TColor">
-                    &nbsp;&nbsp; <a href="{{url('category/'.$data->cat_slug)}}" style="color:#EC2424">{{$data->cat_title}}</a> &nbsp;&nbsp; |
+                    &nbsp;&nbsp; <a href="{{url('category/'.$data->cat_slug)}}">{{$data->cat_title}}</a> &nbsp;&nbsp; |
                 </li>
                 @endif
                 
-                <li class="text-TColor">
+                <li class="text-TColor active">
                     &nbsp;&nbsp; {{$product->p_title}} &nbsp;&nbsp;     
                 </li>
                 </ul>
