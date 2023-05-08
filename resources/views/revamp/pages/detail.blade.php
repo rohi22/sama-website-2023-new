@@ -79,6 +79,10 @@ ul.pagination {
     background-color: #EC2424;
     color: #fff;
 }
+.nav-pills {
+    row-gap: 2px;
+}
+   
 </style>
 @endpush
 @section('content')
@@ -164,7 +168,7 @@ ul.pagination {
             </div>
         </div>
     </section>
-    <section class="py-0">
+    <section class="py-0 sama-tabs">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 d-flex justify-content-center">

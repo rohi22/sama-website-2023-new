@@ -370,7 +370,7 @@ section {
 
 .PrCard {
     border-color: var(--LGray);
-    margin: 25px 0px;
+    margin: 14.250px 3px;
     transition: all 0.3s;
 }
 
@@ -378,7 +378,7 @@ section {
 .PrCard .imGBox {
     position: relative;
     overflow: hidden;
-    height: 240px;
+    height: 150px;
 }
 
 .PrCard .imGBox:after,
@@ -389,11 +389,11 @@ section {
     left: 0px;
     width: 100%;
     height: 100px;
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);
     /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
     /* IE6-9 */
@@ -401,6 +401,8 @@ section {
 
 .PrCard h5 {
     color: var(--HColor);
+    font-size: 20px;
+    text-transform: capitalize;
 }
 
 .PrCard .card-body {
@@ -409,12 +411,13 @@ section {
 
 .PrCard:hover {
     box-shadow: var(--boxShadowTColor);
-    transform: translateY(-15px) scale(1.01);
+        box-shadow: 0 0px 15px rgba(0,0,0,0.1);
+/*    transform: translateY(-15px) scale(1.01);*/
 }
 
-.PrCard:hover h5 {
+/*.PrCard:hover h5 {
     color: var(--TColor);
-}
+}*/
 
 .label-top {
     position: absolute;
@@ -1075,5 +1078,61 @@ ul.sam-ul li i {
     .THeader { display: none; }
     /*.ProcessSlider-row p, .ProcessSlider-row a.btn, .ProcessSlider-row .Gridimg { display: none; }*/
     }
+/*My New Code*/
+.nav-pills {
+    row-gap: 2px;
+}
+    .sama-product-card .card-body {
+    padding-top: 3rem !important;
+}
+   .sama-product-card .sama-product-content {
+    background: #F3F3F3;
+    box-shadow: 0 -8px 53px -25px rgba(0,0,0,0.15);
+    min-height: 440px;
 
-    
+}
+
+.sama-product-card .sama-product-buttons {
+    position: relative;
+    z-index: 1;
+    top: 30px;
+}
+.sama-breadcrumbs li a {
+    color: #000;
+    text-transform: uppercase;
+}
+
+.sama-breadcrumbs li.active a {
+    color: #ec2424;
+}
+.sama-breadcrumbs li a:hover {
+    color: #ec2424 !important;
+}
+ul.pagination {
+    width: 100%;
+    justify-content: center;
+    column-gap: 1%;
+}
+
+.pagination li .page-link {
+    padding: 10px 18px !important;
+    background-color: #F7F7F7;
+    color: #ADAEB0;
+    font-weight: 500;
+    border: none;
+}
+
+.pagination li.active .page-link,.pagination li .page-link:hover {
+    background-color: #EC2424;
+    color: #fff;
+}
+ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link {
+    font-size: 28px;
+    padding: 1px 16px !important;
+}
+.sama-tabs .nav-pills {
+    row-gap: 2px;
+}
+.sama-product-card .sama-product-buttons .fa-file-pdf {
+    font-family: 'Font Awesome 6 Free';
+}
