@@ -1144,3 +1144,10 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 .sama-product-des {
     display: none;
 }
+.sama-detail-product .sama-content-col {
+    box-shadow: 20px 0 53px -25px rgba(0,0,0,0.15);
+}
+
+.sama-detail-product .sama-product-title strong, .sama-detail-product .sama-product-title span {
+    color: #ec2424;
+}

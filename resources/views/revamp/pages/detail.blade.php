@@ -82,7 +82,7 @@ ul.pagination {
 .nav-pills {
     row-gap: 2px;
 }
-   
+
 </style>
 @endpush
 @section('content')
@@ -111,11 +111,13 @@ ul.pagination {
           </div>
         </div>
       </section>
-    <section class="py-0 bgSR">
+    <section class="py-0 bgSR sama-detail-product">
         <div class="container">
             <div class="row d-lg-flex align-items-lg-center">
-                <div class="col-lg-6 pt-5 pb-4">
-                    <h1 class="mb-2">{{$product->p_title}} <br><span class="text-TColor">{{$data->cat_title}}</span></h1>
+                <div class="col-lg-6 pt-5 pb-4 sama-content-col">
+                    <h1 class="mb-2 sama-product-title">{{$product->p_title}} 
+                        <!-- <br><span class="text-TColor">{{$data->cat_title}}</span> -->
+                    </h1>
                     <h3 class="mb-4">P-{{$product->id + 1000}}</h3>
                     <div class="row">
                         @forelse($bag_images as $index=>$gallery)
