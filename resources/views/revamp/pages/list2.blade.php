@@ -24,6 +24,7 @@
         background-color: #EC2424;
         border-color: #EC2424;
     }
+ 
 </style>
 @endpush
 @section('content')
@@ -40,7 +41,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <ul class="d-flex flex-row w-100">
+          <ul class="d-flex flex-row w-100 sama-breadcrumbs">
             <li class="me-3">
               <a href="{{url('/')}}" class="text-TColor"><i class="fa fa-home me-2"></i> HOME &nbsp;&nbsp; |</a>
             </li>
