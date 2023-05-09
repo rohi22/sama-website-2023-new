@@ -15,9 +15,9 @@
                       </div>
                       <a href="{{asset('revamp/product/'.$item->p_slug)}}" class="d-flex w-100 flex-column sama-product-content">
                       <div class="card-body">
-                        <h5 class="card-title mb-3 truncate-2">{{$item->p_title}}</h5>
-                          <?php echo $item->p_short_desc;?>
-                        <p class="card-text mb-4 truncate-2"> {!! Illuminate\Support\Str::words($item->p_short_desc, 10) !!}</p>
+                        <h5 class="card-title mb-3 truncate-2 ">{{$item->p_title}}</h5>
+                          <!-- <?php echo $item->p_short_desc;?> -->
+                        <p class="card-text mb-4 truncate-2 sama-product-des"> {!! Illuminate\Support\Str::words($item->p_short_desc, 10) !!}</p>
                         <div class="d-flex flex-row">
                             @php $bag_images = DB::table('product_main_images')->where('p_id','=',$item->id)->get(); @endphp
                             @forelse($bag_images as $key=>$gallery)
