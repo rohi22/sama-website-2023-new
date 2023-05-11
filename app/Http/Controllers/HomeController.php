@@ -28,38 +28,55 @@ class HomeController extends Controller
     
     public function save_quote(Request $request)
     {
+
+        if(!empty($request->captcha)){
+             
+            $captcha = $request->captcha;
+          
+        }
+        else{
+            return ['status' => 'failed','msg' => 'Verify Captcha'];
+        }
         
+        $secretKey = config('services.recaptcha.secret');
+        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+         $response = file_get_contents($url);
+        $responseKeys = json_decode($response,true);
+         
         $message = $request->q_message;
         $email = $request->q_email;
         $number = $request->q_num;
-        
-        if($message != '' && $email != '' && $number != '' ){
-            $quote = new Quote;
-            $quote->message = $message;
-            $quote->email = $email;
-            $quote->number = $number;
-            
-            if($quote->save()){
+        if($responseKeys["success"]) {
+            if($message != '' && $email != '' && $number != '' ){
+                $quote = new Quote;
+                $quote->message = $message;
+                $quote->email = $email;
+                $quote->number = $number;
                 
-                $view = 'emails.quote';
-                
-                $data = [
-                    'full_name' => 'Samaengineering',
-                    'subject' => 'Get Quote',
-                    'msg' => $quote->message,
-                    'q_email' => $quote->email,
-                    'number' => $quote->number,
-                    'email' => Config::get('mail.mail_to') // technologiesmbt@gmail.com'
-                ];
-                
-                $this->sendEmail($view, $data);
-                
-                return ['status' => 'success', 'msg' => 'Quote successfully submitted.'];
+                if($quote->save()){
+                    
+                    $view = 'emails.quote';
+                    
+                    $data = [
+                        'full_name' => 'Samaengineering',
+                        'subject' => 'Get Quote',
+                        'msg' => $quote->message,
+                        'q_email' => $quote->email,
+                        'number' => $quote->number,
+                        'email' => Config::get('mail.mail_to') // technologiesmbt@gmail.com'
+                    ];
+                    
+                    $this->sendEmail($view, $data);
+                    
+                    return ['status' => 'success', 'msg' => 'Quote successfully submitted.'];
+                }else{
+                    return ['status' => 'failed', 'msg' => 'Something went wrong.'];
+                }
             }else{
-                return ['status' => 'failed', 'msg' => 'Something went wrong.'];
+                return ['status' => 'failed', 'msg' => 'All fields are required.'];
             }
         }else{
-            return ['status' => 'failed', 'msg' => 'All fields are required.'];
+            return ['status' => 'failed','msg' => 'Verify Captcha'];
         }
     }
     
@@ -471,22 +488,23 @@ class HomeController extends Controller
     {
         // dd($request->request);
         
-        // if(!empty($request->captcha)){
+        if(!empty($request->captcha)){
              
-        //     $captcha = $request->captcha;
+            $captcha = $request->captcha;
           
-        // }
-        // else{
-        //     return ['error' => 'Verify Captcha'];
-        // }
+        }
+        else{
+            return ['error' => 'Verify Captcha'];
+        }
         
-        $secretKey = "6LcHXEEaAAAAAIqxmnpVrv_5q-OvCBoqWsmF1dbh";
-        
+        $secretKey = config('services.recaptcha.secret');
         $ip = $_SERVER['REMOTE_ADDR'];
         
         // post request to server
-        // $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
-        
+         $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+         $response = file_get_contents($url);
+        $responseKeys = json_decode($response,true);
+         if($responseKeys["success"]) {
         $this->validate($request, [
             'name'      => 'required|max:150',
             'company'   => 'required',
@@ -523,7 +541,10 @@ class HomeController extends Controller
         ];
         
          $this->sendEmail($view,$data);
-
+        }else{
+            \Log::info($responseKeys);
+            return ['error' => 'Verify Captcha'];
+        }
         return "Data submitted successfully..";
     }
     public function subscribe_email(Request $request)
@@ -566,7 +587,7 @@ class HomeController extends Controller
             'model'         => 'required',
             'parts'         => 'required',
             'any_detail'    => 'required',
-            // 'captcha'       => 'required',
+            'g-recaptcha-response'       => 'required',
         ]);
 
         $table = new SparePart();
@@ -609,7 +630,7 @@ class HomeController extends Controller
         
         // end
         
-        return redirect('/spare-parts')->with('message', 'Your data submitted successfully!');
+        return redirect('/revamp/spare-parts')->with('message', 'Your data submitted successfully!');
     }
     public function become_an_agent()
     {
@@ -627,7 +648,7 @@ class HomeController extends Controller
             'city'          => 'required',
             'become_agent'  => 'required',
             // 'other_company' => 'required',
-            // 'captcha'       => 'required',
+            'g-recaptcha-response'       => 'required',
             'territory'     =>  'required',
             'your_industry'  => 'required',
             'which_industry' =>  'required',
@@ -648,7 +669,7 @@ class HomeController extends Controller
          $table->which_industry    = $request->which_industry;
          $table->web_url    = $request->web_url;
         $table->save();
-        return redirect('/become-an-agent')->with('message', 'Your data submitted successfully!');
+        return redirect('/revamp/become-an-agent')->with('message', 'Your data submitted successfully!');
     }
     public function search(Request $request){
         

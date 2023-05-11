@@ -130,6 +130,11 @@
                 </div>
                 <div class="m-2"><input class="quote-form-input" type="email" placeholder="Email" name="q_email" id="q-email"></div>
                 <div class="m-2"><input class="quote-form-input" type="text" placeholder="Mob/Whatsapp" name="q_num" id="q-num"></div>
+                <!-- <div class="input-group mb-2">
+                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.sitekey') }}" style="width: desired_width;border-radius: 4px;border-right: 1px solid #d8d8d8;overflow: hidden;"></div>
+                                </div> -->
+                                <div id="RecaptchaField1"></div>
+                                <p style="color:red;" id="captcha_error" class="captcha_error">@if($errors->has('captcha')) {{ $errors->first('captcha') }} @endif</p>
                 <div class="m-2"><input class="quote-form-btn btn save-quote" id="openQuotebtn" type="button" value="Send" onClick="quoteForm($(this))"></div>
             </form>
         </div>
@@ -139,6 +144,8 @@
     @include('revamp.partials.footer')
     @include('revamp.partials.script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
+    <script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit" async defer></script>
     @if(Session::has('success'))
         <script>
             $.notify("{{Session::get('success')}}", "success");
@@ -149,6 +156,13 @@
             $.notify("{{Session::get('error')}}", "error");
         </script>
     @endif
+    <script type="text/javascript">
+    var CaptchaCallback = function() {
+        grecaptcha.render('RecaptchaField1', {'sitekey' : "{{ config('services.recaptcha.sitekey') }}" });
+        grecaptcha.render('RecaptchaField2', {'sitekey' : "{{ config('services.recaptcha.sitekey') }}" });
+        grecaptcha.render('RecaptchaField3', {'sitekey' : "{{ config('services.recaptcha.sitekey') }}" });
+    };
+</script>
     <script>
         $(document).ready(function(){
             $('.getQuote').click(()=>{
@@ -177,16 +191,22 @@
                            'company' : company,
                            'phone' : phone,
                            'email' : email,
+                           captcha: grecaptcha.getResponse(1),
                         },
                         success : function(res){
+                            console.log(res);
                             if(res.success == true){
+                                grecaptcha.reset();
                                 $.notify("Thank You, We'll Contact you","success");
+                                
                             }
                             else{
                                 $.notify("Something Went Wrong","error");
+                                $(".captcha_error").html(res.error); return false;
                             }
                         },
                         error : function(res){
+                            console.log(res);
                             $.notify("Something Went Wrong","error");
                         }
                     });
@@ -217,15 +237,18 @@
                             'q_message' : message,
                             'q_email' : email,
                             'q_num' : number,
+                            captcha: grecaptcha.getResponse(0),
                         },
                         success : function(res){
                             if(res.status == 'failed'){
                                 $.notify(res.msg,'error');
+                                $(".captcha_error").html(res.error); return false;
                             }
                             else if(res.status == 'success'){
                                 $("#q-message").val('');
                                 $("#q-email").val('');
                                 $("#q-num").val('');
+                                grecaptcha.reset();
                                 $.notify(res.msg,'success');
                             }
                         },

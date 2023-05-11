@@ -18,6 +18,7 @@ use App\Industry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mail;
+use Config;
 
 class RevampController extends Controller
 {
@@ -166,15 +167,29 @@ class RevampController extends Controller
     }
     
     public function contactUsWidget(Request $request){
-        
-        $store = new User();
-        $store->name = $request->name;
-        $store->email = $request->email;
-        $store->phone = $request->phone;
-        $store->company = $request->company;
-        $store->save();
-        if(!empty($store->id)){
-            return response()->json(['success' => true]);
+        if(!empty($request->captcha)){
+            $captcha = $request->captcha;
+        }
+        else{
+            return ['status' => 'failed','msg' => 'Verify Captcha'];
+        }
+
+        $secretKey = config('services.recaptcha.secret');
+        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+         $response = file_get_contents($url);
+        $responseKeys = json_decode($response,true);
+        if($responseKeys["success"]) {
+            $store = new User();
+            $store->name = $request->name;
+            $store->email = $request->email;
+            $store->phone = $request->phone;
+            $store->company = $request->company;
+            $store->save();
+            if(!empty($store->id)){
+                return response()->json(['success' => true]);
+            }
+        }else{
+            return ['status' => 'failed','msg' => 'Verify Captcha'];
         }
         return response()->json(['success' => false]);
     }
