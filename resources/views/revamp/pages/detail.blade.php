@@ -115,13 +115,11 @@ ul.pagination {
         <div class="container">
             <div class="row d-lg-flex align-items-lg-center">
                 <div class="col-lg-6 pt-5 pb-4 sama-content-col">
-                    <h1 class="mb-2 sama-product-title">{{$product->p_title}} 
-                        <!-- <br><span class="text-TColor">{{$data->cat_title}}</span> -->
-                    </h1>
+                    <h1 class="mb-2 sama-product-title">{{$product->p_title}} <br><span class="text-TColor">{{$data->cat_title}}</span></h1>
                     <h3 class="mb-4">P-{{$product->id + 1000}}</h3>
                     <div class="row">
                         @forelse($bag_images as $index=>$gallery)
-                            <div class="col-3">
+                                                    <div class="col-3">
                                 <img src="{{asset('uploads/product/'.$gallery->p_bag_image)}}" alt="..." style="height:120px; width:150px;">
                             </div>
                         @empty
@@ -133,7 +131,7 @@ ul.pagination {
                          @forelse($attributes as $index=>$i)
                             @if($index <= 3)
                             <div class="col-lg-6">
-                                <label class="bg-white border border-danger border-danger-light rounded me-3 mb-3 text-center px-4 py-3 w-100" style="min-height:150px">
+                                <label class="bg-white border border-danger border-danger-light rounded me-3 mb-3 text-center px-2 py-2 w-100" style="min-height:130px">
                                     <h2 class="text-TColor">{{$i->label}}</h2>
                                     <span class="text-PColor">{{ $i->name }}</span>
                                 </label>    
@@ -154,8 +152,8 @@ ul.pagination {
                 </div>
                 <div class="col-lg-4 offset-lg-1 p-4 mb-4 bg-white">
                     <div class="mb-4 Gridimg">
-                        <div class="d-grid justify-content-end">
-                            <button type="button" class="btnn"  onclick="showMOdal()">
+                        <div class="d-grid justify-content-end sama-social-icons">
+                            <button type="button" class="btnn"  >
                                 <span class="dot text-white"><i class="fa fa-youtube-play fa-2x"></i></span>
                                 <span class="str"><span class="text text-white">Play Video</span></span>
                             </button>

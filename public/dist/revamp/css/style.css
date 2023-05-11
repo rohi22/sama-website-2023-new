@@ -1138,7 +1138,7 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 .sama-tabs .nav-pills {
     row-gap: 2px;
 }
-.sama-product-card .sama-product-buttons .fa-file-pdf {
+.fa-file-pdf {
     font-family: 'Font Awesome 6 Free';
 }
 .sama-product-des {
@@ -1146,8 +1146,24 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 }
 .sama-detail-product .sama-content-col {
     box-shadow: 20px 0 53px -25px rgba(0,0,0,0.15);
+    padding-right: 7%;
 }
-
 .sama-detail-product .sama-product-title strong, .sama-detail-product .sama-product-title span {
     color: #ec2424;
+}
+.sama-social-icons {
+    position: absolute;
+    top: 50%;
+    left: 52%; 
+}
+.sama-social-icons span.str, .sama-social-icons span.str1 {
+    display: block;
+    position: inherit;
+    top: 0;
+    left: 100%;
+    font-size: 20px;
+    z-index: 099999;
+}
+.fa-file-pdf,.fa-file-pdf:before {
+    font-family: 'Font Awesome 6 Free';
 }

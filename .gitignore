@@ -1,2 +1,4 @@
 backup.zip
 /vendor
+resources/views/contact.blade.php
+resources/views/revamp/pages/detail2.blade.php
