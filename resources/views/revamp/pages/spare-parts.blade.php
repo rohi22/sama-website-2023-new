@@ -162,6 +162,10 @@ High Quality and Extremely Useful Spare Parts of the Machines | Sama -
                                     </div>
                                 </div>
                             </div>
+                            <div class="input-group mb-2">
+                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.sitekey') }}" style="width: desired_width;border-radius: 4px;border-right: 1px solid #d8d8d8;overflow: hidden;"></div>
+                                </div>
+                                <p style="color:red;" id="captcha_error" class="captcha_error">@if($errors->has('g-recaptcha-response')) {{ $errors->first('g-recaptcha-response') }} @endif</p>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <button type="submit" class="btn rounded-0 btn-danger py-2 px-5 mt-3">Send Now</button>
@@ -174,6 +178,7 @@ High Quality and Extremely Useful Spare Parts of the Machines | Sama -
         </div>
     </section>
 @endsection
+<script src="https://www.google.com/recaptcha/api.js"></script>
 @push('scripts')
 <script>
 $(document).ready(function(){
