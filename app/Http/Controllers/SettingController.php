@@ -7,6 +7,7 @@ use App\AboutImage;
 use App\About;
 use App\ContactPage;
 use App\FooterSection;
+use App\AwardImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -133,7 +134,8 @@ class SettingController extends Controller
 
        	$about 	 = DB::table('abouts')->first();
         $images  = DB::table('about_images')->where('about_id','=',$about->id)->get();
-    	return view('setting/about')->with(['about'=>$about,'images'=>$images]);
+		$awardImages = DB::table('award_images')->get();
+    	return view('setting.about')->with(['about'=>$about,'images'=>$images,'awardImages'=>$awardImages]);
     }
     public function about_store(Request $request)
     {
@@ -180,6 +182,15 @@ class SettingController extends Controller
 	                $img->save();
 	            }
 	        }
+			if($award_image=$request->file('award_image')){
+				$img_name = $award_image->getClientOriginalName();
+				$image = uniqid().$img_name;
+				$award_image->move('uploads/award',$image);
+
+				$img = new AwardImages();
+				$img->images = $image;
+				$img->save();
+			}
 
 
 	       return redirect('/about-us')->with('message', 'Content Updated !');
@@ -216,6 +227,15 @@ class SettingController extends Controller
 	       return redirect('/about-us')->with('message', 'Content submitted !');
 	    }
     }
+
+	public function delete_Award_images($id){
+		$img =  AwardImages::find($id);
+		if(file_exists(public_path().'/uploads/award/'.$img->images)){
+			unlink(public_path().'/uploads/award/'.$img->images);
+		}
+		$img->delete();
+		return redirect('/about-us')->with('message', 'Award Image Updated !');
+	}
 
     public function change_password()
     {

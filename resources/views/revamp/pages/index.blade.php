@@ -246,22 +246,20 @@
       <div class="row">
          <div class="col-lg-6">
             <h2 class="mb-4">Sama's List of their <span class="text-TColor">Awards</span></h2>
-            <p>Sama is ranking no. 1 among all of its competitors throughout Pakistan. It is a Karachi based company.
-               However, it is dealing with high quality, huge and heavy-duty machines all over Pakistan.
-            </p>
+            {!! $about_us->description !!}
+            
             <ul class="py-3 fa-ul ms-0">
-               <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> KCCI (export award)</li>
-               <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> ISO certified</li>
-               <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> CE Marked</li>
-               <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> Brand of the year</li>
-               <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> Pakistan fast growth 100
-                  companies</li>
+               @foreach($points as $point)
+                  <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> {{$point}}</li>
+               @endforeach
+               
             </ul>
          </div>
          <div class="col-lg-5 offset-lg-1">
             <div class="AwardSlider owl-carousel">
-               <img src="{{asset('dist/revamp/images/award-1.png')}}" alt="Awards1" />
-               <img src="{{asset('dist/revamp/images/award-2.png')}}" alt="Awards2" />
+               @foreach($award_images as $award)
+                  <img src="{{asset('uploads/award/'.$award->images)}}" alt="Awards"/>
+               @endforeach
             </div>
          </div>
       </div>
