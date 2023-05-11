@@ -1,8 +1,8 @@
-<div class="card PrCard rounded-0">                    
+<div class="card PrCard rounded-0 sama-product-card">                    
                       <div class="imGBox w-100 pb-3">
                         <img src="{{asset('uploads/product/'.$item->p_main_image)}}" class="card-img-top" class="w-100" alt="...">
                       </div>
-                      <div class="d-grid d-md-flex justify-content-md-end mx-3">
+                      <div class="d-grid d-md-flex justify-content-md-end mx-3 sama-product-buttons">
                         <a href="{{$item->p_video_link}}" target="_blank"><button type="button" class="btn-list text-white">
                           <i class="fa fa-youtube fa-2x"></i>
                         </button>
@@ -13,10 +13,10 @@
                             </button>
                         </a>
                       </div>
-                      <a href="{{asset('revamp/product/'.$item->p_slug)}}" class="d-flex w-100 flex-column">
+                      <a href="{{asset('revamp/product/'.$item->p_slug)}}" class="d-flex w-100 flex-column sama-product-content">
                       <div class="card-body">
-                          <?php echo $item->p_short_desc;?>
                         <h5 class="card-title mb-3 truncate-2">{{$item->p_title}}</h5>
+                          <?php echo $item->p_short_desc;?>
                         <p class="card-text mb-4 truncate-2"> {!! Illuminate\Support\Str::words($item->p_short_desc, 10) !!}</p>
                         <div class="d-flex flex-row">
                             @php $bag_images = DB::table('product_main_images')->where('p_id','=',$item->id)->get(); @endphp

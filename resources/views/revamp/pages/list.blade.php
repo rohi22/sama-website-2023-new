@@ -30,35 +30,7 @@
         border-color: #EC2424;
     }
 
-.sama-breadcrumbs li a {
-    color: #000;
-    text-transform: uppercase;
-}
 
-.sama-breadcrumbs li.active a {
-    color: #ec2424;
-}
-.sama-breadcrumbs li a:hover {
-    color: #ec2424 !important;
-}
-ul.pagination {
-    width: 100%;
-    justify-content: center;
-    column-gap: 1%;
-}
-
-.pagination li .page-link {
-    padding: 10px 18px !important;
-    background-color: #F7F7F7;
-    color: #ADAEB0;
-    font-weight: 500;
-    border: none;
-}
-
-.pagination li.active .page-link,.pagination li .page-link:hover {
-    background-color: #EC2424;
-    color: #fff;
-}
 
 </style>
 @endpush
@@ -98,7 +70,7 @@ ul.pagination {
             </div>
         </div>
     </section>    
-    <section class="pt-5">
+    <section class="pt-5 sama-tabs">
         <div class="container">
             <div class="row">
                 @if(isset($childcategories))                
