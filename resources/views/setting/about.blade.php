@@ -95,6 +95,33 @@
                                                     </div>
                                                 </div>
                                                 
+                                                <div class="form-group @if($errors->has('desc')) has-danger @endif row">
+                                                    <label class="control-label text-right col-md-3">Upload Award Images</label>
+                                                    <div class="col-md-9">
+                                                         <input type="file" name="award_image" accept="image/png, image/gif, image/jpeg">
+                                                        <small class="form-control-feedback" style="color:red">@if($errors->has('award_image')) {{ $errors->first('award_image') }} @endif</small> 
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group @if($errors->has('desc')) has-danger @endif row">
+                                                    <label class="control-label text-right col-md-3"></label>
+                                                    
+                                                        @foreach($awardImages as $img)
+                                                            <div class="col-md-2">
+                                                                <div class="row">
+                                                                    <div class="col-md-12" id="preview">
+                                                                        <img src = "{{asset('uploads/award/'.$img->images)}}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <a href="{{route('delete_award_image',$img->id)}}" class="btn btn-danger" style="margin-left:10px">Delete</a>
+                                                                    </div>
+                                                                </div>  
+                                                            </div>
+                                                        @endforeach
+                                                </div>
+                                                
                                                 <div class="form-group row">
                                                     <label class="control-label text-right col-md-3">Points</label>
                                                      <div class="col-md-9">

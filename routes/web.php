@@ -197,6 +197,7 @@ Route::group(['middleware' => 'usersession'], function () {
     */
     Route::get('/about-us','SettingController@about_us');
     Route::post('/setting/about-us','SettingController@about_store');
+    Route::get('/delete_award_images/{id}','SettingController@delete_Award_images')->name('delete_award_image');
      /*
     |--------------------------------------------------------------------------
     | Sama Subscription

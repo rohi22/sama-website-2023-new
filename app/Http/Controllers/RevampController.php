@@ -41,7 +41,10 @@ class RevampController extends Controller
         $data['castStudies'] = DB::table('blog_posts')->where('p_status',1)->where('p_case_studies',1)->get();
 
         $data['industry'] = industry::all();
+        $data['about_us'] = DB::table('abouts')->first();
         
+        $data['points']=json_decode($data['about_us']->points);
+        $data['award_images']=DB::table('award_images')->get();
         return view('revamp.pages.index',$data);
     }
     
