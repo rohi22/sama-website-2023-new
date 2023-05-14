@@ -104,10 +104,58 @@
          display: block;
       }
    }
+   @media screen and (max-width : 1920px){
+  .desktop_slider{
+  display:block;
+  }
+  .mobile_slider{
+  display:none;
+  }
+}
+@media screen and (max-width : 906px){
+ .desktop_slider{
+  display:none;
+  }
+ .mobile_slider{
+  display:block !important;
+  }
+}
 </style>
 @endpush
 @section('content')
-<section class="sama-section py-0 banner-section sama-first ">
+<section class="sama-section py-0 banner-section sama-first mobile_slider" style="display:none;padding-left:0px;padding-right:0px;>
+   <div class="col-slider">
+      <div class="MainSlider owl-carousel">
+         @foreach($mobile_sliders as $i)
+         <div class="Items fa-4x text-center fw-bolder text-white">
+            <div class="row slider-content-row">
+               <img src="{{asset('uploads/mobile/'.$i->image)}}">
+               <div class="content-box">
+                  <div class="col-lg-6 col-sm-12 text-style">
+                     <h2>{{$i->h_second}}</h2>
+                     <h2 class="heading">{{$i->h_first}}</h2>
+                     <ul class="sam-ul">
+                        <li><i class="fa-solid"></i>{{$i->h_third}}</li>
+                        <li><i class="fa-solid"></i>{{$i->h_fourth}}</li>
+                        <li><i class="fa-solid"></i>{{$i->h_fifth}}</li>
+                        <li><i class="fa-solid"></i>{{$i->h_sixth}}</li>
+                        <li><i class="fa-solid"></i>{{$i->h_seventh}}</li>
+                     </ul>
+                  </div>
+                  <div class="col-lg-6 col-sm-12">
+                  </div>
+               </div>
+            </div>
+         </div>
+         @endforeach
+      </div>
+   </div>
+   <div class="container-fluid">
+      <div class="row">
+      </div>
+   </div>
+</section>
+<section class="sama-section py-0 banner-section sama-first desktop_slider">
    <div class="col-slider">
       <div class="MainSlider owl-carousel">
          @foreach($sliders as $i)
