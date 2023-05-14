@@ -21,7 +21,6 @@ class SettingController extends Controller
     function create()
     {
     	$logos = DB::table('logos')->first();
-    	dd($logos);
         return view('setting/new')->with(['logos'=>$logos]);
     }
 
