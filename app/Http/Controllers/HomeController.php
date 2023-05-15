@@ -742,10 +742,15 @@ class HomeController extends Controller
     
      public function sendEmail($view,$data)
      {
-        Mail::send($view, $data, function($message) use ($data) {
-            $message->subject($data['subject']);
-            $message->to($data['email'], $data['full_name']);
-        });
+        try{
+            Mail::send($view, $data, function($message) use ($data) {
+                $message->subject($data['subject']);
+                $message->to($data['email'], $data['full_name']);
+            });
+        }catch(\Exception $e){
+            \Log::info($e);
+        }
+        
     }
     
     public function contactUsWidget(Request $request){
