@@ -376,6 +376,10 @@ Route::prefix('revamp')->group(function () {
     Route::get('/contact-us','RevampController@contactUs')->name('contactUs');
     Route::get('/e-catalogue','RevampController@e_catalogue')->name('eCatalogue');
     Route::get('privacy-policy','RevampController@privacyPolicy')->name('privacyPolicy');
+    Route::get('pages/search','RevampController@searchResult')->name('revamp.search');
+    // Route::get('pages/search', function(){
+    //     return view('revamp/pages/search');
+    // })->name('revamp.search');
 });
 
 Route::get('/','HomeController@index');

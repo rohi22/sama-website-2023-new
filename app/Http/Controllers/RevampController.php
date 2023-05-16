@@ -378,6 +378,9 @@ class RevampController extends Controller
 
     }
     
+    public function searchResult(){
+        return view('revamp.pages.search');
+    }
     
      public function about()
     {

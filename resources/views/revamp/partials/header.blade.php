@@ -8,6 +8,99 @@
 .hoverphone:hover .dropdown-content {
   display: block; }
 
+button.fa.fa-search.search-btn.sb {
+    background: #ec2424;
+    color: white;
+}
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 3px;
+}
+a.customwork {
+    position: relative;
+    padding: 0px !important;
+    font-size: 15px !important;
+}
+/* .btnS {
+    margin-top: 7px;
+    background-color: #cf1d25;
+    color: #fff;
+    border: none!important;
+    font-size: 1.4rem;
+    padding: 0.1rem 0.5rem;
+    font-size:19px !important;
+} */
+.Hotbg
+{
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    background: #cf1d25;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.Hotbg:hover > .Hotbg-txt
+{
+  width: 145px;
+  padding: 0px 9px;
+  margin-top: -8px;
+}
+
+.Hotbg:hover > .Hotbg-btn
+{
+    background: #9d1b1e;
+    color: white;
+}
+
+.Hotbg-btn
+{
+    color: #e84118;
+    float: right;
+    margin-top: -10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    color: red;
+    cursor: pointer;
+}
+
+.Hotbg-btn > i
+{
+    font-size-adjust: 30px;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+.Hotbg-txt
+{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+    font-weight: bold;
+}
+
 .dropdown-content {
   right: 0px;
   display: none;
@@ -235,6 +328,7 @@ a.logo-sidebar {
   a.logo-sidebar img {
       width: 60%;
     }
+  
   .sama-second .InSlider a {
       min-height: 161px;
     }
@@ -251,6 +345,129 @@ a.logo-sidebar {
     img.img-responsive.main-log-navs {
       width: 65%;
     }
+  }
+  @media screen and (max-width:768px) {
+    img.img-responsive.main-log-navs {
+      width: 30% !important;
+    }
+  }
+  @media only screen and (max-width:538px) {
+    img.img-responsive.main-log-navs {
+      width: 55% !important;
+    }
+    .Hotbg-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 5px;
+    width: 58px;
+    font-weight: bold;
+}
+    .Hotbg {
+    position: absolute;
+    top: 50%;
+    left: 62%;
+    transform: translate(-50%, -50%);
+    background: #cf1d25;
+    height: 30px;
+    border-radius: 40px;
+    padding: 6px;
+}
+.Hotbg-btn {
+    color: #e84118;
+    float: right;
+    margin-top: -6px;
+    width: 40px;
+    height: 30px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    color: red;
+    cursor: pointer;
+}
+
+.Hotbg:hover > .Hotbg-txt
+{
+  width: 82px;
+  padding: 0px 9px;
+  margin-top: 0px;
+}
+img.img-responsive.main-log-navs {
+  margin-right: 85px;
+}
+  }
+  @media screen and (max-width:375px) {
+    img.img-responsive.main-log-navs {
+      width: 55% !important;
+    }
+    {
+      width: 70px;
+      padding: 0px 9px;
+      margin-top: 0px;
+    }
+    .Hotbg-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 22px;
+    width: 58px;
+    font-weight: bold;
+}
+  }
+  @media screen and (max-width:320px) {
+    img.img-responsive.main-log-navs {
+      width: 55% !important;
+    }
+    .Hotbg:hover > .Hotbg-txt
+    {
+      width: 70px;
+      padding: 0px 9px;
+      margin-top: 0px;
+    }
+    img.img-responsive.main-log-navs {
+      margin-right: 100px;
+    }
+    .Hotbg-btn {
+    color: #e84118;
+    float: right;
+    margin-top: -6px;
+    width: 25px;
+    height: 30px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    color: red;
+    cursor: pointer;
+}
+.Hotbg-txt:hover {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 0;
+    width: 58px;
+    font-weight: bold;
+}
   }
 @media only screen and (min-width: 981px) and (max-width: 1200px) {
   .sam-nav .nav-col {
@@ -295,6 +512,17 @@ a.logo-sidebar {
                      <li><a href="{{route('spareParts')}}">Spare Parts</a></li>
                      <li><a href="{{route('becomeAnAgent')}}">Become Agent</a></li>
                      <li><a href="{{route('eCatalogue')}}">E-Catalogue</a></li>
+                     <li>
+                     <div class="input-group" style="">
+                      <input type="text" style="width:150px !important;height:30px;font-size:12px;" placeholder="Search.." 
+                      class="myeditclass form-control" name="search" value="">
+                      <a class="customwork" href="{{route('revamp.search')}}">
+                        <button type="submit" 
+                          class="fa fa-search search-btn sb" style="padding:6px;margin-right:0px; height: 31px;" value="Search">
+                        </button>
+                      </a>
+                    </div>
+                    </li>
                   </ul>
                </div>
             </div>
@@ -452,12 +680,34 @@ a.logo-sidebar {
                 </a>
             </div>
          </div>
-        <div class="col-8 logo-col">
+        <div class="col-6 logo-col">
          <div class="logo">
             <a href="{{url('/revamp')}}"><img src="https://www.samaengineering.com/uploads/logos/logo-mobile.jpeg" alt="" class="img-responsive main-log-navs">
             </a>
          </div>
+         <!-- <div class="Hotbg">
+            <input type="text" name="" class="Hotbg-txt" placeholder="Search >>>">
+            <a href="#" class="Hotbg-btn">
+                <i class="fa fa-search"></i>
+            </a>
+        </div> -->
+         <!-- <div class="button-box">
+          <button class="btnS"><a style="text-decoration:none;color:white;" href="">Search</a></button>
+        </div> -->
         </div>
+        <div class="col-2 logo-col">
+         <div class="Hotbg">
+            <input type="text" name="" class="Hotbg-txt" placeholder="Search >>>">
+            <a  href="{{route('revamp.search')}}" class="Hotbg-btn">
+                <i class="fa fa-search"></i>
+            </a>
+        </div>
+         <!-- <div class="button-box">
+          <button class="btnS"><a style="text-decoration:none;color:white;" href="">Search</a></button>
+        </div> -->
+        </div>
+
+
         <div class="col-2"></div>
          <div class="site-overlay"></div>    
          <!--<div class="btn-box text-center" onclick="hoverphone()" style="margin-top:28px;width:15%;float:left;">-->
@@ -479,4 +729,8 @@ a.logo-sidebar {
       </div>
    </div>
 </header>
+
+<script>
+  // <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</script>
 
