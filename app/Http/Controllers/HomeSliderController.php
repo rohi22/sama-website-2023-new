@@ -17,7 +17,7 @@ class HomeSliderController extends Controller
     function create()
     {
 
-        return view('home_slider/new');
+        return view('home_slider.new');
     }
 
     function store(Request $request)
@@ -29,7 +29,7 @@ class HomeSliderController extends Controller
             // 'h_fourth'  => 'required',
             // 'h_fifth'   => 'required',
             'contact_show'=> 'required',
-            'image'     => 'image|mimes:jpeg,jpg,png,webp|required|max:2000',
+            //'image'     => 'image|mimes:jpeg,jpg,png,webp|required|max:2000',
         ]);
         
         $image = '';

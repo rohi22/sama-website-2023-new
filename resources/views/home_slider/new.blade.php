@@ -75,7 +75,7 @@
                                     <div class="form-group @if($errors->has('image')) has-danger @endif row">
                                         <label class="control-label text-right col-md-3">Image</label>
                                         <div class="col-md-9">
-                                            <input type="file" class="form-control form-control-danger" name="image">
+                                            <input type="file" class="form-control form-control-danger" name="image" accept="image/png, image/gif, image/jpeg">
                                             <small class="form-control-feedback">@if($errors->has('image')) {{ $errors->first('image') }} @endif</small> 
                                         </div>
                                     </div>

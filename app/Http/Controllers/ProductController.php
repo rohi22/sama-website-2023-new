@@ -107,7 +107,7 @@ class ProductController extends Controller
         $commodities = DB::table('commodities')->get();
         $sachets = DB::table('sachets')->get();
 
-        return view('product/new')->with(['categories'=>$categories,'commodities'=>$commodities,'sachets'=>$sachets]);
+        return view('product.new')->with(['categories'=>$categories,'commodities'=>$commodities,'sachets'=>$sachets]);
     }
 
     function store(Request $request){
@@ -166,6 +166,7 @@ class ProductController extends Controller
         $table = new Product();
         $table->p_title         = $request->p_title;
         $table->p_slug          = $request->p_slug;
+        $table->sku         = $request->p_sku;
         $table->p_short_desc    = $request->p_short_desc;
         $table->p_long_desc     = $request->p_long_desc;
         $table->p_video_link    = $request->p_video_link;
@@ -327,7 +328,7 @@ class ProductController extends Controller
             array_push($attribute_ids,$i->assigned_id);
         }
        
-        return view('/product/edit')->with(['attributes'=>$attributes,'attributes_all'=>$attributes_all,'attribute_ids'=>$attribute_ids,'final_commodities'=>$final_commodities,'final_sachets'=>$final_sachets,'bag_images'=>$bag_images,'data'=>$data,'categories'=>$categories]);
+        return view('product.edit')->with(['attributes'=>$attributes,'attributes_all'=>$attributes_all,'attribute_ids'=>$attribute_ids,'final_commodities'=>$final_commodities,'final_sachets'=>$final_sachets,'bag_images'=>$bag_images,'data'=>$data,'categories'=>$categories]);
     }
 
     function update(Request $request)
@@ -406,6 +407,7 @@ class ProductController extends Controller
         Product::where('id', $request->id)->update(array(
             'p_title'         => $request->p_title,
             'p_slug'          => $request->p_slug,
+            'sku'        => $request->p_sku,
             /*'p_category'      => $request->p_category,*/
             'p_short_desc'    => $request->p_short_desc,
             'p_long_desc'     => $request->p_long_desc,
