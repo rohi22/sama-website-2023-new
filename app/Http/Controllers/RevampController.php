@@ -14,9 +14,11 @@ use App\Product;
 use App\SparePart;
 use App\BecomeAgent;
 use App\SubscribeEmail;
+use App\Industry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mail;
+use Config;
 
 class RevampController extends Controller
 {
@@ -38,6 +40,11 @@ class RevampController extends Controller
         
         $data['castStudies'] = DB::table('blog_posts')->where('p_status',1)->where('p_case_studies',1)->get();
 
+        $data['industry'] = industry::all();
+        $data['about_us'] = DB::table('abouts')->first();
+        
+        $data['points']=json_decode($data['about_us']->points);
+        $data['award_images']=DB::table('award_images')->get();
         return view('revamp.pages.index',$data);
     }
     
@@ -163,15 +170,29 @@ class RevampController extends Controller
     }
     
     public function contactUsWidget(Request $request){
-        
-        $store = new User();
-        $store->name = $request->name;
-        $store->email = $request->email;
-        $store->phone = $request->phone;
-        $store->company = $request->company;
-        $store->save();
-        if(!empty($store->id)){
-            return response()->json(['success' => true]);
+        if(!empty($request->captcha)){
+            $captcha = $request->captcha;
+        }
+        else{
+            return ['status' => 'failed','msg' => 'Verify Captcha'];
+        }
+
+        $secretKey = config('services.recaptcha.secret');
+        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+         $response = file_get_contents($url);
+        $responseKeys = json_decode($response,true);
+        if($responseKeys["success"]) {
+            $store = new User();
+            $store->name = $request->name;
+            $store->email = $request->email;
+            $store->phone = $request->phone;
+            $store->company = $request->company;
+            $store->save();
+            if(!empty($store->id)){
+                return response()->json(['success' => true]);
+            }
+        }else{
+            return ['status' => 'failed','msg' => 'Verify Captcha'];
         }
         return response()->json(['success' => false]);
     }
@@ -357,6 +378,9 @@ class RevampController extends Controller
 
     }
     
+    public function searchResult(){
+        return view('revamp.pages.search');
+    }
     
      public function about()
     {

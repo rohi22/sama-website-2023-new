@@ -200,6 +200,8 @@
                                     </div>
                                 </div>
                             </div>
+                            <div id="RecaptchaField3"></div>
+                                <p style="color:red;" id="captcha_error" class="captcha_error">@if($errors->has('captcha')) {{ $errors->first('captcha') }} @endif</p>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <button type="submit" id="contact_submit" onclick="contactSubmit()" class="btn rounded-0 btn-danger py-2 px-5 mt-3">Send Now</button>
@@ -213,9 +215,11 @@
         </div>
     </section>
 @endsection
-
+<script src="https://www.google.com/recaptcha/api.js"></script>
 @push('scripts')
+
 <script>
+    
 function contactSubmit()
 {
     var c_name      = $('#c_name').val();
@@ -237,6 +241,7 @@ function contactSubmit()
           country:c_country,
           city:c_city,
           company:c_company,
+          captcha: grecaptcha.getResponse(2),
           msg:c_msg,
         //   captcha:c_captcha,
         // captcha: grecaptcha.getResponse(),
@@ -257,9 +262,9 @@ function contactSubmit()
       success: function(res)
        {
         //   console.log(res);  return false;
-            // if(res.error){
-            //     $(".captcha_error").html(res.error); return false;
-            // }else{
+            if(res.error){
+                $(".captcha_error").html(res.error); return false;
+            }else{
                 
                 $("#c_name").val(null);
                 $("#c_email").val(null);
@@ -270,10 +275,10 @@ function contactSubmit()
                 $("#c_country").val(null);
                 $("#c_city").val(null);
                 
-                // grecaptcha.reset();
+                 grecaptcha.reset(2);
                 
                 $(".success_msg").css('display','block').html(res);
-            // }
+             }
 
        },
        error: function(res)
@@ -308,6 +313,10 @@ function contactSubmit()
                 else if(k == 'msg')
                 {
                     $("#c_msg_error").html(v);
+                }
+                else if(k == 'captcha')
+                {
+                    $("#captcha_error").html(v);
                 }
               
             });

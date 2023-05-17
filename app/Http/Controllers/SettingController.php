@@ -7,6 +7,7 @@ use App\AboutImage;
 use App\About;
 use App\ContactPage;
 use App\FooterSection;
+use App\AwardImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +21,6 @@ class SettingController extends Controller
     function create()
     {
     	$logos = DB::table('logos')->first();
-    	dd($logos);
         return view('setting/new')->with(['logos'=>$logos]);
     }
 
@@ -133,7 +133,8 @@ class SettingController extends Controller
 
        	$about 	 = DB::table('abouts')->first();
         $images  = DB::table('about_images')->where('about_id','=',$about->id)->get();
-    	return view('setting/about')->with(['about'=>$about,'images'=>$images]);
+		$awardImages = DB::table('award_images')->get();
+    	return view('setting.about')->with(['about'=>$about,'images'=>$images,'awardImages'=>$awardImages]);
     }
     public function about_store(Request $request)
     {
@@ -180,6 +181,15 @@ class SettingController extends Controller
 	                $img->save();
 	            }
 	        }
+			if($award_image=$request->file('award_image')){
+				$img_name = $award_image->getClientOriginalName();
+				$image = uniqid().$img_name;
+				$award_image->move('uploads/award',$image);
+
+				$img = new AwardImages();
+				$img->images = $image;
+				$img->save();
+			}
 
 
 	       return redirect('/about-us')->with('message', 'Content Updated !');
@@ -216,6 +226,15 @@ class SettingController extends Controller
 	       return redirect('/about-us')->with('message', 'Content submitted !');
 	    }
     }
+
+	public function delete_Award_images($id){
+		$img =  AwardImages::find($id);
+		if(file_exists(public_path().'/uploads/award/'.$img->images)){
+			unlink(public_path().'/uploads/award/'.$img->images);
+		}
+		$img->delete();
+		return redirect('/about-us')->with('message', 'Award Image Updated !');
+	}
 
     public function change_password()
     {
@@ -430,7 +449,7 @@ class SettingController extends Controller
     				->join('city','city.id','=','spare_parts.city')
     				->get(['spare_parts.*','country.Name as country_name','city.Name as city_name']);
     
-    	return view('setting/spare_part_list')->with(['data'=>$data]);
+    	return view('setting.spare_part_list')->with(['data'=>$data]);
     }
     public function spare_part_delete($id)
     {
@@ -443,7 +462,7 @@ class SettingController extends Controller
     				->join('country','country.Code','=','become_agents.country')
     				->join('city','city.id','=','become_agents.city')
     				->get(['become_agents.*','country.Name as country_name','city.Name as city_name']); 
-    	return view('setting/become_agent_list')->with(['data'=>$data]);			
+    	return view('setting.become_agent_list')->with(['data'=>$data]);			
     }
     public function become_agent_delete($id)
     {

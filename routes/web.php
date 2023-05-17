@@ -105,7 +105,24 @@ Route::group(['middleware' => 'usersession'], function () {
     Route::post('/slider/assign_category','SliderController@assign_category');
     Route::post('/slider/get_gallery_images','SliderController@get_gallery_images');
     Route::post('/slider/get_bullets','SliderController@get_bullets');
-	
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Industries
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    Route::get('industries','IndustryController@index');
+    Route::get('/industry/new','IndustryController@create');
+    Route::post('/industry/new','IndustryController@store');
+    Route::get('/industry/edit/{id}','IndustryController@edit');
+    Route::post('/industry/edit/{id}','IndustryController@update');
+    Route::get('/industry/delete/{id}','IndustryController@destroy');
+    
+
     /*
     |--------------------------------------------------------------------------
     | Home Slider
@@ -180,6 +197,7 @@ Route::group(['middleware' => 'usersession'], function () {
     */
     Route::get('/about-us','SettingController@about_us');
     Route::post('/setting/about-us','SettingController@about_store');
+    Route::get('/delete_award_images/{id}','SettingController@delete_Award_images')->name('delete_award_image');
      /*
     |--------------------------------------------------------------------------
     | Sama Subscription
@@ -358,6 +376,10 @@ Route::prefix('revamp')->group(function () {
     Route::get('/contact-us','RevampController@contactUs')->name('contactUs');
     Route::get('/e-catalogue','RevampController@e_catalogue')->name('eCatalogue');
     Route::get('privacy-policy','RevampController@privacyPolicy')->name('privacyPolicy');
+    Route::get('pages/search','RevampController@searchResult')->name('revamp.search');
+    // Route::get('pages/search', function(){
+    //     return view('revamp/pages/search');
+    // })->name('revamp.search');
 });
 
 Route::get('/','HomeController@index');

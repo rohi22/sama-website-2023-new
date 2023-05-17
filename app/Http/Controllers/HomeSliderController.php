@@ -12,12 +12,12 @@ class HomeSliderController extends Controller
     function index(){
         $sliders = HomeSlider::all();
         $home_back_img = DB::table('home_slider_background_images')->first();
-        return view('/home_slider/all')->with(['sliders'=>$sliders,'home_back_img'=>$home_back_img]);
+        return view('home_slider.all')->with(['sliders'=>$sliders,'home_back_img'=>$home_back_img]);
     }
     function create()
     {
 
-        return view('home_slider/new');
+        return view('home_slider.new');
     }
 
     function store(Request $request)
@@ -29,7 +29,7 @@ class HomeSliderController extends Controller
             // 'h_fourth'  => 'required',
             // 'h_fifth'   => 'required',
             'contact_show'=> 'required',
-            'image'     => 'image|mimes:jpeg,jpg,png,webp|required|max:2000',
+            //'image'     => 'image|mimes:jpeg,jpg,png,webp|required|max:2000',
         ]);
         
         $image = '';
