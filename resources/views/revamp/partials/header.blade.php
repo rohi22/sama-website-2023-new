@@ -18,87 +18,18 @@ button.fa.fa-search.search-btn.sb {
     flex-wrap: wrap;
     align-items: stretch;
     width: 100%;
-    margin-top: 3px;
+}
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-form-control-bg);
+    border-color: #ec2424;
+    outline: 0;
+    box-shadow: 0 0 0 -0.75rem rgb(0 0 0);
 }
 a.customwork {
     position: relative;
     padding: 0px !important;
     font-size: 15px !important;
-}
-/* .btnS {
-    margin-top: 7px;
-    background-color: #cf1d25;
-    color: #fff;
-    border: none!important;
-    font-size: 1.4rem;
-    padding: 0.1rem 0.5rem;
-    font-size:19px !important;
-} */
-.Hotbg
-{
-    position: absolute;
-    top: 50%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    background: #cf1d25;
-    height: 40px;
-    border-radius: 40px;
-    padding: 10px;
-}
-
-.Hotbg:hover > .Hotbg-txt
-{
-  width: 145px;
-  padding: 0px 9px;
-  margin-top: -8px;
-}
-
-.Hotbg:hover > .Hotbg-btn
-{
-    background: #9d1b1e;
-    color: white;
-}
-
-.Hotbg-btn
-{
-    color: #e84118;
-    float: right;
-    margin-top: -10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-    color: red;
-    cursor: pointer;
-}
-
-.Hotbg-btn > i
-{
-    font-size-adjust: 30px;
-}
-
-a
-{
-    text-decoration: none;
-}
-
-.Hotbg-txt
-{
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 0px;
-    font-weight: bold;
 }
 
 .dropdown-content {
@@ -138,6 +69,7 @@ header.fixed {
   padding: 8px 9.5px !important;
   border-radius: 5px;
 }
+
 
 .sama-header-row {
   display: flex;
@@ -355,118 +287,75 @@ a.logo-sidebar {
     img.img-responsive.main-log-navs {
       width: 55% !important;
     }
-    .Hotbg-txt {
+    .search-input {
+    height: 0px;
     border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 5px;
-    width: 58px;
-    font-weight: bold;
-}
-    .Hotbg {
     position: absolute;
-    top: 50%;
-    left: 62%;
-    transform: translate(-50%, -50%);
-    background: #cf1d25;
-    height: 30px;
-    border-radius: 40px;
+    left: -393px !important;
+    visibility: hidden;
+    opacity: 0;
+    top: 41px !important;
+    background: #bf1212;
+    color: white;
     padding: 6px;
-}
-.Hotbg-btn {
-    color: #e84118;
-    float: right;
-    margin-top: -6px;
-    width: 40px;
-    height: 30px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-    color: red;
-    cursor: pointer;
-}
-
-.Hotbg:hover > .Hotbg-txt
-{
-  width: 82px;
-  padding: 0px 9px;
-  margin-top: 0px;
+    font-size: 12px;
+    outline: none;
+    width: 3043% !important;
+    transition: 80ms all ease-in;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: none;
 }
 img.img-responsive.main-log-navs {
   margin-right: 85px;
 }
   }
-  @media screen and (max-width:375px) {
+  @media only screen and (max-width:375px) {
     img.img-responsive.main-log-navs {
       width: 55% !important;
     }
-    {
-      width: 70px;
-      padding: 0px 9px;
-      margin-top: 0px;
-    }
-    .Hotbg-txt {
+    .search-input {
+    height: 0px;
     border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
+    position: absolute;
+    left: -345px !important;
+    visibility: hidden;
+    opacity: 0;
+    top: 37px !important;
+    background: #bf1212;
     color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 22px;
-    width: 58px;
-    font-weight: bold;
+    padding: 6px;
+    font-size: 12px;
+    outline: none;
+    width: 2686% !important;
+    transition: 80ms all ease-in;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: none;
 }
   }
   @media screen and (max-width:320px) {
     img.img-responsive.main-log-navs {
       width: 55% !important;
     }
-    .Hotbg:hover > .Hotbg-txt
-    {
-      width: 70px;
-      padding: 0px 9px;
-      margin-top: 0px;
-    }
-    img.img-responsive.main-log-navs {
-      margin-right: 100px;
-    }
-    .Hotbg-btn {
-    color: #e84118;
-    float: right;
-    margin-top: -6px;
-    width: 25px;
-    height: 30px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-    color: red;
-    cursor: pointer;
-}
-.Hotbg-txt:hover {
+.search-input {
+    height: 0px;
     border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
+    position: absolute;
+    left: -290px !important;
+    visibility: hidden;
+    opacity: 0;
+    top: 37px !important;
+    background: #bf1212;
     color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 0;
-    width: 58px;
-    font-weight: bold;
+    padding: 6px;
+    font-size: 12px;
+    outline: none;
+    width: 2287% !important;
+    transition: 80ms all ease-in;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: none;
 }
   }
 @media only screen and (min-width: 981px) and (max-width: 1200px) {
@@ -493,6 +382,73 @@ img.img-responsive.main-log-navs {
       font-size: 14px;
     }
   }
+  a.fa.fa-search.search-btn.sb.customwork:hover {
+    background: #ec2424;
+    color: #f7f7f7;
+}
+i.menu-btn.fa.fa-bars.custm {
+    position: relative;
+    top: -243px;
+    left: 23px;
+}
+
+.menu li a {
+  color: inherit;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+.menu li a:hover {
+  text-decoration: underline;
+}
+
+.search {
+  position: relative;
+  padding-bottom: 15px;
+  bottom: -7px;
+}
+
+.search-input::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+.search-input {
+    height: 0px;
+    border: none;
+    position: absolute;
+    left: -728px;
+    visibility: hidden;
+    opacity: 0;
+    top: 49px;
+    background: #bf1212;
+    color: white;
+    padding: 6px;
+    font-size: 12px;
+    outline: none;
+    width: 5495%;
+    transition: 80ms all ease-in;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: none;
+}
+
+.search-button {
+  background:transparent;
+  color: #ee1f27;
+  cursor: pointer;
+  font-size: 14px;
+  padding-top: 4px;
+}
+
+.search-button:hover + .search-input, .search-input:hover, .search:hover .search-input {
+  visibility: visible !important;
+  border-radius: inherit;
+  opacity: 1 !important;
+  z-index: 9 !important;
+  box-shadow: 1px 3px 4px #E6E6E6;
+  height: 25px !important;
+}
 </style>
 <header id="Header">
    <div class="THeader bg-TColor text-white top-header">
@@ -514,12 +470,13 @@ img.img-responsive.main-log-navs {
                      <li><a href="{{route('eCatalogue')}}">E-Catalogue</a></li>
                      <li>
                      <div class="input-group" style="">
-                      <input type="text" style="width:150px !important;height:30px;font-size:12px;" placeholder="Search.." 
+                      <input type="text" style="width:150px !important;height: 37px; border-radius: initial; font-size:12px;" placeholder="Search.." 
                       class="myeditclass form-control" name="search" value="">
-                      <a class="customwork" href="{{route('revamp.search')}}">
-                        <button type="submit" 
-                          class="fa fa-search search-btn sb" style="padding:6px;margin-right:0px; height: 31px;" value="Search">
-                        </button>
+                      <a class="fa fa-search search-btn sb customwork" style="position: relative; top: 11px; right: -8px; border-color: #ec2424;padding:6px;margin-right:0px; height: 37px;"
+                         value="Search" href="{{route('revamp.search')}}">
+                        <!-- <button type="submit" 
+                          >
+                        </button> -->
                       </a>
                     </div>
                     </li>
@@ -621,16 +578,16 @@ img.img-responsive.main-log-navs {
    </div>
 
    <div class="mobo-menu container-fluid headereffect customheight">
-      <div class="row sama-header-row">
+      <div class="sama-header-row">
         <div class="col-2 menu-col">
-            <nav class="pushy pushy-left sama-nav-mob" data-focus="#first-link">
+            <nav class="pushy pushy-left  sama-nav-mob" data-focus="#first-link">
             <div class="btn-box text-center sama-toggle sama-inner-toggle" style="padding-bottom:0px;">
             <a class="sama-toggle-selector">
-            <i class="menu-btn fa fa-bars"></i>    
+            <i class="menu-btn fa fa-bars custm"></i>    
             </a>
          </div>
             <div class="pushy-content">
-               <!--<a class="logo-sidebar "href="{{url('/revamp')}}"><img src="https://www.samaengineering.com/uploads/logos/samalogo.png" height="50px" alt="Logo"></a>-->
+               <a class="logo-sidebar "href="{{url('/revamp')}}"><img src="https://www.samaengineering.com/uploads/logos/samalogo.png" height="50px" alt="Logo"></a>
                <a class="logo-sidebar "href="{{url('/revamp')}}"><h2 style="color:#fff; font-size:20px; font-weight:600;">Sama Engineering</h2></a>
                <ul class="sama-ul">
                   @forelse($categories as $parent)
@@ -680,31 +637,18 @@ img.img-responsive.main-log-navs {
                 </a>
             </div>
          </div>
-        <div class="col-6 logo-col">
+        <div class="col-8 logo-col">
          <div class="logo">
             <a href="{{url('/revamp')}}"><img src="https://www.samaengineering.com/uploads/logos/logo-mobile.jpeg" alt="" class="img-responsive main-log-navs">
             </a>
          </div>
-         <!-- <div class="Hotbg">
-            <input type="text" name="" class="Hotbg-txt" placeholder="Search >>>">
-            <a href="#" class="Hotbg-btn">
-                <i class="fa fa-search"></i>
-            </a>
-        </div> -->
-         <!-- <div class="button-box">
-          <button class="btnS"><a style="text-decoration:none;color:white;" href="">Search</a></button>
-        </div> -->
         </div>
-        <div class="col-2 logo-col">
-         <div class="Hotbg">
-            <input type="text" name="" class="Hotbg-txt" placeholder="Search >>>">
-            <a  href="{{route('revamp.search')}}" class="Hotbg-btn">
-                <i class="fa fa-search"></i>
-            </a>
+        <div class="search">
+          <div class="search-content">
+            <a class="search-button"><i class="fa fa-search"></i></a>
+            <input type="text" class="search-input" placeholder="Search here...">
+          </div>
         </div>
-         <!-- <div class="button-box">
-          <button class="btnS"><a style="text-decoration:none;color:white;" href="">Search</a></button>
-        </div> -->
         </div>
 
 
@@ -731,6 +675,10 @@ img.img-responsive.main-log-navs {
 </header>
 
 <script>
-  // <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  $('.sama-toggle-selector').click(function(){
+  $("body").toggleClass("pushy-open-left");
+})
+  // <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
+  // </script>
 </script>
 
