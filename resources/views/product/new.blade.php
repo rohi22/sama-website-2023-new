@@ -90,6 +90,13 @@
                                             <small class="form-control-feedback color" id="category_error"></small> 
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="control-label text-right col-md-3">SKU</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control form-control-danger"  name="p_sku" id="sku">
+                                            <small class="form-control-feedback color" id="sku_error"></small> 
+                                        </div>
+                                    </div>
                                     <div class="form-group @if($errors->has('cat_desc')) has-danger @endif row">
                                         <label class="control-label text-right col-md-3">Short Description</label>
                                         <div class="col-md-9">

@@ -453,14 +453,18 @@ i.menu-btn.fa.fa-bars.custm {
                      <li><a href="{{route('eCatalogue')}}">E-Catalogue</a></li>
                      <li>
                      <div class="input-group" style="">
+                     <form method="get" action="{{route('revamp.search')}}">
                       <input type="text" style="width:150px !important;height: 37px; border-radius: initial; font-size:12px;" placeholder="Search.." 
                       class="myeditclass form-control" name="search" value="">
-                      <a class="fa fa-search search-btn sb customwork" style="position: relative; top: 11px; right: -8px; border-color: #ec2424;padding:6px;margin-right:0px; height: 37px;"
+                      <button type="submit" class="fa fa-search search-btn sb customwork" style="position: absolute; top: 11px; right: -25px; border-inline-end-style: none; 
+                        border-bottom-style: none; margin-top: -11px; border-color: #ec2424;padding:6px;margin-right:0px; height: 37px;"
                          value="Search" href="{{route('revamp.search')}}">
+                      </button>
                         <!-- <button type="submit" 
                           >
                         </button> -->
-                      </a>
+                      </form>
+                      <!-- </a> -->
                     </div>
                     </li>
                   </ul>
