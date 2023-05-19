@@ -378,8 +378,48 @@ class RevampController extends Controller
 
     }
     
-    public function searchResult(){
-        return view('revamp.pages.search');
+    public function searchResult(Request $request){
+        $products = DB::table('products')
+            ->join('assign_categories','assign_categories.p_id','=','products.id')
+            ->join('categories','categories.id','=','assign_categories.category_id')
+            ->where('products.p_short_desc','LIKE', '%'.$request->search.'%')
+            ->orwhere('products.p_long_desc','LIKE', '%'.$request->search.'%')
+            ->orwhere('products.p_title','LIKE', '%'.$request->search.'%')
+            ->orderBy('products.id','ASC')
+            ->select('products.*','categories.cat_title')
+            ->where('products.p_status','=',1)
+            ->paginate(12);
+            // dd(count($products));
+         if(count($products) == 0){
+             
+            $check = explode(" ",$request->search);
+             
+            //  dd($check);
+             $products = DB::table('products')
+            ->join('assign_categories','assign_categories.p_id','=','products.id')
+            ->join('categories','categories.id','=','assign_categories.category_id')
+            ->where(function ($query) use($check) {
+             for ($i = 0; $i < count($check); $i++){
+                    $query->orwhere('products.p_short_desc', 'like',  '%' . $check[$i] .'%');
+                 }      
+            })
+            ->where(function ($query) use($check) {
+             for ($i = 0; $i < count($check); $i++){
+                    $query->orwhere('products.p_long_desc', 'like',  '%' . $check[$i] .'%');
+                 }      
+            })
+            ->where(function ($query) use($check) {
+             for ($i = 0; $i < count($check); $i++){
+                    $query->orwhere('products.p_title', 'like',  '%' . $check[$i] .'%');
+                 }      
+            })
+            ->orderBy('products.id','ASC')
+            ->select('products.*','categories.cat_title')
+            ->where('products.p_status','=',1)
+            ->paginate(12);
+             
+         }   
+        return view('revamp.pages.search')->with(['slug'=>$request->search,'products'=>$products]);
     }
     
      public function about()
