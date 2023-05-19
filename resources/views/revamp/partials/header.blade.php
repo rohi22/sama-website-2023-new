@@ -287,25 +287,12 @@ a.logo-sidebar {
     img.img-responsive.main-log-navs {
       width: 55% !important;
     }
-    .search-input {
-    height: 0px;
-    border: none;
-    position: absolute;
-    left: -393px !important;
-    visibility: hidden;
-    opacity: 0;
-    top: 41px !important;
-    background: #bf1212;
-    color: white;
-    padding: 6px;
-    font-size: 12px;
-    outline: none;
-    width: 3043% !important;
-    transition: 80ms all ease-in;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-shadow: none;
-}
+    i.fa.fa-search{
+      position: absolute;
+      left: 93%;
+      top: -290%;
+      font-size: 24px;
+    }
 img.img-responsive.main-log-navs {
   margin-right: 85px;
 }
@@ -314,54 +301,29 @@ img.img-responsive.main-log-navs {
     img.img-responsive.main-log-navs {
       width: 55% !important;
     }
-    .search-input {
-    height: 0px;
-    border: none;
-    position: absolute;
-    left: -345px !important;
-    visibility: hidden;
-    opacity: 0;
-    top: 37px !important;
-    background: #bf1212;
-    color: white;
-    padding: 6px;
-    font-size: 12px;
-    outline: none;
-    width: 2686% !important;
-    transition: 80ms all ease-in;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-shadow: none;
-}
+    i.fa.fa-search{
+      position: absolute;
+      left: 90%;
+      top: -235%;
+      font-size: 16px
+    }
   }
   @media screen and (max-width:320px) {
     img.img-responsive.main-log-navs {
       width: 55% !important;
     }
-.search-input {
-    height: 0px;
-    border: none;
-    position: absolute;
-    left: -290px !important;
-    visibility: hidden;
-    opacity: 0;
-    top: 37px !important;
-    background: #bf1212;
-    color: white;
-    padding: 6px;
-    font-size: 12px;
-    outline: none;
-    width: 2287% !important;
-    transition: 80ms all ease-in;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-shadow: none;
-}
   }
 @media only screen and (min-width: 981px) and (max-width: 1200px) {
   .sam-nav .nav-col {
     flex-direction: row !important;
   }
+  i.fa.fa-search{
+    position: absolute;
+    left: 92%;
+    top: -440%;
+    font-size: 29px;
+    }
+ 
 
   .logo-header .container,
   .top-header .container {
@@ -417,16 +379,16 @@ i.menu-btn.fa.fa-bars.custm {
     height: 0px;
     border: none;
     position: absolute;
-    left: -728px;
+    left: -10px;
     visibility: hidden;
     opacity: 0;
-    top: 49px;
+    top: 5px;
     background: #bf1212;
     color: white;
     padding: 6px;
     font-size: 12px;
     outline: none;
-    width: 5495%;
+    width: 113%;
     transition: 80ms all ease-in;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -447,7 +409,28 @@ i.menu-btn.fa.fa-bars.custm {
   opacity: 1 !important;
   z-index: 9 !important;
   box-shadow: 1px 3px 4px #E6E6E6;
-  height: 25px !important;
+  height: 35px !important;
+}
+
+@media only screen and (min-width: 992px) {
+  i.fa.fa-search{
+  display: none !important;
+  }
+  input.search-input{
+    display: none !important: 
+  }
+  .search-button:hover + .search-input, .search-input:hover, .search:hover .search-input{
+    visibility: hidden;
+    display:  none !important;
+  }
+}
+@media only screen and (min-width: 768px) {
+  i.fa.fa-search{
+      position: absolute;
+      left: 90%;
+      top: -400% !important;
+      font-size: 22px !important;
+    }
 }
 </style>
 <header id="Header">
@@ -643,12 +626,6 @@ i.menu-btn.fa.fa-bars.custm {
             </a>
          </div>
         </div>
-        <div class="search">
-          <div class="search-content">
-            <a class="search-button"><i class="fa fa-search"></i></a>
-            <input type="text" class="search-input" placeholder="Search here...">
-          </div>
-        </div>
         </div>
 
 
@@ -670,6 +647,16 @@ i.menu-btn.fa.fa-bars.custm {
          <!--                    </div>-->
          <!--                </div>-->
          <!--</div>-->
+         <div class="row">
+           <div class="col-md-12">
+           <div class="search">
+             <div class="search-content">
+               <a class="search-button"><i style="position: absolute; left: 90%; top: -290%; font-size: 22px;" class="fa fa-search"></i></a>
+               <input type="text" class="search-input" placeholder="Search here...">
+             </div>
+           </div>
+           </div>
+         </div>
       </div>
    </div>
 </header>
@@ -680,5 +667,5 @@ i.menu-btn.fa.fa-bars.custm {
 })
   // <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
   // </script>
-</script>
 
+</script>
