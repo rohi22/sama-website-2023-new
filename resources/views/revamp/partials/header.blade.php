@@ -656,7 +656,9 @@ i.menu-btn.fa.fa-bars.custm {
            <div class="search">
              <div class="search-content">
                <a class="search-button"><i style="position: absolute; left: 90%; top: -290%; font-size: 22px;" class="fa fa-search"></i></a>
-               <input type="text" class="search-input" placeholder="Search here...">
+               <form method="get" action="{{route('revamp.search')}}" id="searchForm">
+               <input type="text" name="search" id="searchField" class="search-input" placeholder="Search here...">
+               </form>
              </div>
            </div>
            </div>
@@ -669,6 +671,12 @@ i.menu-btn.fa.fa-bars.custm {
   $('.sama-toggle-selector').click(function(){
   $("body").toggleClass("pushy-open-left");
 })
+$('#searchField').keypress(function (e) {
+  if (e.which == 13) {
+    $('#searchForm').submit();
+    return false;    //<---- Add this line
+  }
+});
   // <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
   // </script>
 
