@@ -575,6 +575,14 @@ i.menu-btn.fa.fa-bars.custm {
             </a>
          </div>
             <div class="pushy-content">
+            <div class="">
+                <a href="#" class="close-nav" style="position: absolute; left: 84%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M18 6L6 18M6 6l12 12" stroke="#de1a23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
                <a class="logo-sidebar "href="{{url('/revamp')}}"><img src="https://www.samaengineering.com/uploads/logos/samalogo.png" height="50px" alt="Logo"></a>
                <a class="logo-sidebar "href="{{url('/revamp')}}"><h2 style="color:#fff; font-size:20px; font-weight:600;">Sama Engineering</h2></a>
                <ul class="sama-ul">
@@ -690,6 +698,7 @@ i.menu-btn.fa.fa-bars.custm {
         $(document).on('click', function(e) {
             if ($("body").hasClass("pushy-open-left") && !$(e.target).closest('.pushy').length && !$(e.target).hasClass('sama-toggle-selector')) {
                 $("body").removeClass("pushy-open-left");
+                // $(".close-icon").css("display","block")
             }
         });
     });
