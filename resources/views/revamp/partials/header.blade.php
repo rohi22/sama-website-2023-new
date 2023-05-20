@@ -93,6 +93,7 @@ header.fixed {
   content: '\f00d';
 }
 a.sama-toggle-selector {
+  margin-left: -110%;
   background-color: transparent;
   float: left;
   color: #fff;
@@ -379,11 +380,11 @@ i.menu-btn.fa.fa-bars.custm {
     height: 0px;
     border: none;
     position: absolute;
-    left: -10px;
+    left: -11px;
     visibility: hidden;
     opacity: 0;
     top: 5px;
-    background: #bf1212;
+    background: #ec2424;
     color: white;
     padding: 6px;
     font-size: 12px;
@@ -397,7 +398,7 @@ i.menu-btn.fa.fa-bars.custm {
 
 .search-button {
   background:transparent;
-  color: #ee1f27;
+  color: #262626;
   cursor: pointer;
   font-size: 14px;
   padding-top: 4px;
@@ -408,8 +409,8 @@ i.menu-btn.fa.fa-bars.custm {
   border-radius: inherit;
   opacity: 1 !important;
   z-index: 9 !important;
-  box-shadow: 1px 3px 4px #E6E6E6;
-  height: 35px !important;
+  box-shadow: 0px 3px 0px #fff;
+  height: 40px !important;
 }
 
 @media only screen and (min-width: 992px) {
@@ -655,8 +656,9 @@ i.menu-btn.fa.fa-bars.custm {
            <div class="col-md-12">
            <div class="search">
              <div class="search-content">
-               <a class="search-button"><i style="position: absolute; left: 90%; top: -290%; font-size: 22px;" class="fa fa-search"></i></a>
-               <input type="text" class="search-input" placeholder="Search here...">
+               <a class="search-button" id="show-search-box"><i style="position: absolute; left: 90%; top: -290%; font-size: 22px;" class="fa fa-search"></i></a>
+               <input type="text" class="search-input" id="hidden-search-box" style="display: none;" placeholder="Search Here...">
+               <i class="fa fa-times close-icon" style="position: absolute; left: 90%; top: -290%; font-size: 22px; display: none;"></i>
              </div>
            </div>
            </div>
@@ -666,10 +668,44 @@ i.menu-btn.fa.fa-bars.custm {
 </header>
 
 <script>
-  $('.sama-toggle-selector').click(function(){
-  $("body").toggleClass("pushy-open-left");
-})
+//   $('.sama-toggle-selector').click(function(){
+//   $("body").toggleClass("pushy-open-left");
+// })
   // <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
   // </script>
 
+</script>
+<script>
+    $(document).ready(function() {
+        $('.sama-toggle-selector').click(function(e) {
+            e.stopPropagation();
+            $("body").toggleClass("pushy-open-left");
+        });
+
+        $('.close-nav').click(function(e) {
+            e.preventDefault();
+            $("body").removeClass("pushy-open-left");
+        });
+
+        $(document).on('click', function(e) {
+            if ($("body").hasClass("pushy-open-left") && !$(e.target).closest('.pushy').length && !$(e.target).hasClass('sama-toggle-selector')) {
+                $("body").removeClass("pushy-open-left");
+            }
+        });
+    });
+</script>
+<script>
+$(document).ready(function() {
+  $('#show-search-box').click(function() {
+    $('#show-search-box').hide();
+    $('#hidden-search-box').show();
+    $('.close-icon').show();
+  });
+
+  $('.close-icon').click(function() {
+    $('#hidden-search-box').hide();
+    $('.close-icon').hide();
+    $('#show-search-box').show();
+  });
+});
 </script>
