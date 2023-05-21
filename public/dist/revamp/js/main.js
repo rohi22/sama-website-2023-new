@@ -61,6 +61,18 @@ if($(".ProcessSlider").length){
       margin: 5,
     });
 }
+
+if($(".TwoItemSlider").length){
+    $(".TwoItemSlider").owlCarousel({
+      autoplay: true,
+      items: 2,
+      loop: true,
+      dots: false,
+      arrow: false,
+      margin: 5,
+    });
+}
+
 if($(".MainSlider").length){
     $(".MainSlider").owlCarousel({
       autoplay: true,

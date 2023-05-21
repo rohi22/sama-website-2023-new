@@ -9,6 +9,9 @@ use App\ProductCommodityImage;
 use App\ProductSachetImage;
 use App\GeneralTag;
 use App\AssignedGeneralTag;
+use App\SimilarProduct;
+use App\ProcessingProduct;
+use App\AccessoriesProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +26,7 @@ class ProductController extends Controller
                             ->orderBy('products.id','DESC')
                             ->paginate(10);
         $categories   = DB::table('categories')->get();
-        return view('/product/all')->with(['products'=>$products,'categories'=>$categories,'tags'=>$tags]);
+        return view('product.all')->with(['products'=>$products,'categories'=>$categories,'tags'=>$tags]);
     }
     public function product_filter($num){
         $tags = GeneralTag::all();
@@ -64,6 +67,64 @@ class ProductController extends Controller
                             
                         } /* end tags loop*/
                     } /* end tag count */
+                    /* Check related_machine array*/
+                    if(!empty($request->related_machine)){
+                        /* Delete previous Products*/
+                        //AssignedGeneralTag::where('p_id',$j)->delete();
+                        /* Iterate tags array*/
+                        foreach($request->related_machine as $i){
+                            if((SimilarProduct::where('child_product',$i)->where('master_product',$j)->count() > 0) || (SimilarProduct::where('master_product',$j)->count() >= 10)){
+                                continue;
+                            }else{
+                                SimilarProduct::create([
+                                    'master_product' => $j,
+                                    'child_product' => $i,
+                                ]);    
+                            }
+                            
+                        } /* end tags loop*/
+                    } /* end related_machine count */
+
+                    /* Check processingMachine array*/
+                    if(!empty($request->processingMachine)){
+                        /* Delete previous Products*/
+                        //AssignedGeneralTag::where('p_id',$j)->delete();
+                        /* Iterate tags array*/
+                        foreach($request->processingMachine as $i){
+                            if((ProcessingProduct::where('child_product',$i)->where('master_product',$j)->count() > 0) || (ProcessingProduct::where('master_product',$j)->count() >= 10)){
+                                \Log::info("product present");
+                                continue;
+                            }else{
+                                \Log::info($j);
+                                ProcessingProduct::create([
+                                    'master_product' => $j,
+                                    'child_product' => $i,
+                                ]);    
+                            }
+                            
+                        } /* end tags loop*/
+                    } /* end related_machine count */
+
+                    /* Check accessories array*/
+                    if(!empty($request->accessories)){
+                        /* Delete previous Products*/
+                        //AssignedGeneralTag::where('p_id',$j)->delete();
+                        /* Iterate tags array*/
+                        \Log::info($j);
+                        foreach($request->accessories as $i){
+                            if((AccessoriesProduct::where('child_product',$i)->where('master_product',$i)->count() > 0) || (AccessoriesProduct::where('master_product',$j)->count() > 10)){
+                                \Log::info("product present");
+                                continue;
+                            }else{
+                                AccessoriesProduct::create([
+                                    'master_product' => $j,
+                                    'child_product' => $i,
+                                ]);    
+                            }
+                            
+                        } /* end tags loop*/
+                    } /* end related_machine count */
+                    
                     /* Assigned to products*/
                     $data = [];
                     if($request->product_theme_id== 0 || $request->product_theme_id == 1 || $request->product_theme_id == 2){
@@ -95,11 +156,53 @@ class ProductController extends Controller
                 ->join('products as p','p.id','=','at.p_id')
                 ->where('p.id',$id)
                 ->get(['t.*','at.p_id']);
-        return view('product/view-tags',compact('data'));
+        return view('product.view-tags',compact('data'));
     }
+
+    public function viewRelatedMachines($id){
+        $data = DB::table('similar_products as sp')
+                ->join('products as p','p.id','=','sp.child_product')
+                ->select(['p.p_title','p.p_short_desc','p.p_slug','p.p_main_image','p.id'])
+                ->where('sp.master_product',$id)
+                ->get();
+                
+        return view('product.view-related-machine',compact('data','id'));
+    }
+    public function viewProcessingSystem($id){
+        $data = DB::table('processing_product as sp')
+                ->join('products as p','p.id','=','sp.child_product')
+                ->select(['p.p_title','p.p_short_desc','p.p_slug','p.p_main_image','p.id'])
+                ->where('sp.master_product',$id)
+                ->get();
+        return view('product.view-processing-system',compact('data','id'));
+    }
+    public function viewAccessories($id){
+        $data = DB::table('accessories_product as sp')
+                ->join('products as p','p.id','=','sp.child_product')
+                ->select(['p.p_title','p.p_short_desc','p.p_slug','p.p_main_image','p.id'])
+                ->where('sp.master_product',$id)
+                ->get();
+        return view('product.view-accessories',compact('data','id'));
+    }
+
     public function tag_delete($id,$p_id){
         AssignedGeneralTag::where('tag_id',$id)->where('p_id',$p_id)->delete();
         return redirect()->back()->with('message','Tag Unassigned successfully..');
+        
+    }
+    public function related_product_delete($id,$p_id){
+        SimilarProduct::where('child_product',$id)->where('master_product',$p_id)->delete();
+        return redirect()->back()->with('message','Related Product Deleted successfully..');
+        
+    }
+    public function processing_product_delete($id,$p_id){
+        ProcessingProduct::where('child_product',$id)->where('master_product',$p_id)->delete();
+        return redirect()->back()->with('message','Processing Product Deleted successfully..');
+        
+    }
+    public function accessories_product_delete($id,$p_id){
+        AccessoriesProduct::where('child_product',$id)->where('master_product',$p_id)->delete();
+        return redirect()->back()->with('message','Accessory Product Deleted successfully..');
         
     }
     function create(){

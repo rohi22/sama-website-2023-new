@@ -45,7 +45,7 @@
     </style>
 @endpush
 @section('content')
-@include('revamp.components.video_modal')
+    @include('revamp.components.video_modal')
     <section class="py-0 PLBanner top-banner">
         <div class="container-fluid">
             <div class="row">
@@ -86,9 +86,32 @@
         <div class="container">
             <div class="row d-flex align-items-center py-5">
                 <div class="col-lg-6 py-5 pb-4">
-                    <h1 class="mb-2">{{ $product->p_title }}<br> <span
-                            class="text-TColor">{{ $product->cat_title }}</span></h1>
-                    <h3 class="mb-4">P-{{ $product->id + 1000 }}</h3>
+
+                    @php
+                        
+                        $title = $product->p_title;
+                        
+                        // Split the title into an array of words using either space or hyphen as separators
+                        $words = preg_split('/[\s-]+/', $title);
+                        if(strpos($title, '-') !== false){
+                            // Get the first three words of the title
+                            $firstThreeWords = implode('-', array_slice($words, 0, 3));
+                        }else{
+                            $firstThreeWords = implode(' ', array_slice($words, 0, 3));
+                        }
+                        // Wrap the first three words in a span element with a CSS class for styling
+                        $redText = "<span style='color: red;'>{$firstThreeWords}</span>";
+                        
+                        // Replace the original first three words with the colored text
+                        $coloredTitle = str_replace($firstThreeWords, $redText, $title);
+                        
+                    @endphp
+                    <h1 class="mb-2">@php echo $coloredTitle @endphp
+                        <!-- <br>
+                                     <span class="text-TColor">{{ $product->cat_title }}</span> -->
+                    </h1>
+
+                    <h3 class="mb-4">@if(isset($product->sku)) {{$product->sku}} @else P-{{ $product->id + 1000 }} @endif</h3>
                     <p>
                         {!! $product->p_short_desc !!}
                     </p>
@@ -138,13 +161,34 @@
             </div>
         </div>
     </section>
-    <section class="py-0 d-none">
+    <section class="py-0 @if(count($accessoriesProduct)==0) d-none @endif">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pt-5 pb-4">
                     <h2>Additional Accessories</h2>
                 </div>
-                <div></div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-1" role="tabpanel"
+                                aria-labelledby="pills-1-tab" tabindex="0">
+
+                                <div class="row">
+                                    <div class="col-lg-12 MachineSlider owl-carousel mt-3">
+                                        @forelse($relatedProduct as $item)
+                                            @php
+                                                $similar = App\Product::find($item->child_product);
+                                            @endphp
+                                            @include('revamp.components.product', ['item' => $similar])
+                                        @empty
+                                        @endforelse
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -156,21 +200,21 @@
                         <h2>Similar {{ $data->cat_title }}</h2>
                     @endif
                 </div>
+            </div>
+
+            <div class="row">
                 <div class="col-lg-12">
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab"
-                            tabindex="0">
-                            <div class="row">
-                                @forelse($similarProduct as $sp)
-                                    <div class="col-lg-6">
-
-                                        @include('revamp.components.product2', ['item' => $sp])
-                                    </div>
-                                @empty
-                                @endforelse
-
-                            </div>
-                        </div>
+                    <div class="col-lg-6 TwoItemSlider owl-carousel mt-3">
+                        @forelse ($processingProduct as $item)
+                            @php
+                                $similar = App\Product::find($item->child_product);
+                            @endphp
+                            @include('revamp.components.product2', ['item' => $similar])
+                        @empty
+                            @foreach ($similarProduct as $item)
+                                @include('revamp.components.product2', ['item' => $item])
+                            @endforeach
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -180,19 +224,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 pt-5 pb-4">
-                    <h2>{{ isset($data->cat_title) ? $data->cat_title : null }}</h2>
+                    <h2>Other Machines</h2>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-1" role="tabpanel"
                             aria-labelledby="pills-1-tab" tabindex="0">
+
                             <div class="row">
-                                @forelse($categoryProduct as $item)
-                                    <div class="col-lg-3">
-                                        @include('revamp.components.product', ['item' => $item])
-                                    </div>
-                                @empty
-                                @endforelse
+                                <div class="col-lg-12 MachineSlider owl-carousel mt-3">
+                                    @forelse($relatedProduct as $item)
+                                        @php
+                                            $similar = App\Product::find($item->child_product);
+                                        @endphp
+                                        @include('revamp.components.product', ['item' => $similar])
+                                    @empty
+                                        @foreach ($categoryProduct as $item)
+                                            @include('revamp.components.product', ['item' => $item])
+                                        @endforeach
+                                    @endforelse
+                                </div>
 
                             </div>
                         </div>
@@ -204,25 +257,25 @@
 @endsection
 
 @push('scripts')
-<script>
-    $(document).ready(function() {
-        var url = null;
+    <script>
+        $(document).ready(function() {
+            var url = null;
 
-        $(document).on('click', '.video-btn', function() {
-            url = $(this).data('href');
-            $('#myModal').modal('show');
-        });
+            $(document).on('click', '.video-btn', function() {
+                url = $(this).data('href');
+                $('#myModal').modal('show');
+            });
 
-        $("#myModal").on('hide.bs.modal', function() {
-            $("#videoFrame").attr('src', '');
-        });
+            $("#myModal").on('hide.bs.modal', function() {
+                $("#videoFrame").attr('src', '');
+            });
 
-        $("#myModal").on('show.bs.modal', function() {
-            $("#videoFrame").attr('src', url);
+            $("#myModal").on('show.bs.modal', function() {
+                $("#videoFrame").attr('src', url);
+            });
+            $('#myModal').on('click', '.close', function() {
+                $('#myModal').modal('hide');
+            });
         });
-        $('#myModal').on('click', '.close', function() {
-            $('#myModal').modal('hide');
-        });
-    });
-</script>
+    </script>
 @endpush

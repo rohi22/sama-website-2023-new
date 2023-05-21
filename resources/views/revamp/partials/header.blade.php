@@ -18,87 +18,18 @@ button.fa.fa-search.search-btn.sb {
     flex-wrap: wrap;
     align-items: stretch;
     width: 100%;
-    margin-top: 3px;
+}
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-form-control-bg);
+    border-color: #ec2424;
+    outline: 0;
+    box-shadow: 0 0 0 -0.75rem rgb(0 0 0);
 }
 a.customwork {
     position: relative;
     padding: 0px !important;
     font-size: 15px !important;
-}
-/* .btnS {
-    margin-top: 7px;
-    background-color: #cf1d25;
-    color: #fff;
-    border: none!important;
-    font-size: 1.4rem;
-    padding: 0.1rem 0.5rem;
-    font-size:19px !important;
-} */
-.Hotbg
-{
-    position: absolute;
-    top: 50%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    background: #cf1d25;
-    height: 40px;
-    border-radius: 40px;
-    padding: 10px;
-}
-
-.Hotbg:hover > .Hotbg-txt
-{
-  width: 145px;
-  padding: 0px 9px;
-  margin-top: -8px;
-}
-
-.Hotbg:hover > .Hotbg-btn
-{
-    background: #9d1b1e;
-    color: white;
-}
-
-.Hotbg-btn
-{
-    color: #e84118;
-    float: right;
-    margin-top: -10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-    color: red;
-    cursor: pointer;
-}
-
-.Hotbg-btn > i
-{
-    font-size-adjust: 30px;
-}
-
-a
-{
-    text-decoration: none;
-}
-
-.Hotbg-txt
-{
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 0px;
-    font-weight: bold;
 }
 
 .dropdown-content {
@@ -139,6 +70,7 @@ header.fixed {
   border-radius: 5px;
 }
 
+
 .sama-header-row {
   display: flex;
   align-items: center;
@@ -161,6 +93,7 @@ header.fixed {
   content: '\f00d';
 }
 a.sama-toggle-selector {
+  margin-left: -110%;
   background-color: transparent;
   float: left;
   color: #fff;
@@ -355,124 +288,43 @@ a.logo-sidebar {
     img.img-responsive.main-log-navs {
       width: 55% !important;
     }
-    .Hotbg-txt {
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 5px;
-    width: 58px;
-    font-weight: bold;
-}
-    .Hotbg {
-    position: absolute;
-    top: 50%;
-    left: 62%;
-    transform: translate(-50%, -50%);
-    background: #cf1d25;
-    height: 30px;
-    border-radius: 40px;
-    padding: 6px;
-}
-.Hotbg-btn {
-    color: #e84118;
-    float: right;
-    margin-top: -6px;
-    width: 40px;
-    height: 30px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-    color: red;
-    cursor: pointer;
-}
-
-.Hotbg:hover > .Hotbg-txt
-{
-  width: 82px;
-  padding: 0px 9px;
-  margin-top: 0px;
-}
+    i.fa.fa-search{
+      position: absolute;
+      left: 93%;
+      top: -290%;
+      font-size: 24px;
+    }
 img.img-responsive.main-log-navs {
   margin-right: 85px;
 }
   }
-  @media screen and (max-width:375px) {
+  @media only screen and (max-width:375px) {
     img.img-responsive.main-log-navs {
       width: 55% !important;
     }
-    {
-      width: 70px;
-      padding: 0px 9px;
-      margin-top: 0px;
+    i.fa.fa-search{
+      position: absolute;
+      left: 90%;
+      top: -235%;
+      font-size: 16px
     }
-    .Hotbg-txt {
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 22px;
-    width: 58px;
-    font-weight: bold;
-}
   }
   @media screen and (max-width:320px) {
     img.img-responsive.main-log-navs {
       width: 55% !important;
     }
-    .Hotbg:hover > .Hotbg-txt
-    {
-      width: 70px;
-      padding: 0px 9px;
-      margin-top: 0px;
-    }
-    img.img-responsive.main-log-navs {
-      margin-right: 100px;
-    }
-    .Hotbg-btn {
-    color: #e84118;
-    float: right;
-    margin-top: -6px;
-    width: 25px;
-    height: 30px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
-    color: red;
-    cursor: pointer;
-}
-.Hotbg-txt:hover {
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 0;
-    width: 58px;
-    font-weight: bold;
-}
   }
 @media only screen and (min-width: 981px) and (max-width: 1200px) {
   .sam-nav .nav-col {
     flex-direction: row !important;
   }
+  i.fa.fa-search{
+    position: absolute;
+    left: 92%;
+    top: -440%;
+    font-size: 29px;
+    }
+ 
 
   .logo-header .container,
   .top-header .container {
@@ -493,6 +345,94 @@ img.img-responsive.main-log-navs {
       font-size: 14px;
     }
   }
+  a.fa.fa-search.search-btn.sb.customwork:hover {
+    background: #ec2424;
+    color: #f7f7f7;
+}
+i.menu-btn.fa.fa-bars.custm {
+    position: relative;
+    top: -243px;
+    left: 23px;
+}
+
+.menu li a {
+  color: inherit;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+.menu li a:hover {
+  text-decoration: underline;
+}
+
+.search {
+  position: relative;
+  padding-bottom: 15px;
+  bottom: -7px;
+}
+
+.search-input::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+.search-input {
+    height: 0px;
+    border: none;
+    position: absolute;
+    left: -11px;
+    visibility: hidden;
+    opacity: 0;
+    top: 5px;
+    background: #ec2424;
+    color: white;
+    padding: 6px;
+    font-size: 12px;
+    outline: none;
+    width: 113%;
+    transition: 80ms all ease-in;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: none;
+}
+
+.search-button {
+  background:transparent;
+  color: #262626;
+  cursor: pointer;
+  font-size: 14px;
+  padding-top: 4px;
+}
+
+.search-button:hover + .search-input, .search-input:hover, .search:hover .search-input {
+  visibility: visible !important;
+  border-radius: inherit;
+  opacity: 1 !important;
+  z-index: 9 !important;
+  box-shadow: 0px 3px 0px #fff;
+  height: 40px !important;
+}
+
+@media only screen and (min-width: 992px) {
+  i.fa.fa-search{
+  display: none !important;
+  }
+  input.search-input{
+    display: none !important: 
+  }
+  .search-button:hover + .search-input, .search-input:hover, .search:hover .search-input{
+    visibility: hidden;
+    display:  none !important;
+  }
+}
+@media only screen and (min-width: 768px) {
+  i.fa.fa-search{
+      position: absolute;
+      left: 90%;
+      top: -400% !important;
+      font-size: 22px !important;
+    }
+}
 </style>
 <header id="Header">
    <div class="THeader bg-TColor text-white top-header">
@@ -514,13 +454,18 @@ img.img-responsive.main-log-navs {
                      <li><a href="{{route('eCatalogue')}}">E-Catalogue</a></li>
                      <li>
                      <div class="input-group" style="">
-                      <input type="text" style="width:150px !important;height:30px;font-size:12px;" placeholder="Search.." 
+                     <form method="get" action="{{route('revamp.search')}}">
+                      <input type="text" style="width:150px !important;height: 37px; border-radius: initial; font-size:12px;" placeholder="Search.." 
                       class="myeditclass form-control" name="search" value="">
-                      <a class="customwork" href="{{route('revamp.search')}}">
-                        <button type="submit" 
-                          class="fa fa-search search-btn sb" style="padding:6px;margin-right:0px; height: 31px;" value="Search">
-                        </button>
-                      </a>
+                      <button type="submit" class="fa fa-search search-btn sb customwork" style="position: absolute; top: 11px; right: -25px; border-inline-end-style: none; 
+                        border-bottom-style: none; margin-top: -11px; border-color: #ec2424;padding:6px;margin-right:0px; height: 37px;"
+                         value="Search" href="{{route('revamp.search')}}">
+                      </button>
+                        <!-- <button type="submit" 
+                          >
+                        </button> -->
+                      </form>
+                      <!-- </a> -->
                     </div>
                     </li>
                   </ul>
@@ -621,16 +566,24 @@ img.img-responsive.main-log-navs {
    </div>
 
    <div class="mobo-menu container-fluid headereffect customheight">
-      <div class="row sama-header-row">
+      <div class="sama-header-row">
         <div class="col-2 menu-col">
-            <nav class="pushy pushy-left sama-nav-mob" data-focus="#first-link">
+            <nav class="pushy pushy-left  sama-nav-mob" data-focus="#first-link">
             <div class="btn-box text-center sama-toggle sama-inner-toggle" style="padding-bottom:0px;">
             <a class="sama-toggle-selector">
-            <i class="menu-btn fa fa-bars"></i>    
+            <i class="menu-btn fa fa-bars custm"></i>    
             </a>
          </div>
             <div class="pushy-content">
-               <!--<a class="logo-sidebar "href="{{url('/revamp')}}"><img src="https://www.samaengineering.com/uploads/logos/samalogo.png" height="50px" alt="Logo"></a>-->
+            <div class="">
+                <a href="#" class="close-nav" style="position: absolute; left: 84%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M18 6L6 18M6 6l12 12" stroke="#de1a23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+               <a class="logo-sidebar "href="{{url('/revamp')}}"><img src="https://www.samaengineering.com/uploads/logos/samalogo.png" height="50px" alt="Logo"></a>
                <a class="logo-sidebar "href="{{url('/revamp')}}"><h2 style="color:#fff; font-size:20px; font-weight:600;">Sama Engineering</h2></a>
                <ul class="sama-ul">
                   @forelse($categories as $parent)
@@ -680,31 +633,12 @@ img.img-responsive.main-log-navs {
                 </a>
             </div>
          </div>
-        <div class="col-6 logo-col">
+        <div class="col-8 logo-col">
          <div class="logo">
             <a href="{{url('/revamp')}}"><img src="https://www.samaengineering.com/uploads/logos/logo-mobile.jpeg" alt="" class="img-responsive main-log-navs">
             </a>
          </div>
-         <!-- <div class="Hotbg">
-            <input type="text" name="" class="Hotbg-txt" placeholder="Search >>>">
-            <a href="#" class="Hotbg-btn">
-                <i class="fa fa-search"></i>
-            </a>
-        </div> -->
-         <!-- <div class="button-box">
-          <button class="btnS"><a style="text-decoration:none;color:white;" href="">Search</a></button>
-        </div> -->
         </div>
-        <div class="col-2 logo-col">
-         <div class="Hotbg">
-            <input type="text" name="" class="Hotbg-txt" placeholder="Search >>>">
-            <a  href="{{route('revamp.search')}}" class="Hotbg-btn">
-                <i class="fa fa-search"></i>
-            </a>
-        </div>
-         <!-- <div class="button-box">
-          <button class="btnS"><a style="text-decoration:none;color:white;" href="">Search</a></button>
-        </div> -->
         </div>
 
 
@@ -726,11 +660,61 @@ img.img-responsive.main-log-navs {
          <!--                    </div>-->
          <!--                </div>-->
          <!--</div>-->
+         <div class="row">
+           <div class="col-md-12">
+           <div class="search">
+             <div class="search-content">
+               <a class="search-button" id="show-search-box"><i style="position: absolute; left: 90%; top: -290%; font-size: 22px;" class="fa fa-search"></i></a>
+               <input type="text" class="search-input" id="hidden-search-box" style="display: none;" placeholder="Search Here...">
+               <i class="fa fa-times close-icon" style="position: absolute; left: 90%; top: -290%; font-size: 22px; display: none;"></i>
+             </div>
+           </div>
+           </div>
+         </div>
       </div>
    </div>
 </header>
 
 <script>
-  // <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-</script>
+//   $('.sama-toggle-selector').click(function(){
+//   $("body").toggleClass("pushy-open-left");
+// })
+  // <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
+  // </script>
 
+</script>
+<script>
+    $(document).ready(function() {
+        $('.sama-toggle-selector').click(function(e) {
+            e.stopPropagation();
+            $("body").toggleClass("pushy-open-left");
+        });
+
+        $('.close-nav').click(function(e) {
+            e.preventDefault();
+            $("body").removeClass("pushy-open-left");
+        });
+
+        $(document).on('click', function(e) {
+            if ($("body").hasClass("pushy-open-left") && !$(e.target).closest('.pushy').length && !$(e.target).hasClass('sama-toggle-selector')) {
+                $("body").removeClass("pushy-open-left");
+                // $(".close-icon").css("display","block")
+            }
+        });
+    });
+</script>
+<script>
+$(document).ready(function() {
+  $('#show-search-box').click(function() {
+    $('#show-search-box').hide();
+    $('#hidden-search-box').show();
+    $('.close-icon').show();
+  });
+
+  $('.close-icon').click(function() {
+    $('#hidden-search-box').hide();
+    $('.close-icon').hide();
+    $('#show-search-box').show();
+  });
+});
+</script>
