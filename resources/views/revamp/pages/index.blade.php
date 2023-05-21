@@ -123,7 +123,7 @@
 </style>
 @endpush
 @section('content')
-<section class="sama-section py-0 banner-section sama-first mobile_slider" style="display:none;padding-left:0px;padding-right:0px;>
+<section class="sama-section py-0 banner-section sama-first mobile_slider" style="display:none;padding-left:0px;padding-right:0px;">
    <div class="col-slider">
       <div class="MainSlider owl-carousel">
          @foreach($mobile_sliders as $i)
@@ -187,6 +187,7 @@
       </div>
    </div>
 </section>
+<!-- whats you industry -->
 <section class="sama-section bgSR sama-second">
    <div class="container">
       <div class="row">
@@ -216,6 +217,7 @@
       </div>
    </div>
 </section>
+<!-- packaging machine -->
 <section class="sama-section sama-third">
    <div class="container">
       <div class="row">
@@ -235,6 +237,7 @@
       </div>
    </div>
 </section>
+<!-- Processing Line -->
 <section class="sama-section bg-LGray bgSR  sama-fourth">
    <div class="container">
       <div class="row">

@@ -75,18 +75,21 @@
         .pagination a:hover:not(.active) {
             background-color: #ddd;
         }
+
         a.active.custom {
-        color: #ec2424;
-        font-weight: bold;
+            color: #ec2424;
+            font-weight: bold;
         }
+
         h4.handlefont {
-        color: black;
-        font-size: 13px;
+            color: black;
+            font-size: 13px;
         }
+
         div#hide_catalogue {
-        color: black;
-        font-size: 13px;
-        margin-top: -10px;
+            color: black;
+            font-size: 13px;
+            margin-top: -10px;
         }
     </style>
 
@@ -105,7 +108,7 @@
                         @endif
                     </a>
                     <!-- <a href="">DOSING DEVICES</a>
-                                                  <a href="">CASE PACKERS</a> -->
+                                                          <a href="">CASE PACKERS</a> -->
                 </div>
                 <!--  Breed Crumbs -->
             </div>
@@ -113,66 +116,21 @@
 
         <!--  Banner Machines -->
         <div class="container">
-            <div class="">
-                <div class="">
-                    <!--Link Slider -->
-                    <div class="dynamic-container">
-                        <!-- Dynamic Container -->
-                        <div class="dc-inner liquid-series">
-                            <!-- <h1 id="p_title">LIQUID SERIES</h1> -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab"
+                            tabindex="0">
                             <div style="top: 0;bottom:0;left: 0;right: 0; position: fixed;background: black;opacity: 0.9;z-index: 9999;display:none ;"
                                 id="overlap">
                                 <img src="{{ asset('loader.gif') }}"
                                     style="width: 30%;position: absolute;left: 35%;top: 20%;">
                             </div>
-                            <div class="row mt-5 mb-4">
+                            <div class="row" id="ajaxContent">
                                 <!--Tab -->
                                 @forelse($products as $p)
-                                    <div class="col-md-3 mb-4 tab">
-                                        <a href="{{ url('revamp/product/' . $p->p_slug) }}">
-                                            <div class="image custom">
-                                                <img class="img" src="{{ asset('uploads/product/' . $p->p_main_image) }}"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h4 class="handlefont">
-                                                    <?php
-                                                    $string = strip_tags($p->p_title);
-                                                    if (strlen($string) > 30) {
-                                                        // truncate string
-                                                        $stringCut = substr($string, 0, 30);
-                                                        $endPoint = strrpos($stringCut, ' ');
-                                                    
-                                                        //if the string doesn't contain any space then it will cut without word basis.
-                                                        $string = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                                        $string .= '...';
-                                                    }
-                                                    echo $string;
-                                                    ?>
-                                                </h4>
-                                            </div>
-                                            <div id="hide_catalogue" class="catg">
-                                                <?php
-                                                $string = strip_tags($p->p_short_desc);
-                                                if (strlen($string) > 70) {
-                                                    // truncate string
-                                                    $stringCut = substr($string, 0, 70);
-                                                    $endPoint = strrpos($stringCut, ' ');
-                                                
-                                                    //if the string doesn't contain any space then it will cut without word basis.
-                                                    $string = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                                    $string .= '...';
-                                                }
-                                                echo $string;
-                                                ?>
-                                            </div>
-                                        </a>
-                                        <div class="button-box">
-                                            <button class="btnbox"><a
-                                                    style="font-size:12px;text-decoration:none;color:white;"
-                                                    href="{{ url('revamp/product/' . $p->p_slug) }}">View
-                                                    Details</a></button>
-                                        </div>
+                                    <div class="col-lg-3">
+                                        @include('revamp.components.product', ['item' => $p])
                                     </div>
 
 
@@ -188,12 +146,10 @@
                     <!-- -Tab -->
                 </div>
             </div>
-            <!-- Dynamic Container -->
         </div>
+        <!-- Dynamic Container -->
     </div>
-    </div>
-    </div>
-    </div>
+
     <div class="pagination">
         <div class="row" id="pag">
             <div class="col-md-5"></div>

@@ -9,7 +9,8 @@
         </div>
         <div class="card-body">
             <h5 class="card-title mb-3 truncate-2">{{ $item->p_title }} {{ $item->p_category }}</h5>
-            <p class="card-text mb-4 truncate-2 sama-machine-des">{!! Illuminate\Support\Str::substr($item->p_short_desc, 10) !!}</p>
+            <p class="card-text mb-4 truncate-2 sama-machine-des">{!! Illuminate\Support\Str::substr($item->p_short_desc, 0,50) !!}</p>
+            
             <div class="d-flex flex-row">
                 @if (isset($item))
                     @php

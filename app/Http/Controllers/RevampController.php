@@ -15,6 +15,9 @@ use App\SparePart;
 use App\BecomeAgent;
 use App\SubscribeEmail;
 use App\Industry;
+use App\SimilarProduct;
+use App\ProcessingProduct;
+use App\AccessoriesProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mail;
@@ -300,7 +303,10 @@ class RevampController extends Controller
         if(empty($product)){
             return redirect('category/processing-line');
         }
-        
+
+        $relatedProduct = SimilarProduct::select('child_product')->where('master_product',$product->id)->get();
+        $processingProduct = ProcessingProduct::select('child_product')->where('master_product',$product->id)->get();
+        $accessoriesProduct = AccessoriesProduct::select('child_product')->where('master_product',$product->id)->get();
         $id         = $product->id;
         $p_mode     = $product->p_theme;
         $category   = $product->cat_title;
@@ -351,9 +357,9 @@ class RevampController extends Controller
                          ->take(2)
                         ->get(['products.*']);
         if($product->cat_id == 112){
-            return view('revamp.pages.detail2')->with(['categoryProduct' => $categoryProduct, 'similarProduct' => $similarProduct,'product'=>$product,'bag_images'=>$bag_images,'p_mode'=>$p_mode,'attributes'=>$attributes,'category'=>$category,'title'=>$slug,'data'=>$data,'tags'=>$tags]);
+            return view('revamp.pages.detail2')->with(['categoryProduct' => $categoryProduct, 'similarProduct' => $similarProduct,'product'=>$product,'bag_images'=>$bag_images,'p_mode'=>$p_mode,'attributes'=>$attributes,'category'=>$category,'title'=>$slug,'data'=>$data,'tags'=>$tags,'relatedProduct'=>$relatedProduct,'processingProduct'=>$processingProduct,'accessoriesProduct'=>$accessoriesProduct]);
         }
-        return view('revamp.pages.detail')->with(['categoryProduct' => $categoryProduct, 'similarProduct' => $similarProduct,'product'=>$product,'bag_images'=>$bag_images,'p_mode'=>$p_mode,'attributes'=>$attributes,'category'=>$category,'title'=>$slug,'data'=>$data,'tags'=>$tags]);
+        return view('revamp.pages.detail')->with(['categoryProduct' => $categoryProduct, 'similarProduct' => $similarProduct,'product'=>$product,'bag_images'=>$bag_images,'p_mode'=>$p_mode,'attributes'=>$attributes,'category'=>$category,'title'=>$slug,'data'=>$data,'tags'=>$tags,'relatedProduct'=>$relatedProduct,'processingProduct'=>$processingProduct,'accessoriesProduct'=>$accessoriesProduct]);
     }
     
     
