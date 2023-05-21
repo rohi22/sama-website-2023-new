@@ -403,6 +403,7 @@ section {
     color: var(--HColor);
     font-size: 20px;
     text-transform: capitalize;
+    line-height: 1.2em;
 }
 
 .PrCard .card-body {
@@ -1084,11 +1085,12 @@ ul.sam-ul li i {
 }
     .sama-product-card .card-body {
     padding-top: 3rem !important;
+    box-shadow: 0 -20px 53px -25px rgba(0,0,0,0.15);
 }
    .sama-product-card .sama-product-content {
     background: #F3F3F3;
-    box-shadow: 0 -8px 53px -25px rgba(0,0,0,0.15);
-    min-height: 440px;
+/*    box-shadow: 0 -8px 53px -25px rgba(0,0,0,0.15);*/
+    min-height: 310px;
 
 }
 
@@ -1096,6 +1098,7 @@ ul.sam-ul li i {
     position: relative;
     z-index: 1;
     top: 30px;
+    display: flex !important;
 }
 .sama-breadcrumbs li a {
     color: #000;
@@ -1112,6 +1115,8 @@ ul.pagination {
     width: 100%;
     justify-content: center;
     column-gap: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .pagination li .page-link {
@@ -1135,4 +1140,14 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 }
 .sama-product-card .sama-product-buttons .fa-file-pdf {
     font-family: 'Font Awesome 6 Free';
+}
+.sama-product-des {
+    display: none;
+}
+.sama-detail-product .sama-content-col {
+    box-shadow: 20px 0 53px -25px rgba(0,0,0,0.15);
+}
+
+.sama-detail-product .sama-product-title strong, .sama-detail-product .sama-product-title span {
+    color: #ec2424;
 }
