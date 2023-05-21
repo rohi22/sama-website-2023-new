@@ -132,9 +132,30 @@
         <div class="container">
             <div class="row d-lg-flex align-items-lg-center">
                 <div class="col-lg-6 pt-5 pb-4">
-                    <h1 class="mb-2">{{ $product->p_title }} <br><span class="text-TColor">{{ $data->cat_title }}</span>
+                    @php
+                        
+                        $title = $product->p_title;
+                        
+                        // Split the title into an array of words using either space or hyphen as separators
+                        $words = preg_split('/[\s-]+/', $title);
+                        
+                        if(strpos($title, ' ') !== false){
+                            // Get the first three words of the title
+                            $firstThreeWords = implode(' ', array_slice($words, 0, 3));
+                        }else{
+                            $firstThreeWords = implode('-', array_slice($words, 0, 3));
+                        }
+                        // Wrap the first three words in a span element with a CSS class for styling
+                        $redText = "<span style='color: red;'>{$firstThreeWords}</span>";
+                        
+                        // Replace the original first three words with the colored text
+                        $coloredTitle = str_replace($firstThreeWords, $redText, $title);
+                        
+                    @endphp
+                    <h1 class="mb-2">@php echo $coloredTitle @endphp
+                    <!-- <br><span class="text-TColor">{{ $data->cat_title }}</span> -->
                     </h1>
-                    <h3 class="mb-4">P-{{ $product->id + 1000 }}</h3>
+                    <h3 class="mb-4">@if(isset($product->sku)) {{$product->sku}} @else P-{{ $product->id + 1000 }} @endif</h3>
                     <div class="row">
                         @forelse($bag_images as $index=>$gallery)
                             <div class="col-3">

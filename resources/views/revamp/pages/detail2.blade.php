@@ -93,10 +93,12 @@
                         
                         // Split the title into an array of words using either space or hyphen as separators
                         $words = preg_split('/[\s-]+/', $title);
-                        
-                        // Get the first three words of the title
-                        $firstThreeWords = implode('-', array_slice($words, 0, 3));
-                        
+                        if(strpos($title, '-') !== false){
+                            // Get the first three words of the title
+                            $firstThreeWords = implode('-', array_slice($words, 0, 3));
+                        }else{
+                            $firstThreeWords = implode(' ', array_slice($words, 0, 3));
+                        }
                         // Wrap the first three words in a span element with a CSS class for styling
                         $redText = "<span style='color: red;'>{$firstThreeWords}</span>";
                         
@@ -109,7 +111,7 @@
                                      <span class="text-TColor">{{ $product->cat_title }}</span> -->
                     </h1>
 
-                    <h3 class="mb-4">P-{{ $product->id + 1000 }}</h3>
+                    <h3 class="mb-4">@if(isset($product->sku)) {{$product->sku}} @else P-{{ $product->id + 1000 }} @endif</h3>
                     <p>
                         {!! $product->p_short_desc !!}
                     </p>
