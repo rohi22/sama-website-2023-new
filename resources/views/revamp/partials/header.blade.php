@@ -93,6 +93,7 @@ header.fixed {
   content: '\f00d';
 }
 a.sama-toggle-selector {
+  margin-left: -110%;
   background-color: transparent;
   float: left;
   color: #fff;
@@ -379,11 +380,11 @@ i.menu-btn.fa.fa-bars.custm {
     height: 0px;
     border: none;
     position: absolute;
-    left: -10px;
+    left: -11px;
     visibility: hidden;
     opacity: 0;
     top: 5px;
-    background: #bf1212;
+    background: #ec2424;
     color: white;
     padding: 6px;
     font-size: 12px;
@@ -397,7 +398,7 @@ i.menu-btn.fa.fa-bars.custm {
 
 .search-button {
   background:transparent;
-  color: #ee1f27;
+  color: #262626;
   cursor: pointer;
   font-size: 14px;
   padding-top: 4px;
@@ -408,8 +409,8 @@ i.menu-btn.fa.fa-bars.custm {
   border-radius: inherit;
   opacity: 1 !important;
   z-index: 9 !important;
-  box-shadow: 1px 3px 4px #E6E6E6;
-  height: 35px !important;
+  box-shadow: 0px 3px 0px #fff;
+  height: 40px !important;
 }
 
 @media only screen and (min-width: 992px) {
@@ -574,6 +575,14 @@ i.menu-btn.fa.fa-bars.custm {
             </a>
          </div>
             <div class="pushy-content">
+            <div class="">
+                <a href="#" class="close-nav" style="position: absolute; left: 84%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M18 6L6 18M6 6l12 12" stroke="#de1a23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
                <a class="logo-sidebar "href="{{url('/revamp')}}"><img src="https://www.samaengineering.com/uploads/logos/samalogo.png" height="50px" alt="Logo"></a>
                <a class="logo-sidebar "href="{{url('/revamp')}}"><h2 style="color:#fff; font-size:20px; font-weight:600;">Sama Engineering</h2></a>
                <ul class="sama-ul">
@@ -655,10 +664,9 @@ i.menu-btn.fa.fa-bars.custm {
            <div class="col-md-12">
            <div class="search">
              <div class="search-content">
-               <a class="search-button"><i style="position: absolute; left: 90%; top: -290%; font-size: 22px;" class="fa fa-search"></i></a>
-               <form method="get" action="{{route('revamp.search')}}" id="searchForm">
-               <input type="text" name="search" id="searchField" class="search-input" placeholder="Search here...">
-               </form>
+               <a class="search-button" id="show-search-box"><i style="position: absolute; left: 90%; top: -290%; font-size: 22px;" class="fa fa-search"></i></a>
+               <input type="text" class="search-input" id="hidden-search-box" style="display: none;" placeholder="Search Here...">
+               <i class="fa fa-times close-icon" style="position: absolute; left: 90%; top: -290%; font-size: 22px; display: none;"></i>
              </div>
            </div>
            </div>
@@ -668,16 +676,45 @@ i.menu-btn.fa.fa-bars.custm {
 </header>
 
 <script>
-  $('.sama-toggle-selector').click(function(){
-  $("body").toggleClass("pushy-open-left");
-})
-$('#searchField').keypress(function (e) {
-  if (e.which == 13) {
-    $('#searchForm').submit();
-    return false;    //<---- Add this line
-  }
-});
+//   $('.sama-toggle-selector').click(function(){
+//   $("body").toggleClass("pushy-open-left");
+// })
   // <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js">
   // </script>
 
+</script>
+<script>
+    $(document).ready(function() {
+        $('.sama-toggle-selector').click(function(e) {
+            e.stopPropagation();
+            $("body").toggleClass("pushy-open-left");
+        });
+
+        $('.close-nav').click(function(e) {
+            e.preventDefault();
+            $("body").removeClass("pushy-open-left");
+        });
+
+        $(document).on('click', function(e) {
+            if ($("body").hasClass("pushy-open-left") && !$(e.target).closest('.pushy').length && !$(e.target).hasClass('sama-toggle-selector')) {
+                $("body").removeClass("pushy-open-left");
+                // $(".close-icon").css("display","block")
+            }
+        });
+    });
+</script>
+<script>
+$(document).ready(function() {
+  $('#show-search-box').click(function() {
+    $('#show-search-box').hide();
+    $('#hidden-search-box').show();
+    $('.close-icon').show();
+  });
+
+  $('.close-icon').click(function() {
+    $('#hidden-search-box').hide();
+    $('.close-icon').hide();
+    $('#show-search-box').show();
+  });
+});
 </script>
