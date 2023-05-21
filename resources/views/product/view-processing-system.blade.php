@@ -17,13 +17,13 @@
     <!-- ============================================================== -->
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h4 class="text-themecolor">View Tags</h4>
+            <h4 class="text-themecolor">View Processing System</h4>
         </div>
         <div class="col-md-7 align-self-center text-right">
             <div class="d-flex justify-content-end align-items-center">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active">View Tags</li>
+                    <li class="breadcrumb-item active">View Processing System</li>
                 </ol>
             </div>
         </div>
@@ -52,9 +52,7 @@
                                                 <th>Description</th>
                                                 <th>Slug</th>
                                                 <th>OG Image</th>
-                                                <th>Icon</th>
-                                                <th>Meta Description</th>
-                                                <th>Meta Keywords</th>
+                                                
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -62,14 +60,12 @@
                                             @foreach($data as $k=>$v)
                                                 <tr>
                                                     <td>{{$k+1}}</td>
-                                                    <td>{{$v->gt_title}}</td>
-                                                    <td>{!! $v->gt_desc !!}</td>
-                                                    <td>{{$v->gt_slug}}</td>
-                                                    <td><img src="{{url('uploads/tags/'.$v->gt_og_img)}}" style="width: 100px;height: 60px;"></td>
-                                                    <td><img src="{{url('uploads/tags/'.$v->gt_icon)}}" style="width: 100px;height: 60px;"></td>
-                                                    <td>{!! $v->gt_meta_desc !!}</td>
-                                                    <td>{!! $v->gt_meta_key_words !!}</td>
-                                                    <td><a style="cursor:pointer;" onclick="remove({{$v->id}},{{$v->p_id}})"><i class="far fa-trash-alt" title="Delete" style="color:red;padding:5px;"></i></a></td>
+                                                    <td>{{$v->p_title}}</td>
+                                                    <td>{!! $v->p_short_desc !!}</td>
+                                                    <td>{{$v->p_slug}}</td>
+                                                    <td><img src="{{url('uploads/product/'.$v->p_main_image)}}" style="width: 100px;height: 60px;"></td>
+                                                    
+                                                    <td><a style="cursor:pointer;" onclick="remove({{$v->id}},{{$id}})"><i class="far fa-trash-alt" title="Delete" style="color:red;padding:5px;"></i></a></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -90,7 +86,7 @@
  function remove(id,p_id){
             let r = confirm("Are you sure?" );
             if (r === true) {
-                window.location="<?php echo url('/product/tag-delete/'); ?>/"+id+"/"+p_id;
+                window.location="<?php echo url('/product/processing-product-delete/'); ?>/"+id+"/"+p_id;
             }
         }
 </script>

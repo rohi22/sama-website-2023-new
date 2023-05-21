@@ -272,7 +272,13 @@ Route::group(['middleware' => 'usersession'], function () {
     Route::post('/product/assign-actions','ProductController@assign_actions');
     Route::get('/product/view-product/{id}','ProductController@view_product');
     Route::get('/product/view-tags/{id}','ProductController@view_tags');
+    Route::get('/product/view-related-machine/{id}','ProductController@viewRelatedMachines');
+    Route::get('/product/view-processing-system/{id}','ProductController@viewProcessingSystem');
+    Route::get('/product/view-accessories/{id}','ProductController@viewAccessories');
     Route::get('/product/tag-delete/{id}/{p_id}','ProductController@tag_delete');
+    Route::get('/product/related-product-delete/{id}/{p_id}','ProductController@related_product_delete');
+    Route::get('/product/processing-product-delete/{id}/{p_id}','ProductController@processing_product_delete');
+    Route::get('/product/accessories-product-delete/{id}/{p_id}','ProductController@accessories_product_delete');
     
     /*
     |--------------------------------------------------------------------------

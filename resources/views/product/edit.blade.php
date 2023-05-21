@@ -90,7 +90,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="control-label text-right col-md-3">SKU</label>
+                                        <label class="control-label text-right col-md-3">Machine Code</label>
                                         <div class="col-md-9">
                                             <input type="text" class="form-control form-control-danger"  name="p_sku" value="{{ $data->sku }}" id="sku">
                                             <small class="form-control-feedback color" id="sku_error"></small> 

@@ -7,7 +7,6 @@
         manufacturing of High-Quality Packaging and Food Processing machinery and all types of Packaging services in
         Pakistan. />
 @endsection
-
 @section('og_page_wise')
     <meta property="og:locale" content="en_PK">
     <meta property="og:type" content="website">
@@ -17,7 +16,6 @@
     <meta property="og:url" content="{{ URL::current() }}">
     <meta property="og:site_name" content="SAMA ENGINEERING">
 @endsection
-
 @section('twitter')
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{!! $logos->meta_title !!}">
@@ -26,8 +24,6 @@
     <meta name="twitter:site" content="@InsectMarketing">
     <meta name="twitter:creator" content="@InsectMarketing">
 @endsection
-
-
 @section('content')
     <style>
         .search-btn {
@@ -37,15 +33,12 @@
             padding-left: 5px;
             padding-right: 5px;
         }
-
         .customheight {
             height: 60px !important;
         }
-
         .image.custom .img {
             width: 90% !important;
         }
-
         .btnbox {
             margin-top: 10px;
             background-color: #cf1d25;
@@ -54,7 +47,6 @@
             font-size: 1.4rem;
             padding: 0.1rem 0.5rem;
         }
-
         .pagination a {
             color: #cf1d25;
             float: left;
@@ -62,16 +54,13 @@
             text-decoration: none;
             transition: background-color .3s;
         }
-
         .pagination {
             justify-content: center;
         }
-
         .pagination a.active {
             background-color: #cf1d25;
             color: white;
         }
-
         .pagination a:hover:not(.active) {
             background-color: #ddd;
         }
@@ -90,6 +79,7 @@
         }
     </style>
 
+  
     <!-- Four-Tabs -->
     <div class="changer-box vertFlowPack">
         <div class="container-fluid bg-breed-crumb" style="background:#e2e2e2;">
@@ -176,12 +166,20 @@
                                     </div>
 
 
+
+    
+        
+          
+    
+
+        
+        
+  
                                 @empty
                                     <div class="alert alert-warning" style="text-align:center;">
                                         <p>No Record Found</p>
                                     </div>
                                 @endforelse
-
                             </div>
                         </div>
                     </div>
@@ -197,6 +195,17 @@
     <div class="pagination">
         <div class="row" id="pag">
             <div class="col-md-5"></div>
+
+    
+          
+            
+    
+
+          
+          
+    
+    
+  
             <div class="col-md-2 text-center">
                 <?php echo $products->links(); ?>
             </div>
