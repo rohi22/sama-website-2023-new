@@ -31,7 +31,7 @@
 @endpush
 @section('content')
 @include('revamp.components.video_modal')
-<section class="py-0">
+<!-- <section class="py-0">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 pt-5 pb-4">
@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 @include('revamp.pages.sub_category_slider')
 <section class="py-3 bg-LGray">
     <div class="container">
