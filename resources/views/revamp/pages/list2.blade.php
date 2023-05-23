@@ -40,6 +40,7 @@
         </div>
     </div>
 </section>
+@include('revamp.pages.sub_category_slider')
 <section class="py-3 bg-LGray">
     <div class="container">
         <div class="row">

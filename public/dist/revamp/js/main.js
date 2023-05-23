@@ -51,6 +51,31 @@ if($(".MachineSlider").length){
       }
     });
 }
+
+if ($(".CategorySlider").length) {
+    $(".CategorySlider").owlCarousel({
+      autoplay: true,
+      loop: true,
+      margin: 15,
+      dots: true,
+      nav: false,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 2
+        },
+        992: {
+          items: 2
+        },
+        1200: {
+          items: 5
+        }
+      },
+      navText: ["", ""]
+    });
+  }
+  
+
 if($(".ProcessSlider").length){
     $(".ProcessSlider").owlCarousel({
       autoplay: true,

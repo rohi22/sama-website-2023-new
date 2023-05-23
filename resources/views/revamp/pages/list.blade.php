@@ -1,23 +1,23 @@
 @extends('revamp.layouts.scaffold')
 @section('main')
-    <meta name="description" content="{{ $cat_head->cat_meta_desc }}" />
+<meta name="description" content="{{ $cat_head->cat_meta_desc }}" />
 @endsection
 @section('og_product_wise')
-    <meta property="og:type" content="product.item">
-    <meta property="og:title" content="{{ ucfirst($cat_head->cat_meta_title) }} - SAMA ENGINEERING">
-    <meta property="og:url" content="{{ URL::current() }}">
-    <meta property="og:image" content="{{ asset('uploads/' . $cat_head->cat_og_img) }}">
-    <meta property="product:condition" content="new">
+<meta property="og:type" content="product.item">
+<meta property="og:title" content="{{ ucfirst($cat_head->cat_meta_title) }} - SAMA ENGINEERING">
+<meta property="og:url" content="{{ URL::current() }}">
+<meta property="og:image" content="{{ asset('uploads/' . $cat_head->cat_og_img) }}">
+<meta property="product:condition" content="new">
 @endsection
 @section('twitter')
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ ucfirst($cat_head->cat_meta_title) }} - SAMA ENGINEERING">
-    <meta name="twitter:description" content="{{ $cat_head->cat_meta_desc }}">
-    <meta name="twitter:site" content="@SAMAENGINEERING">
-    <meta name="twitter:creator" content="@SAMAENGINEERING">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ ucfirst($cat_head->cat_meta_title) }} - SAMA ENGINEERING">
+<meta name="twitter:description" content="{{ $cat_head->cat_meta_desc }}">
+<meta name="twitter:site" content="@SAMAENGINEERING">
+<meta name="twitter:creator" content="@SAMAENGINEERING">
 @endsection
 @push('title') @if (!empty($cat_head))
-    {{ $cat_head->cat_meta_title }} -
+{{ $cat_head->cat_meta_title }} -
 @endif
 @endpush
 @push('styles')
@@ -42,12 +42,12 @@
             <div class="col-lg-12">
                 <ul class="menu-carousel owl-carousel py-5">
                     @forelse($subcategories as $i)
-                        <li>
-                            <a href="{{ asset('revamp/sub-category/' . $i->cat_slug) }}">
-                                <span><img src="{{ asset('uploads/' . $i->cat_icon) }}" /></span>
-                                <span>{{ $i->cat_title }}</span>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="{{ asset('revamp/sub-category/' . $i->cat_slug) }}">
+                            <span><img src="{{ asset('uploads/' . $i->cat_icon) }}" /></span>
+                            <span>{{ $i->cat_title }}</span>
+                        </a>
+                    </li>
                     @empty
                     @endforelse
                 </ul>
@@ -55,6 +55,8 @@
         </div>
     </div>
 </section>
+<!-- Sub catergory slider -->
+@include('revamp.pages.sub_category_slider')
 <section class="py-3 bg-LGray">
     <div class="container">
         <div class="row">
@@ -65,7 +67,7 @@
                     </li>
                     <li class="text-TColor active">
                         @if (isset($slug))
-                            <a href="{{ url('category/' . $slug) }}">{{ ucwords(str_slug($slug, ' ')) }} </a>
+                        <a href="{{ url('category/' . $slug) }}">{{ ucwords(str_slug($slug, ' ')) }} </a>
                         @endif
                     </li>
                 </ul>
@@ -77,32 +79,36 @@
     <div class="container">
         <div class="row">
             @if (isset($childcategories))
-                <div class="col-lg-12 d-flex justify-content-between">
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        @forelse($childcategories as $cc)
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link " id="id{{ $cc->id }}" data-bs-toggle="pill"
-                                    data-bs-target="#{{ $cc->id }}" type="button" role="tab"
-                                    aria-controls="{{ $cc->id }}" aria-selected="true"
-                                    onclick="getThirdLevelThemeC({{ $cc->id }},'{{ $cc->cat_title }}')">{{ $cc->cat_title }}</button>
-                            </li>
-                        @empty
-                        @endforelse
-                    </ul>
-                    <!--<span style="color:var(--PColor)">Showing 8 of 150</span>-->
-                </div>
+            <div class="col-lg-12 d-flex justify-content-between">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    @forelse($childcategories as $cc)
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="id{{ $cc->id }}" data-bs-toggle="pill"
+                            data-bs-target="#{{ $cc->id }}" type="button" role="tab" aria-controls="{{ $cc->id }}"
+                            aria-selected="true" onclick="getThirdLevelThemeC({{ $cc->id }},'{{ $cc->cat_title }}')">{{
+                            $cc->cat_title }}</button>
+                    </li>
+                    @empty
+                    @endforelse
+                </ul>
+                <!--<span style="color:var(--PColor)">Showing 8 of 150</span>-->
+            </div>
             @endif
             <div class="col-lg-12">
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab"
                         tabindex="0">
                         <div class="row" id="ajaxContent">
-                            @forelse($products as $p)
+                            
+                            @foreach($products as $p)
+                                @if($currentCat->theme_mode==0 || $currentCat->theme_mode==2 || request()->segment(3) == 'accessories')
                                 <div class="col-lg-3">
                                     @include('revamp.components.product', ['item' => $p])
                                 </div>
-                            @empty
-                            @endforelse
+                               
+
+                                @endif
+                            @endforeach
                         </div>
                     </div>
 
@@ -129,17 +135,17 @@
                 id: id,
                 _token: '{{ csrf_token() }}'
             },
-            beforeSend: function() {
+            beforeSend: function () {
                 $(".ajaxContent").empty();
                 $("#ajaxContent").empty();
 
             },
-            success: function(res) {
+            success: function (res) {
                 $(".ajaxContent").empty();
                 $("#ajaxContent").html(res.data);
 
             },
-            error: function(res) {
+            error: function (res) {
                 console.log(res);
             }
         });
