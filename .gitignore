@@ -2,3 +2,4 @@ backup.zip
 /vendor
 .env
 .env
+/.env

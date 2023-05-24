@@ -136,7 +136,7 @@ span.fa-li {
     color: var(--Success) !important;
 }
 
-/******** HEADER 
+/******** HEADER
 *****************/
 header {
     z-index: 999;
@@ -290,7 +290,7 @@ nav>ul>li:hover .SUBLinks {
     color: white;
 }
 
-/******** CONTENT 
+/******** CONTENT
 *****************/
 section {
     position: relative;
@@ -314,7 +314,7 @@ section {
     background: var(--TColor);
     color: white;
     transform: translateY(-10px);
- 
+
 }
 .InSlider.owl-carousel .owl-item a img{
         width: fit-content;
@@ -562,7 +562,7 @@ section {
     height: 250px;
     overflow: hidden;
 }
-/* BACKGROUNDS 
+/* BACKGROUNDS
 ***************/
 .bg-TColor {
     background: var(--TColor);
@@ -782,8 +782,8 @@ footer .social_Links a:hover {
     display: none;
 }
 .Flyoutbtn span i {
-    font-size: 20px;
-}   
+    font-size: 24px;
+}
 
 .Flyoutbtn:hover {
     transform: translateX(-0%);
@@ -942,7 +942,7 @@ label.text-danger {
     margin-top: 6px;
 }
 .str1 {
-    background-color: var(--HColor);    
+    background-color: var(--HColor);
 }
 .text1 {
     display: none;
@@ -959,7 +959,7 @@ label.text-danger {
         letter-spacing: 0;
         font-size: 36px;
         text-shadow: 2px 4px 20px #0000002e;
-   
+
 }
 .text-style {
     text-align: left;
