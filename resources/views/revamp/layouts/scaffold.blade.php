@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-      
+
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="canonical" href="{{url()->current()}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,14 +58,14 @@
             position:fixed;
             bottom:20%;
             right:25px;
-          
+
             background-color:white;
             box-shadow: rgb(0 0 0 / 35%) 0px 8px 18px 0px;
             border-radius:20px;
         }
         .getQuoteFormInner{
          padding:0 10px 10px 10px;
-            
+
         }
         .quote-form-input{
             font-size: 1rem;
@@ -78,7 +78,7 @@
             width: 25rem;
         }
         .quote-form-btn{
-           
+
              font-size: 1rem;
             font-weight: 500;
             width: 100%;
@@ -105,6 +105,15 @@
             color: #fff;
             padding:8px 6px;
         }
+
+        /* side btn form capctha css starts here */
+        #RecaptchaField2>div {
+            width: 100% !important;
+            height: auto !important;
+        }
+        #RecaptchaField2 iframe {
+            width: 100% !important;
+        }
     </style>
   </head>
   <body>
@@ -116,7 +125,7 @@
                 <h2 class="text-center font-weight-bold" >Get a Quote</h2>
             </div>
             <form class="getQuoteFormInner" id="quoteForm"> @csrf
-            
+
                 {{--
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     <strong>Holy guacamole!</strong> You should check in on some of those fields below.
@@ -125,7 +134,7 @@
                     </button>
                 </div>
                 --}}
-            
+
                 <div class="m-2">
                     <textarea  height="100" width="100" class="quote-form-input" placeholder="Message" name="q_message" id="q-message"></textarea>
                 </div>
@@ -143,7 +152,7 @@
     @include('revamp.partials.header')
     @yield('content')
     @include('revamp.partials.footer')
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
     <script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit" async defer></script>
@@ -171,19 +180,19 @@
             })
         });
         function sendNowWidget(elm){
-        
+
             var name = $("#cwname").val();
             var company = $("#cwcompany").val();
             var email = $("#cwemail").val();
             var phone = $("#cwphone").val();
-            
+
             if(name != "" || company != "" || email != "" || phone != ""){
-                
+
                     $("#cwname").val('');
                     $("#cwcompany").val('');
                     $("#cwemail").val('');
                     $("#cwphone").val('');
-                    
+
                     $.ajax({
                         type : "GET",
                         url  : "{{route('contactUsWidget')}}",
@@ -199,7 +208,7 @@
                             if(res.success == true){
                                 grecaptcha.reset();
                                 $.notify("Thank You, We'll Contact you","success");
-                                
+
                             }
                             else{
                                 $.notify("Something Went Wrong","error");
@@ -215,17 +224,17 @@
             else{
                  $.notify("All fields are required", "error");
             }
-            
-            
+
+
         }
-        
+
         function quoteForm(elm){
             var message = $("#q-message").val();
             var email = $("#q-email").val();
             var number = $("#q-num").val();
-            
+
             if(message != "" && email != "" && number != ""){
-                
+
                 if( !validateEmail(email)) {
                     $.notify('Email address is not valid','error');
                 }
@@ -258,14 +267,14 @@
                         }
                     });
                 }
-                
+
             }
             else{
                 $.notify('All Fields required','error');
             }
-            
+
         }
-        
+
          function validateEmail($email) {
           var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
           return emailReg.test( $email );

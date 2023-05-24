@@ -19,6 +19,7 @@
 @push('title')
     {{ $data->cat_title }} - {{ ucwords(str_slug($title, ' ')) }} -
 @endpush
+
 @push('styles')
     <style>
         .nav-pills .nav-item .nav-link {
@@ -88,9 +89,9 @@
                 <div class="col-lg-6 py-5 pb-4">
 
                     @php
-                        
+
                         $title = $product->p_title;
-                        
+
                         // Split the title into an array of words using either space or hyphen as separators
                         $words = preg_split('/[\s-]+/', $title);
                         if(strpos($title, '-') !== false){
@@ -101,10 +102,10 @@
                         }
                         // Wrap the first three words in a span element with a CSS class for styling
                         $redText = "<span style='color: red;'>{$firstThreeWords}</span>";
-                        
+
                         // Replace the original first three words with the colored text
                         $coloredTitle = str_replace($firstThreeWords, $redText, $title);
-                        
+
                     @endphp
                     <h1 class="mb-2">@php echo $coloredTitle @endphp
                         <!-- <br>
