@@ -35,6 +35,7 @@
 }
 .top-banner{  height: 300px;  display: flex;
     align-items: center;}
+   
 </style>
 @endpush
 @section('content')
@@ -72,7 +73,7 @@
       </div>
     </div>
   </section>
-  <section class="py-0 bgSR">
+  <section class="py-0 bgSR sama-second-detail-product">
     <div class="container">
       <div class="row d-flex align-items-center py-5">
         <div class="col-lg-6 py-5 pb-4">
@@ -106,14 +107,14 @@
               @endforelse
                 
           </div>
-            <div class="d-grid justify-content-end">
+            <div class="d-grid justify-content-end sama-second-social sama-social-icons">
                 <button type="button" class="btnn" onClick="return window.open('{{$product->p_video_link}}', '_blank')">
                     <span class="dot text-white"><i class="fa fa-youtube-play fa-2x"></i></span>
                     <span class="str"><span class="text text-white">Play Video</span></span>
                 </button>
                     <button type="button" class="btnn2" onClick="return window.open('{{asset('uploads/pdf/'.$product->p_pdf)}}', '_blank')">
                     <span class="dot1 text-white"><i class="fa fa-file-pdf fa-2x"></i></span>
-                    <span class="str1"><span class="text1 text-white">E-catalogue</span></span>
+                    <span class="str1"><span class="text1 text-white">Download E-catalogue</span></span>
                 </button>
             </div>
         </div>

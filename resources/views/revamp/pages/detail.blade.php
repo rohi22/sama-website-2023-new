@@ -79,9 +79,6 @@ ul.pagination {
     background-color: #EC2424;
     color: #fff;
 }
-.nav-pills {
-    row-gap: 2px;
-}
 
 </style>
 @endpush
@@ -114,9 +111,13 @@ ul.pagination {
     <section class="py-0 bgSR sama-detail-product">
         <div class="container">
             <div class="row d-lg-flex align-items-lg-center">
-                <div class="col-lg-6 pt-5 pb-4 sama-content-col">
-                    <h1 class="mb-2 sama-product-title">{{$product->p_title}} <br><span class="text-TColor">{{$data->cat_title}}</span></h1>
-                    <h3 class="mb-4">P-{{$product->id + 1000}}</h3>
+                <div class="col-lg-6 pt-5 pb-0 sama-content-col">
+                    <!-- <h1 class="mb-2 sama-product-title">{{$product->p_title}} <br><span class="text-TColor">{{$data->cat_title}}</span></h1>
+                     -->
+                     <h1 class="mb-2 sama-product-title">{{$product->p_title}}</h1>
+                    
+                    <h3 class="mb-4 sama-product-id">P-{{$product->id + 1000}}</h3>
+                    
                     <div class="row">
                         @forelse($bag_images as $index=>$gallery)
                                                     <div class="col-3">
@@ -126,8 +127,8 @@ ul.pagination {
                             <center>No record found</center>    
                         @endforelse
                     </div>
-                    <p class="mb-5">{!! $product->p_short_desc; !!}</p>            
-                    <div class="d-flex flex-wrap flex-row mb-4 row">
+                   <p class="mb-5">{!! $product->p_short_desc; !!}</p>            
+                    <div class="d-flex flex-wrap flex-row mt-4 mb-4 row">
                          @forelse($attributes as $index=>$i)
                             @if($index <= 3)
                             <div class="col-lg-6">
@@ -150,8 +151,8 @@ ul.pagination {
                     
                     
                 </div>
-                <div class="col-lg-4 offset-lg-1 p-4 mb-4 bg-white">
-                    <div class="mb-4 Gridimg">
+                <div class="col-lg-4 offset-lg-1 p-4 pb-0 mb-0 bg-white">
+                    <div class="mb-0 Gridimg">
                         <div class="d-grid justify-content-end sama-social-icons">
                             <button type="button" class="btnn"  >
                                 <span class="dot text-white"><i class="fa fa-youtube-play fa-2x"></i></span>
@@ -159,7 +160,7 @@ ul.pagination {
                             </button>
                             <button type="button" class="btnn2 btn-download" data-url="{{asset('uploads/pdf/'.$product->p_pdf)}}">
                                 <span class="dot1 text-white"><i class="fa fa-file-pdf fa-2x"></i></span>
-                                <span class="str1"><span class="text1 text-white">E-catalogue</span></span>
+                                <span class="str1"><span class="text1 text-white">Download E-catalogue</span></span>
                             </button>
                         </div>
                         <img src="{{asset('uploads/product/'.$product->p_main_image)}}" width="550px" height="550px" alt="...">
@@ -168,10 +169,10 @@ ul.pagination {
             </div>
         </div>
     </section>
-    <section class="py-0 sama-tabs">
+    <section class="py-0 pt-5 sama-tabs">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 d-flex justify-content-center">
+                <div class="col-lg-12 d-flex  justify-content-start">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                           <button class="nav-link active" id="pills-11-tab" data-bs-toggle="pill" data-bs-target="#pills-11" type="button" role="tab" aria-controls="pills-11" aria-selected="true">Description</button>
