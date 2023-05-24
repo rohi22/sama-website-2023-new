@@ -801,7 +801,9 @@ footer .social_Links a:hover {
     width: 100%;
     max-width: 360px;
     cursor: default !important;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 540px;
     position: relative;
 }
 
