@@ -149,8 +149,8 @@ class RevampController extends Controller
         }
         else
         {
-
-            return view('revamp.pages.list2')->with(['cat_head'=>$result,'tags'=>$tags,'slider_categories'=>$slider_categories,'bag_images'=>$bag_images,'sliders'=>$sliders,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'nav'=>$id,'currentCat'=>$currentCat]);
+            $childcategories = DB::table('categories')->whereIn('parent_id',$array)->orderBy('cat_order','ASC')->get();
+            return view('revamp.pages.list2')->with(['childcategories'=>$childcategories,'cat_head'=>$result,'tags'=>$tags,'slider_categories'=>$slider_categories,'bag_images'=>$bag_images,'sliders'=>$sliders,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'nav'=>$id,'currentCat'=>$currentCat]);
         }
         
     }
