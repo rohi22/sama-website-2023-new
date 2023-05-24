@@ -30,7 +30,7 @@
     <section class="py-0">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 pt-5 pb-4">                    
+                <div class="col-lg-12 pt-5 pb-4">
                     <h1>CONTACT US</h1>
                 </div>
             </div>
@@ -64,73 +64,73 @@
     <section class="py-0">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 devider position-relative py-8">
+                <div class="col-lg-6 col-sm-6 devider position-relative py-lg-5 py-sm-4 pt-4 pb-2">
                     <h4>{{$data->s_4_title}} - <span class="text-TColor">{{$data->s_4_name}}</span></h4>
-                    <div class="d-flex mt-4">
+                    <div class="d-flex mt-4 align-items-center">
                         <i class="fa fa-map-marker-alt text-TColor me-3"></i>
                         <p class="mb-0">{!! $data->s_4_address!!}</p>
                     </div>
-                    <div class="d-flex mt-4">
+                    <div class="d-flex mt-4 align-items-center">
                         <i class="fa fa-phone text-TColor me-3"></i>
-                        <p class="mb-0">{{$data->s_4_phone}}</p>
+                        <p class="m-0">{{$data->s_4_phone}}</p>
                     </div>
-                    <div class="d-flex mt-4">
+                    <div class="d-flex mt-4 align-items-center">
                         <i class="fa fa-envelope text-TColor me-3"></i>
-                        <p class="mb-0">{{$data->s_4_email}}</p>
+                        <p class="m-0">{{$data->s_4_email}}</p>
                     </div>
 
                     <h4 class="mt-5">INTERNATIONAL OFFICE - <span class="text-TColor">{{$data->s_2_name}}</span></h4>
-                    <div class="d-flex mt-4 d-none">
+                    <div class="d-flex mt-4 d-none align-items-center">
                         <i class="fa fa-map-marker-alt text-TColor me-3"></i>
                         <p class="mb-0">Nazimabad # 2, Block-A, Plot No. 1/32, Opposite Firdous <br>
                             Colony KHI-74600, Pakistan</p>
                     </div>
-                    <div class="d-flex mt-4">
+                    <div class="d-flex mt-4 align-items-center">
                         <i class="fa fa-phone text-TColor me-3"></i>
-                        <p class="mb-0">{{$data->s_2_phone}}</p>
+                        <p class="m-0">{{$data->s_2_phone}}</p>
                     </div>
-                    <div class="d-flex mt-4">
+                    <div class="d-flex mt-4 align-items-center">
                         <i class="fa fa-envelope text-TColor me-3"></i>
-                        <p class="mb-0">{{$data->s_2_email}}</p>
+                        <p class="m-0">{{$data->s_2_email}}</p>
                     </div>
-                    
-                    
-                    <h4 class="mt-5">INTERNATIONAL OFFICE - <span class="text-TColor">{{$data->s_1_name}}</span></h4>
-                    <div class="d-flex mt-4 d-none">
-                        <i class="fa fa-map-marker-alt text-TColor me-3"></i>
-                        <p class="mb-0">Nazimabad # 2, Block-A, Plot No. 1/32, Opposite Firdous <br>
-                            Colony KHI-74600, Pakistan</p>
-                    </div>
-                    <div class="d-flex mt-4">
-                        <i class="fa fa-phone text-TColor me-3"></i>
-                        <p class="mb-0">{{$data->s_1_phone}}</p>
-                    </div>
-                    <div class="d-flex mt-4">
-                        <i class="fa fa-envelope text-TColor me-3"></i>
-                        <p class="mb-0">{{$data->s_1_email}}</p>
-                    </div>
-                    
-                    
-                     <h4 class="mt-5">{{$data->s_3_name}}</h4>
-                    <div class="d-flex mt-4 d-none">
-                        <i class="fa fa-map-marker-alt text-TColor me-3"></i>
-                        <p class="mb-0">Nazimabad # 2, Block-A, Plot No. 1/32, Opposite Firdous <br>
-                            Colony KHI-74600, Pakistan</p>
-                    </div>
-                    <div class="d-flex mt-4">
-                        <i class="fa fa-phone text-TColor me-3"></i>
-                        <p class="mb-0">{{$data->s_3_phone}}</p>
-                    </div>
-                    <div class="d-flex mt-4">
-                        <i class="fa fa-envelope text-TColor me-3"></i>
-                        <p class="mb-0">{{$data->s_3_email}}</p>
-                    </div>
-                    
 
-                    
+
+                    <h4 class="mt-5">INTERNATIONAL OFFICE - <span class="text-TColor">{{$data->s_1_name}}</span></h4>
+                    <div class="d-flex mt-4 d-none align-items-center">
+                        <i class="fa fa-map-marker-alt text-TColor me-3"></i>
+                        <p class="mb-0">Nazimabad # 2, Block-A, Plot No. 1/32, Opposite Firdous <br>
+                            Colony KHI-74600, Pakistan</p>
+                    </div>
+                    <div class="d-flex mt-4 align-items-center">
+                        <i class="fa fa-phone text-TColor me-3"></i>
+                        <p class="m-0">{{$data->s_1_phone}}</p>
+                    </div>
+                    <div class="d-flex mt-4 align-items-center">
+                        <i class="fa fa-envelope text-TColor me-3"></i>
+                        <p class="m-0">{{$data->s_1_email}}</p>
+                    </div>
+
+
+                     <h4 class="mt-5">{{$data->s_3_name}}</h4>
+                    <div class="d-flex mt-4 d-none align-items-center">
+                        <i class="fa fa-map-marker-alt text-TColor me-3"></i>
+                        <p class="mb-0">Nazimabad # 2, Block-A, Plot No. 1/32, Opposite Firdous <br>
+                            Colony KHI-74600, Pakistan</p>
+                    </div>
+                    <div class="d-flex mt-4 align-items-center">
+                        <i class="fa fa-phone text-TColor me-3"></i>
+                        <p class="m-0">{{$data->s_3_phone}}</p>
+                    </div>
+                    <div class="d-flex mt-4 align-items-center">
+                        <i class="fa fa-envelope text-TColor me-3"></i>
+                        <p class="m-0">{{$data->s_3_email}}</p>
+                    </div>
+
+
+
                 </div>
-                <div class="col-lg-6 bgSR position-relative py-8">
-                <form action="javascript:;" method="post" class="from position-relative w-100 mt-5">
+                <div class="col-lg-6 col-sm-6 bgSR position-relative py-lg-5 py-sm-4 pt-2 pb-4">
+                <form action="javascript:;" method="post" class="from position-relative w-100 mt-lg-5 mt-sm-0">
                     {{csrf_field()}}
                         <div class="form-body">
                             <div class="row">
@@ -219,7 +219,7 @@
 @push('scripts')
 
 <script>
-    
+
 function contactSubmit()
 {
     var c_name      = $('#c_name').val();
@@ -246,14 +246,14 @@ function contactSubmit()
         //   captcha:c_captcha,
         // captcha: grecaptcha.getResponse(),
           _token:'{{ csrf_token() }}'
-          
+
       },
       beforeSend:function(){
         $("#c_name_error").html(' ');
         $("#c_email_error").html(' ');
         $("#c_phone_error").html(' ');
-        $("#c_company_error").html(' '); 
-        $("#c_msg_error").html(' ');   
+        $("#c_company_error").html(' ');
+        $("#c_msg_error").html(' ');
         // $(".captcha_error").html(' ');
         $("#c_country_error").html(' ');
         $("#c_city_error").html(' ');
@@ -265,18 +265,18 @@ function contactSubmit()
             if(res.error){
                 $(".captcha_error").html(res.error); return false;
             }else{
-                
+
                 $("#c_name").val(null);
                 $("#c_email").val(null);
                 $("#c_phone").val(null);
-                $("#c_company").val(null); 
-                $("#c_msg").val(null);   
+                $("#c_company").val(null);
+                $("#c_msg").val(null);
                 // $("#captcha").val(null);
                 $("#c_country").val(null);
                 $("#c_city").val(null);
-                
+
                  grecaptcha.reset(2);
-                
+
                 $(".success_msg").css('display','block').html(res);
              }
 
@@ -318,9 +318,9 @@ function contactSubmit()
                 {
                     $("#captcha_error").html(v);
                 }
-              
+
             });
-        
+
        }
     });
 
@@ -337,7 +337,7 @@ function contactSubmit()
                {
                 $("#c_city").html(res);
                 console.log(res);
-                
+
                },
                error: function(res)
                {

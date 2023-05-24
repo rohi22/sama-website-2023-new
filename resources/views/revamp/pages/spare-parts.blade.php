@@ -22,7 +22,7 @@
 <meta name="twitter:creator" content="@InsectMarketing">
 @endsection
 @push('title')
-High Quality and Extremely Useful Spare Parts of the Machines | Sama - 
+High Quality and Extremely Useful Spare Parts of the Machines | Sama -
 @endpush
 @section('content')
    <section class="py-3 bg-LGray">
@@ -40,29 +40,29 @@ High Quality and Extremely Useful Spare Parts of the Machines | Sama -
                 </div>
             </div>
         </div>
-    </section>    
+    </section>
     <section class="py-0">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 devider position-relative py-8">
+                <div class="col-lg-6 devider position-relative py-lg-5 py-sm-4 pt-4 pb-2">
                     <div class="row">
-                        <div class="col-9">
-                            <img src="https://www.samaengineering.com/uploads/about/6014133e5768bWhatsApp Image 2021-01-29 at 6.50.32 PM.jpeg" class="img-thumbnail mb-5" alt="...">
+                        <div class="col-lg-9 col-sm-12">
+                            <img src="https://www.samaengineering.com/uploads/about/6014133e5768bWhatsApp Image 2021-01-29 at 6.50.32 PM.jpeg" class="img-thumbnail mb-lg-5 mb-3" alt="...">
                             <p class="mb-4">We are the leading manufacturers and suppliers of Packaging Machine Spare Parts and Processing Systems. We are the only organization who works on Sales, Services & Spare Parts availability (3S) from more than 35 years.</p>
                             <p class="mb-4">We keep numerous range of all packaging machines and processing systems, spare parts which meets the high quality standards. We deliver as we promise in multiple varieties & specialist spare parts.</p>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
-                <div class="col-lg-6 bgSR position-relative py-8">
-                    <h2>GET A <span class="text-TColor">CALL</span></h2>
+                <div class="col-lg-6 bgSR position-relative py-lg-5 py-sm-4 pt-2 pb-4">
+                    <h2 class="mt-0">GET A <span class="text-TColor">CALL</span></h2>
                     @if(session()->has('message'))
                     <div class="alert alert-success">
                         {{session()->get('message')}}
                     </div>
                     @endif
-                    <div class="d-flex mt-3">
+                    <div class="d-flex mt-3 align-items-center">
                         <i class="fa fa-phone text-TColor me-3"></i>
-                        <p class="mb-0">+92-345-2266203</p>
+                        <p class="m-0">+92-345-2266203</p>
                     </div>
                     <form method="post" class="from position-relative w-100 mt-4" action="{{url('/spare-parts/submit')}}">
                         {{csrf_field()}}
@@ -72,7 +72,7 @@ High Quality and Extremely Useful Spare Parts of the Machines | Sama -
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="fullname" placeholder="Full Name" name="name" value="{{old('name')}}">
                                         <label for="name">Full Name</label>
-                                        <p style="color:red;">@if($errors->has('name')) {{ $errors->first('name') }} @endif</p> 
+                                        <p style="color:red;">@if($errors->has('name')) {{ $errors->first('name') }} @endif</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -193,7 +193,7 @@ $(document).ready(function(){
                {
                 $("#city").html(res);
                 console.log(res);
-                
+
                },
                error: function(res)
                {
@@ -219,7 +219,7 @@ $(document).ready(function(){
                {
                 $("#city").html(res);
                 console.log(res);
-                
+
                },
                error: function(res)
                {

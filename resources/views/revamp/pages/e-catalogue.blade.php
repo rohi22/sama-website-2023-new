@@ -76,13 +76,13 @@ A Complete Guide with All Information  -
                 </div>
             </div>
         </div>
-    </section>    
+    </section>
     <section>
         <div class="container">
             <div class="row">
-                @forelse($data as $index=>$item) 
-               
-                <div class="col-lg-4 mb-4">
+                @forelse($data as $index=>$item)
+
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
                     <div class="card w-100 text-center hoverShadow rounded-0">
                         <div class="d-flex w-100 h-250 overflow-hidden">
                             <img src="{{asset($item['img'])}}" alt="" class="card-img-top">
@@ -96,8 +96,8 @@ A Complete Guide with All Information  -
                 </div>
                 @empty
                 @endforelse
-         
+
             </div>
         </div>
-    </section>  
+    </section>
 @endsection
