@@ -24,7 +24,7 @@
 @push('title')
 Opportunity to Become An Agent for Sama Engineering | Visit Website -
 @endpush
-@section('content')    
+@section('content')
     <section class="py-3 bg-LGray">
         <div class="container">
             <div class="row">
@@ -40,11 +40,11 @@ Opportunity to Become An Agent for Sama Engineering | Visit Website -
                 </div>
             </div>
         </div>
-    </section>    
+    </section>
     <section class="py-0">
         <div class="container">
-            <div class="row">                
-                <div class="col-lg-12 bgSR position-relative py-8">
+            <div class="row">
+                <div class="col-lg-12 bgSR position-relative py-lg-5 py-sm-4 py-2">
                     <div class="row">
                         <div class="col-lg-8">
                             <h2>INTERESTED IN BEING AN AGENT OR DISTRIBUTOR FOR SAMA? <span class="text-TColor">Complete the form</span></h2>
@@ -81,7 +81,7 @@ Opportunity to Become An Agent for Sama Engineering | Visit Website -
                                         <p style="color:red;">@if($errors->has('name')) {{ $errors->first('name') }} @endif</p>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-lg-4">
                                     <div class="form-floating mb-3">
                                         <select class="form-select"  id="country" name="country" value="{{old('country')}}">
@@ -110,10 +110,11 @@ Opportunity to Become An Agent for Sama Engineering | Visit Website -
                                         <p style="color:red;">@if($errors->has('email')) {{ $errors->first('email') }} @endif</p>
                                     </div>
                                 </div>
-                       
+
                                 <div class="col-lg-4">
-                                    <div class="mb-3">
+                                    <div class="form-floating mb-3">
                                         <input type="tel" class="form-control PhoneNmbr" placeholder="Phone Number" id="c_phone" name="phone" value="{{old('phone')}}">
+                                        <label for="phone">Phone Number</label>
                                         <p style="color:red;">@if($errors->has('phone')) {{ $errors->first('phone') }} @endif</p>
                                     </div>
                                 </div>
@@ -134,7 +135,7 @@ Opportunity to Become An Agent for Sama Engineering | Visit Website -
                                         Which industries do you cover (including products and brand types, your customers etc.) ?
                                     </div>
                                 </div>
-                         
+
                                 <div class="col-lg-4">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" id="your_industry" placeholder="Your industry experience" name="your_industry" value="{{old('your_industry')}}">
@@ -155,7 +156,7 @@ Opportunity to Become An Agent for Sama Engineering | Visit Website -
                                         Country or region?-
                                     </div>
                                 </div>
-                         
+
                                 <div class="col-lg-12">
                                     <div class="form-floating">
                                         <textarea class="form-control w-100" style="height: auto;" rows="8" placeholder="Leave a comment here" id="c_msg" name="become_agent" >{{old('become_agent')}}</textarea>
@@ -163,8 +164,11 @@ Opportunity to Become An Agent for Sama Engineering | Visit Website -
                                         <p style="color:red;">@if($errors->has('become_agent')) {{ $errors->first('become_agent') }} @endif</p>
                                     </div>
                                 </div>
-                     
-                    
+                                <div class="input-group mb-2">
+                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.sitekey') }}" style="width: desired_width;border-radius: 4px;border-right: 1px solid #d8d8d8;overflow: hidden;"></div>
+                                </div>
+                                <p style="color:red;" id="captcha_error" class="captcha_error">@if($errors->has('g-recaptcha-response')) {{ $errors->first('g-recaptcha-response') }} @endif</p>
+
                                 <div class="col-lg-12">
                                     <button type="submit" class="btn rounded-0 btn-danger py-2 px-5 mt-3">Send Now</button>
                                 </div>
@@ -176,7 +180,7 @@ Opportunity to Become An Agent for Sama Engineering | Visit Website -
         </div>
     </section>
 @endsection
-
+<script src="https://www.google.com/recaptcha/api.js"></script>
 @push('scripts')
 <script>
 
@@ -193,9 +197,9 @@ $(document).ready(function(){
                {
                 $("#city").html(res);
                 console.log(res);
-                
+
                },
-               error: function(res) 
+               error: function(res)
                {
                 console.log(res);
                }

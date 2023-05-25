@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     function index(){
         $users = DB::table('users')->orderBy('created_at','DESC')->get();
-        return view('user/all')->with(['users'=>$users]);
+        return view('user.all')->with(['users'=>$users]);
     }
 
     function destroy($id){

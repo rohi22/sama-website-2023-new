@@ -1,4 +1,4 @@
-@extends('app/app')
+@extends('app.app')
 @section('content')
  <!-- ============================================================== -->
             <!-- Container fluid  -->

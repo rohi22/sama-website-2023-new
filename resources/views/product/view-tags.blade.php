@@ -1,5 +1,5 @@
 @if(session('role') == 2 || session('role') == 1)
-     <script type="text/javascript">window.location = "<?php echo asset('/dashboard'); ?>"</script>
+     <!-- <script type="text/javascript">window.location = "<?php echo asset('/dashboard'); ?>"</script> -->
 @endif
 @extends('app.app')
 @section('content')

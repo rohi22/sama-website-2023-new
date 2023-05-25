@@ -88,7 +88,8 @@ ul {
 }
 
 span.fa-li {
-    width: 28px;
+    width: 100%;
+    max-width: 28px;
     height: 28px;
     border-radius: 50%;
     background: var(--TColor-Light);
@@ -136,7 +137,7 @@ span.fa-li {
     color: var(--Success) !important;
 }
 
-/******** HEADER 
+/******** HEADER
 *****************/
 header {
     z-index: 999;
@@ -290,7 +291,7 @@ nav>ul>li:hover .SUBLinks {
     color: white;
 }
 
-/******** CONTENT 
+/******** CONTENT
 *****************/
 section {
     position: relative;
@@ -314,7 +315,7 @@ section {
     background: var(--TColor);
     color: white;
     transform: translateY(-10px);
- 
+
 }
 .InSlider.owl-carousel .owl-item a img{
         width: fit-content;
@@ -562,7 +563,7 @@ section {
     height: 250px;
     overflow: hidden;
 }
-/* BACKGROUNDS 
+/* BACKGROUNDS
 ***************/
 .bg-TColor {
     background: var(--TColor);
@@ -782,8 +783,8 @@ footer .social_Links a:hover {
     display: none;
 }
 .Flyoutbtn span i {
-    font-size: 20px;
-}   
+    font-size: 24px;
+}
 
 .Flyoutbtn:hover {
     transform: translateX(-0%);
@@ -801,7 +802,9 @@ footer .social_Links a:hover {
     width: 100%;
     max-width: 360px;
     cursor: default !important;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 540px;
     position: relative;
 }
 
@@ -942,7 +945,7 @@ label.text-danger {
     margin-top: 6px;
 }
 .str1 {
-    background-color: var(--HColor);    
+    background-color: var(--HColor);
 }
 .text1 {
     display: none;
@@ -950,7 +953,7 @@ label.text-danger {
     margin-top: 6px;
 }
 
-.banner-section{}
+/* .banner-section{} */
 .MainSlider h2 {font-weight: 400 !important; color:#000;        font-size: 24px; letter-spacing: 4px;}
 .MainSlider h2.heading {
     color: #ec2424;
@@ -959,7 +962,7 @@ label.text-danger {
         letter-spacing: 0;
         font-size: 36px;
         text-shadow: 2px 4px 20px #0000002e;
-   
+
 }
 .text-style {
     text-align: left;
@@ -995,6 +998,12 @@ ul.sam-ul li i {
 }
 .sama-fifth .col-lg-12 {
 	transform: translateY(-60%);}
+
+@media(max-width: 992px) {
+    .devider::after {
+        visibility: hidden;
+    }
+}
 @media screen and (min-width:981px){
 .mobo-menu {
     display: none;

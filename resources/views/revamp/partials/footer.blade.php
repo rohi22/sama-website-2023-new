@@ -209,6 +209,8 @@ button.top-btn:before {
         <span class="bg-TColor text-white"><i class="fa fa-phone"></i></span>
         <div class="CFrom bg-XLGray shadow p-5">          
             <i class="fa fa-envelope-o text-danger position-absolute"></i>
+            <form>
+              @csrf
             <h4>Contact us</h4>
             <p>With the Pakistan's No. 1 packaging machines & processing systems provider.</p>
         
@@ -228,8 +230,16 @@ button.top-btn:before {
                     <input type="text" class="form-control" id="cwphone" name="phone" placeholder="+92 000-0000000" required>
                     <label for="phone">Phone Number</label>
                   </div>
+
+                  <!-- <div class="input-group mb-2">
+                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.sitekey') }}" style="width: desired_width;border-radius: 4px;border-right: 1px solid #d8d8d8;overflow: hidden;"></div>
+                                </div> -->
+                                <div id="RecaptchaField2"></div>
+                                <p style="color:red;" id="captcha_error" class="captcha_error">@if($errors->has('captcha')) {{ $errors->first('captcha') }} @endif</p>
+
+                  
               <button type="button" class="btn w-100 rounded-0 btn-danger py-2 mt-3" onClick="sendNowWidget($(this))">Send Now</button>
-            
+            </form>
         </div>
       </div>
       <div class="Flyoutbtn Flyoutbtn2">

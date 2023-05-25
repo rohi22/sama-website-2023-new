@@ -1,6 +1,6 @@
-@if(session('role') == 1)
+<!-- @if(session('role') == 1)
     <script type="text/javascript">window.location = "<?php echo asset('/dashboard'); ?>"</script>
-@endif
+@endif -->
 @extends('app.app')
 @section('content')
  <div class="container-fluid">

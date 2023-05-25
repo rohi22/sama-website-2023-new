@@ -1,6 +1,6 @@
 <h4>Quote:</h4> <hr>
 
-Message:         {{ $message  }}    <br>
+Message:         {{ $msg  }}    <br>
 Email:      {{ $q_email  }}      <br>
 Number:      {{ $number  }}      
 

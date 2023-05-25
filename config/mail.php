@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => 'sendmail', // env('MAIL_DRIVER', 'smtp'),
+    'driver' =>  env('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => 'smtp.gmail.com', //env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'), //'smtp.gmail.com', 
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => 456, //env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', 587), //456, 
 
     /*
     |--------------------------------------------------------------------------
@@ -58,9 +58,11 @@ return [
 
 
     'from' => [
-        'address' => 'talk@samaengineering.com', //env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => 'samaengineering.com/', //env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'talk@samaengineering.com'), //'talk@samaengineering.com', 
+        'name' => env('MAIL_FROM_NAME', 'samaengineering.com'), //env('MAIL_FROM_NAME', 'Example'),
     ],
+
+    'mail_to' => env('MAIL_TO_SEND','talk@samaenginering.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -73,7 +75,7 @@ return [
     |
     */
 
-    'encryption' => 'tls', //env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'), //'tls', 
 
     /*
     |--------------------------------------------------------------------------
@@ -86,9 +88,9 @@ return [
     |
     */
 
-    'username' => 'samaengineering', //env('MAIL_USERNAME'),
+    'username' => env('MAIL_USERNAME','samaengineering'),
 
-    'password' => 'S@maEnG22#', //env('MAIL_PASSWORD'),
+    'password' => env('MAIL_PASSWORD',"S@maEnG22#"),
 
     /*
     |--------------------------------------------------------------------------

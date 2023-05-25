@@ -51,6 +51,31 @@ if($(".MachineSlider").length){
       }
     });
 }
+
+if ($(".CategorySlider").length) {
+    $(".CategorySlider").owlCarousel({
+      autoplay: true,
+      loop: true,
+      margin: 15,
+      dots: true,
+      nav: false,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 2
+        },
+        992: {
+          items: 2
+        },
+        1200: {
+          items: 5
+        }
+      },
+      navText: ["", ""]
+    });
+  }
+  
+
 if($(".ProcessSlider").length){
     $(".ProcessSlider").owlCarousel({
       autoplay: true,
@@ -61,6 +86,18 @@ if($(".ProcessSlider").length){
       margin: 5,
     });
 }
+
+if($(".TwoItemSlider").length){
+    $(".TwoItemSlider").owlCarousel({
+      autoplay: true,
+      items: 2,
+      loop: true,
+      dots: false,
+      arrow: false,
+      margin: 5,
+    });
+}
+
 if($(".MainSlider").length){
     $(".MainSlider").owlCarousel({
       autoplay: true,

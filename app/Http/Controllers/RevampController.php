@@ -14,9 +14,14 @@ use App\Product;
 use App\SparePart;
 use App\BecomeAgent;
 use App\SubscribeEmail;
+use App\Industry;
+use App\SimilarProduct;
+use App\ProcessingProduct;
+use App\AccessoriesProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mail;
+use Config;
 
 class RevampController extends Controller
 {
@@ -38,11 +43,17 @@ class RevampController extends Controller
         
         $data['castStudies'] = DB::table('blog_posts')->where('p_status',1)->where('p_case_studies',1)->get();
 
+        $data['industry'] = industry::all();
+        $data['about_us'] = DB::table('abouts')->first();
+        
+        $data['points']=json_decode($data['about_us']->points);
+        $data['award_images']=DB::table('award_images')->get();
         return view('revamp.pages.index',$data);
     }
     
     public function get_category($slug)
     {
+        $currentCat = DB::table('categories')->where('cat_slug','=',$slug)->orderBy('cat_order','ASC')->first();
         $result = DB::table('categories')->where('menu_mode','=',1)->where('status','=',1)->where('cat_slug','=',$slug)->orderBy('cat_order','ASC')->first();
         $id     = $result->id;
         $mode   = $result->theme_mode;
@@ -128,17 +139,18 @@ class RevampController extends Controller
         {
             $array[] = $row->id;
         }
-        if(!empty($subcategories[0]) || request()->segment(3) == 'accessories')
+        //$currentCat->theme_mode==0 || $currentCat->theme_mode==2
+        // !empty($subcategories[0])
+        if($currentCat->theme_mode==0 || $currentCat->theme_mode==2 || request()->segment(3) == 'accessories')
         {
-          
             $childcategories = DB::table('categories')->whereIn('parent_id',$array)->orderBy('cat_order','ASC')->get();
             
-            return view('revamp.pages.list')->with(['cat_head'=>$result,'tags'=>$tags,'slider_categories'=>$slider_categories,'bag_images'=>$bag_images,'sliders'=>$sliders,'childcategories'=>$childcategories,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'nav'=>$id]);
+            return view('revamp.pages.list')->with(['cat_head'=>$result,'tags'=>$tags,'slider_categories'=>$slider_categories,'bag_images'=>$bag_images,'sliders'=>$sliders,'childcategories'=>$childcategories,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'nav'=>$id,'currentCat'=>$currentCat]);
         }
         else
         {
-
-            return view('revamp.pages.list2')->with(['cat_head'=>$result,'tags'=>$tags,'slider_categories'=>$slider_categories,'bag_images'=>$bag_images,'sliders'=>$sliders,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'nav'=>$id]);
+            $childcategories = DB::table('categories')->whereIn('parent_id',$array)->orderBy('cat_order','ASC')->get();
+            return view('revamp.pages.list2')->with(['childcategories'=>$childcategories,'cat_head'=>$result,'tags'=>$tags,'slider_categories'=>$slider_categories,'bag_images'=>$bag_images,'sliders'=>$sliders,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'nav'=>$id,'currentCat'=>$currentCat]);
         }
         
     }
@@ -163,15 +175,29 @@ class RevampController extends Controller
     }
     
     public function contactUsWidget(Request $request){
-        
-        $store = new User();
-        $store->name = $request->name;
-        $store->email = $request->email;
-        $store->phone = $request->phone;
-        $store->company = $request->company;
-        $store->save();
-        if(!empty($store->id)){
-            return response()->json(['success' => true]);
+        if(!empty($request->captcha)){
+            $captcha = $request->captcha;
+        }
+        else{
+            return ['status' => 'failed','msg' => 'Verify Captcha'];
+        }
+
+        $secretKey = config('services.recaptcha.secret');
+        $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+         $response = file_get_contents($url);
+        $responseKeys = json_decode($response,true);
+        if($responseKeys["success"]) {
+            $store = new User();
+            $store->name = $request->name;
+            $store->email = $request->email;
+            $store->phone = $request->phone;
+            $store->company = $request->company;
+            $store->save();
+            if(!empty($store->id)){
+                return response()->json(['success' => true]);
+            }
+        }else{
+            return ['status' => 'failed','msg' => 'Verify Captcha'];
         }
         return response()->json(['success' => false]);
     }
@@ -180,6 +206,7 @@ class RevampController extends Controller
     
      public function get_sub_category($slug)
     {
+        $currentCat = DB::table('categories')->where('cat_slug','=',$slug)->orderBy('cat_order','ASC')->first();
         $result = DB::table('categories')
                         ->where('cat_slug','=',$slug)->first();
         
@@ -258,7 +285,7 @@ class RevampController extends Controller
                 ->get(['product_sachet_images.*','sachets.sachet_image as p_sachet_image','sachets.sachet_title']);
 
 
-        return view('revamp.pages.list')->with(['cat_head'=>$result,'tags'=>$tags,'sliders'=>$sliders,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'childcategories'=>$childcategories,'slider_categories'=>$slider_categories,'nav'=>$parent_id,'child_nav'=>$id,'category_slug'=>$slug,'cat_bred_title'=>$cat_title]);    
+        return view('revamp.pages.list')->with(['cat_head'=>$result,'tags'=>$tags,'sliders'=>$sliders,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'childcategories'=>$childcategories,'slider_categories'=>$slider_categories,'nav'=>$parent_id,'child_nav'=>$id,'category_slug'=>$slug,'cat_bred_title'=>$cat_title,'currentCat'=>$currentCat]);    
     }
     
     public function contactUs(Request $request){
@@ -279,7 +306,10 @@ class RevampController extends Controller
         if(empty($product)){
             return redirect('category/processing-line');
         }
-        
+
+        $relatedProduct = SimilarProduct::select('child_product')->where('master_product',$product->id)->get();
+        $processingProduct = ProcessingProduct::select('child_product')->where('master_product',$product->id)->get();
+        $accessoriesProduct = AccessoriesProduct::select('child_product')->where('master_product',$product->id)->get();
         $id         = $product->id;
         $p_mode     = $product->p_theme;
         $category   = $product->cat_title;
@@ -330,9 +360,9 @@ class RevampController extends Controller
                          ->take(2)
                         ->get(['products.*']);
         if($product->cat_id == 112){
-            return view('revamp.pages.detail2')->with(['categoryProduct' => $categoryProduct, 'similarProduct' => $similarProduct,'product'=>$product,'bag_images'=>$bag_images,'p_mode'=>$p_mode,'attributes'=>$attributes,'category'=>$category,'title'=>$slug,'data'=>$data,'tags'=>$tags]);
+            return view('revamp.pages.detail2')->with(['categoryProduct' => $categoryProduct, 'similarProduct' => $similarProduct,'product'=>$product,'bag_images'=>$bag_images,'p_mode'=>$p_mode,'attributes'=>$attributes,'category'=>$category,'title'=>$slug,'data'=>$data,'tags'=>$tags,'relatedProduct'=>$relatedProduct,'processingProduct'=>$processingProduct,'accessoriesProduct'=>$accessoriesProduct]);
         }
-        return view('revamp.pages.detail')->with(['categoryProduct' => $categoryProduct, 'similarProduct' => $similarProduct,'product'=>$product,'bag_images'=>$bag_images,'p_mode'=>$p_mode,'attributes'=>$attributes,'category'=>$category,'title'=>$slug,'data'=>$data,'tags'=>$tags]);
+        return view('revamp.pages.detail')->with(['categoryProduct' => $categoryProduct, 'similarProduct' => $similarProduct,'product'=>$product,'bag_images'=>$bag_images,'p_mode'=>$p_mode,'attributes'=>$attributes,'category'=>$category,'title'=>$slug,'data'=>$data,'tags'=>$tags,'relatedProduct'=>$relatedProduct,'processingProduct'=>$processingProduct,'accessoriesProduct'=>$accessoriesProduct]);
     }
     
     
@@ -357,6 +387,49 @@ class RevampController extends Controller
 
     }
     
+    public function searchResult(Request $request){
+        $products = DB::table('products')
+            ->join('assign_categories','assign_categories.p_id','=','products.id')
+            ->join('categories','categories.id','=','assign_categories.category_id')
+            ->where('products.p_short_desc','LIKE', '%'.$request->search.'%')
+            ->orwhere('products.p_long_desc','LIKE', '%'.$request->search.'%')
+            ->orwhere('products.p_title','LIKE', '%'.$request->search.'%')
+            ->orderBy('products.id','ASC')
+            ->select('products.*','categories.cat_title')
+            ->where('products.p_status','=',1)
+            ->paginate(12);
+            // dd(count($products));
+         if(count($products) == 0){
+             
+            $check = explode(" ",$request->search);
+             
+            //  dd($check);
+             $products = DB::table('products')
+            ->join('assign_categories','assign_categories.p_id','=','products.id')
+            ->join('categories','categories.id','=','assign_categories.category_id')
+            ->where(function ($query) use($check) {
+             for ($i = 0; $i < count($check); $i++){
+                    $query->orwhere('products.p_short_desc', 'like',  '%' . $check[$i] .'%');
+                 }      
+            })
+            ->where(function ($query) use($check) {
+             for ($i = 0; $i < count($check); $i++){
+                    $query->orwhere('products.p_long_desc', 'like',  '%' . $check[$i] .'%');
+                 }      
+            })
+            ->where(function ($query) use($check) {
+             for ($i = 0; $i < count($check); $i++){
+                    $query->orwhere('products.p_title', 'like',  '%' . $check[$i] .'%');
+                 }      
+            })
+            ->orderBy('products.id','ASC')
+            ->select('products.*','categories.cat_title')
+            ->where('products.p_status','=',1)
+            ->paginate(12);
+             
+         }   
+        return view('revamp.pages.search')->with(['slug'=>$request->search,'products'=>$products]);
+    }
     
      public function about()
     {
