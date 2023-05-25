@@ -53,6 +53,7 @@ class RevampController extends Controller
     
     public function get_category($slug)
     {
+        $currentCat = DB::table('categories')->where('cat_slug','=',$slug)->orderBy('cat_order','ASC')->first();
         $result = DB::table('categories')->where('menu_mode','=',1)->where('status','=',1)->where('cat_slug','=',$slug)->orderBy('cat_order','ASC')->first();
         $id     = $result->id;
         $mode   = $result->theme_mode;
@@ -138,17 +139,18 @@ class RevampController extends Controller
         {
             $array[] = $row->id;
         }
-        if(!empty($subcategories[0]) || request()->segment(3) == 'accessories')
+        //$currentCat->theme_mode==0 || $currentCat->theme_mode==2
+        // !empty($subcategories[0])
+        if($currentCat->theme_mode==0 || $currentCat->theme_mode==2 || request()->segment(3) == 'accessories')
         {
-          
             $childcategories = DB::table('categories')->whereIn('parent_id',$array)->orderBy('cat_order','ASC')->get();
             
-            return view('revamp.pages.list')->with(['cat_head'=>$result,'tags'=>$tags,'slider_categories'=>$slider_categories,'bag_images'=>$bag_images,'sliders'=>$sliders,'childcategories'=>$childcategories,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'nav'=>$id]);
+            return view('revamp.pages.list')->with(['cat_head'=>$result,'tags'=>$tags,'slider_categories'=>$slider_categories,'bag_images'=>$bag_images,'sliders'=>$sliders,'childcategories'=>$childcategories,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'nav'=>$id,'currentCat'=>$currentCat]);
         }
         else
         {
-
-            return view('revamp.pages.list2')->with(['cat_head'=>$result,'tags'=>$tags,'slider_categories'=>$slider_categories,'bag_images'=>$bag_images,'sliders'=>$sliders,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'nav'=>$id]);
+            $childcategories = DB::table('categories')->whereIn('parent_id',$array)->orderBy('cat_order','ASC')->get();
+            return view('revamp.pages.list2')->with(['childcategories'=>$childcategories,'cat_head'=>$result,'tags'=>$tags,'slider_categories'=>$slider_categories,'bag_images'=>$bag_images,'sliders'=>$sliders,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'nav'=>$id,'currentCat'=>$currentCat]);
         }
         
     }
@@ -204,6 +206,7 @@ class RevampController extends Controller
     
      public function get_sub_category($slug)
     {
+        $currentCat = DB::table('categories')->where('cat_slug','=',$slug)->orderBy('cat_order','ASC')->first();
         $result = DB::table('categories')
                         ->where('cat_slug','=',$slug)->first();
         
@@ -282,7 +285,7 @@ class RevampController extends Controller
                 ->get(['product_sachet_images.*','sachets.sachet_image as p_sachet_image','sachets.sachet_title']);
 
 
-        return view('revamp.pages.list')->with(['cat_head'=>$result,'tags'=>$tags,'sliders'=>$sliders,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'childcategories'=>$childcategories,'slider_categories'=>$slider_categories,'nav'=>$parent_id,'child_nav'=>$id,'category_slug'=>$slug,'cat_bred_title'=>$cat_title]);    
+        return view('revamp.pages.list')->with(['cat_head'=>$result,'tags'=>$tags,'sliders'=>$sliders,'subcategories'=>$subcategories,'slug'=>$slug,'theme_mode'=>$mode,'products'=>$products,'commodity_images'=>$commodity_images,'sachet_images'=>$sachet_images,'childcategories'=>$childcategories,'slider_categories'=>$slider_categories,'nav'=>$parent_id,'child_nav'=>$id,'category_slug'=>$slug,'cat_bred_title'=>$cat_title,'currentCat'=>$currentCat]);    
     }
     
     public function contactUs(Request $request){
