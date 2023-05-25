@@ -104,7 +104,7 @@
                                 <select class="form-control related_machine" data-toggle="tooltip"title="Tags"
                                     name="related_machine[]" id="related_machine" multiple>
                                     <option value="">Select Related Machine</option>
-                                    @forelse($products as $i)
+                                    @forelse($allProducts as $i)
                                         <option value="{{ $i->id }}">{{ $i->p_title }}</option>
                                     @empty
                                     @endforelse
@@ -115,7 +115,7 @@
                                 <select class="form-control processingMachine" data-toggle="tooltip"title="Tags"
                                     name="processingMachine[]" id="processingMachine" multiple>
                                     <option value="">Select Processing System</option>
-                                    @forelse($products as $i)
+                                    @forelse($allProducts as $i)
                                         <option value="{{ $i->id }}">{{ $i->p_title }}</option>
                                     @empty
                                     @endforelse
@@ -126,7 +126,7 @@
                                 <select class="form-control accessories" data-toggle="tooltip"title="Tags"
                                     name="accessories[]" id="accessories" multiple>
                                     <option value="">Select Accessories</option>
-                                    @forelse($products as $i)
+                                    @forelse($allProducts as $i)
                                         <option value="{{ $i->id }}">{{ $i->p_title }}</option>
                                     @empty
                                     @endforelse

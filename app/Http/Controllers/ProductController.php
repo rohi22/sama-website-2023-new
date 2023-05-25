@@ -26,7 +26,8 @@ class ProductController extends Controller
                             ->orderBy('products.id','DESC')
                             ->paginate(10);
         $categories   = DB::table('categories')->get();
-        return view('product.all')->with(['products'=>$products,'categories'=>$categories,'tags'=>$tags]);
+        $allProducts = DB::table('products')->select('products.*')->get();
+        return view('product.all')->with(['products'=>$products,'categories'=>$categories,'tags'=>$tags,'allProducts'=>$allProducts]);
     }
     public function product_filter($num){
         $tags = GeneralTag::all();
