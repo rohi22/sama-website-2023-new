@@ -359,7 +359,9 @@ class RevampController extends Controller
                          ->orderBy('products.created_at','ASC')
                          ->take(2)
                         ->get(['products.*']);
-        if($product->cat_id == 112){
+        //dd($product);
+        //if($product->cat_id == 112){
+        if($product->p_theme == 0){
             return view('revamp.pages.detail2')->with(['categoryProduct' => $categoryProduct, 'similarProduct' => $similarProduct,'product'=>$product,'bag_images'=>$bag_images,'p_mode'=>$p_mode,'attributes'=>$attributes,'category'=>$category,'title'=>$slug,'data'=>$data,'tags'=>$tags,'relatedProduct'=>$relatedProduct,'processingProduct'=>$processingProduct,'accessoriesProduct'=>$accessoriesProduct]);
         }
         return view('revamp.pages.detail')->with(['categoryProduct' => $categoryProduct, 'similarProduct' => $similarProduct,'product'=>$product,'bag_images'=>$bag_images,'p_mode'=>$p_mode,'attributes'=>$attributes,'category'=>$category,'title'=>$slug,'data'=>$data,'tags'=>$tags,'relatedProduct'=>$relatedProduct,'processingProduct'=>$processingProduct,'accessoriesProduct'=>$accessoriesProduct]);

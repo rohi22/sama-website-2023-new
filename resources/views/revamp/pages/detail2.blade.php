@@ -176,7 +176,7 @@
 
                                 <div class="row">
                                     <div class="col-lg-12 MachineSlider owl-carousel mt-3">
-                                        @forelse($relatedProduct as $item)
+                                        @forelse($accessoriesProduct as $item)
                                             @php
                                                 $similar = App\Product::find($item->child_product);
                                             @endphp

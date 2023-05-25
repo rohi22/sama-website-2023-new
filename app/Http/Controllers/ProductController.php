@@ -806,8 +806,8 @@ class ProductController extends Controller
             ->where('products.p_title','LIKE', '%'.$request->search.'%')
             ->select(['products.*','assign_categories.category_id','categories.theme_mode as product_mode'])
             ->paginate(10);
-   
+            $allProducts = DB::table('products')->select('products.*')->get();
          $categories   = DB::table('categories')->get();
-        return view('/product/all')->with(['products'=>$products,'categories'=>$categories,'tags'=>$tags]);
+        return view('/product/all')->with(['products'=>$products,'categories'=>$categories,'tags'=>$tags,'allProducts'=>$allProducts]);
     }
 }

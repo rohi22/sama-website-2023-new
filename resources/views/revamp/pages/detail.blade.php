@@ -286,13 +286,34 @@
             </div>
         </div>
     </section>
-    <section class="py-0 d-none">
+    <section class="py-0 @if(count($accessoriesProduct)==0) d-none @endif">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 pb-4">
+                <div class="col-lg-12 pt-5 pb-4">
                     <h2>Additional Accessories</h2>
                 </div>
-                <div></div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-1" role="tabpanel"
+                                aria-labelledby="pills-1-tab" tabindex="0">
+
+                                <div class="row">
+                                    <div class="col-lg-12 MachineSlider owl-carousel mt-3">
+                                        @forelse($accessoriesProduct as $item)
+                                            @php
+                                                $similar = App\Product::find($item->child_product);
+                                            @endphp
+                                            @include('revamp.components.product', ['item' => $similar])
+                                        @empty
+                                        @endforelse
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
