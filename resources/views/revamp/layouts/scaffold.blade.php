@@ -105,15 +105,6 @@
             color: #fff;
             padding:8px 6px;
         }
-
-        /* side btn form capctha css starts here */
-        #RecaptchaField2>div {
-            width: 100% !important;
-            height: auto !important;
-        }
-        #RecaptchaField2 iframe {
-            width: 100% !important;
-        }
     </style>
   </head>
   <body>

@@ -744,7 +744,7 @@ footer .social_Links a:hover {
 .Flyoutbtn {
     top: 20vh;
     right: 0px;
-    position: fixed;
+    position: absolute;
     margin-bottom: 1px;
     cursor: pointer;
     transition: all 0.3s;
@@ -791,15 +791,28 @@ footer .social_Links a:hover {
     z-index: 9999;
 }
 
-.Flyoutbtn:hover span:nth-child(2),
+/* .Flyoutbtn:hover span:nth-child(2),
 .Flyoutbtn:hover>div {
+    display: flex;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1) !important;
+} */
+
+.Flyoutbtn2:hover span:nth-child(2),
+.Flyoutbtn2:hover>div,
+.Flyoutbtn3:hover span:nth-child(2),
+.Flyoutbtn3:hover>div {
+    display: flex;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1) !important;
+}
+
+.Flyoutbtn1.active span:nth-child(2),
+.Flyoutbtn1.active>div {
     display: flex;
     box-shadow: 0 4px 20px rgba(0, 0, 0, .1) !important;
 }
 
 .Flyoutbtn>div {
     flex-direction: column;
-    width: 100%;
     max-width: 360px;
     cursor: default !important;
     overflow-y: auto;
@@ -814,6 +827,12 @@ footer .social_Links a:hover {
     font-size: 6.5rem;
     opacity: 0.5;
     transform: rotate(-25deg);
+}
+
+@media(max-width: 360px){
+    .Flyoutbtn>div {
+        max-width: 310px;
+    }
 }
 
 .form-floating>.form-control,
@@ -1160,3 +1179,77 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 .sama-detail-product .sama-product-title strong, .sama-detail-product .sama-product-title span {
     color: #ec2424;
 }
+
+
+/* SelectBox CSS Code Starts Here */
+.select-hidden {
+    display: none;
+    visibility: hidden;
+    padding-right: 10px;
+}
+
+.form-floating>.select~label {
+    opacity: .65;
+    transform: scale(.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+.select {
+    cursor: pointer;
+    padding: 1.625rem 0.75rem 0.625rem 0.75rem;
+    position: relative;
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #dee2e6;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select-styled {
+    position: relative;
+}
+
+.select-options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #fff;
+    width: calc(100% + 2px);
+    margin-left: -1px;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.select-options li {
+    padding: 12px;
+    border: 0;
+    border-top: 1px solid #dee2e6;
+}
+
+.select-options li:hover,
+.select-options li .is-selected {
+    background: #dee2e6;
+}
+
+.select-options li &[rel="hide"] {
+    display: none;
+}
+/* SelectBox CSS Code Ends Here */
