@@ -88,7 +88,8 @@ ul {
 }
 
 span.fa-li {
-    width: 28px;
+    width: 100%;
+    max-width: 28px;
     height: 28px;
     border-radius: 50%;
     background: var(--TColor-Light);
@@ -952,7 +953,7 @@ label.text-danger {
     margin-top: 6px;
 }
 
-.banner-section{}
+/* .banner-section{} */
 .MainSlider h2 {font-weight: 400 !important; color:#000;        font-size: 24px; letter-spacing: 4px;}
 .MainSlider h2.heading {
     color: #ec2424;
@@ -997,6 +998,12 @@ ul.sam-ul li i {
 }
 .sama-fifth .col-lg-12 {
 	transform: translateY(-60%);}
+
+@media(max-width: 992px) {
+    .devider::after {
+        visibility: hidden;
+    }
+}
 @media screen and (min-width:981px){
 .mobo-menu {
     display: none;

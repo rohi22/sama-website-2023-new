@@ -53,7 +53,7 @@
     </section>
     <section>
         <div class="container">
-            <div class="row text-center text-lg-start">
+            <div class="row text-center text-lg-start text-md-start">
                 <div class="col-lg-12">
                     <h2>Privacy Policy for Sama Engineering</h2>
                     <p>At Sama Engineering, accessible from https://samaengineering.com, one of our main priorities is
@@ -79,14 +79,14 @@
                     <h3 class="mt-5 mb-4">How we use your information</h3>
                     <p>We use the information we collect in various ways, including to:</p>
                     <ul class="m-0 fa-ul">
-                        <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> Provide, operate, and maintain our website</li>
-                        <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> Improve, personalize, and expand our website</li>
-                        <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> Understand and analyze how you use our website</li>
-                        <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> Develop new products, services, features, and functionality</li>
-                        <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> Communicate with you, either directly or through one of our partners, including for customer
+                        <li class="mb-4 p-0 d-flex align-items-center gap-3 justify-content-center justify-content-md-start justify-content-lg-start"><span class="fa-li position-relative"><i class="fa fa-check"></i></span> Provide, operate, and maintain our website</li>
+                        <li class="mb-4 p-0 d-flex align-items-center gap-3 justify-content-center justify-content-md-start justify-content-lg-start"><span class="fa-li position-relative"><i class="fa fa-check"></i></span> Improve, personalize, and expand our website</li>
+                        <li class="mb-4 p-0 d-flex align-items-center gap-3 justify-content-center justify-content-md-start justify-content-lg-start"><span class="fa-li position-relative"><i class="fa fa-check"></i></span> Understand and analyze how you use our website</li>
+                        <li class="mb-4 p-0 d-flex align-items-center gap-3 justify-content-center justify-content-md-start justify-content-lg-start"><span class="fa-li position-relative"><i class="fa fa-check"></i></span> Develop new products, services, features, and functionality</li>
+                        <li class="mb-4 p-0 d-flex align-items-center gap-3 justify-content-center justify-content-md-start justify-content-lg-start"><span class="fa-li position-relative"><i class="fa fa-check"></i></span> Communicate with you, either directly or through one of our partners, including for customer
                         service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
-                        <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> Send you emails</li>
-                        <li class="mb-4"><span class="fa-li"><i class="fa fa-check"></i></span> Find and prevent fraud</li>
+                        <li class="mb-4 p-0 d-flex align-items-center gap-3 justify-content-center justify-content-md-start justify-content-lg-start"><span class="fa-li position-relative"><i class="fa fa-check"></i></span> Send you emails</li>
+                        <li class="mb-4 p-0 d-flex align-items-center gap-3 justify-content-center justify-content-md-start justify-content-lg-start"><span class="fa-li position-relative"><i class="fa fa-check"></i></span> Find and prevent fraud</li>
                     </ul>
                     <h3 class="mt-5 mb-4">Log Files</h3>
                     <p>Sama Engineering follows a standard procedure of using log files. These files log visitors when
@@ -145,7 +145,7 @@
                         <li class="mb-4"><span class="fa-li"><i class="fa fa-circle"></i></span> <b>The right to object to processing</b> – You have the right to object to our processing of your
                             personal data, under certain conditions.</li>
                         <li class="mb-4"><span class="fa-li"><i class="fa fa-circle"></i></span> <b>The right to data portability</b> – You have the right to request that we transfer the data that we
-                            have collected to another organization, or directly to you, under certain conditions.</li>                        
+                            have collected to another organization, or directly to you, under certain conditions.</li>
                     </ul>
                     <p> If you make a request, we have one month to respond to you. If you would like to exercise any of
                         these rights, please contact us.</p>
