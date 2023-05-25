@@ -135,10 +135,10 @@
             </div>
         </div>
     </section>
-    <section class="py-0 bgSR">
+    <section class="py-0 bgSR sama-detail-product">
         <div class="container">
             <div class="row d-lg-flex align-items-lg-center">
-                <div class="col-lg-6 pt-5 pb-0 sama-content-col">
+                <div class="col-lg-6 pt-0 pb-0 sama-content-col">
                     @php
                         
                         $title = $product->p_title;
@@ -198,7 +198,7 @@
 
 
                 </div>
-                <div class="col-lg-4 offset-lg-1 p-4 pb-0 mb-0 bg-white">
+                <div class="col-lg-4 offset-lg-1 p-4 pt-0 pb-0 mb-0 bg-white">
                     <div class="mb-4 Gridimg">
                         <div class="d-grid justify-content-end sama-social-icons">
                             <button type="button" class="btnn" onclick="showMOdal()">
