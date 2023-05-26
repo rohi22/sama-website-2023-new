@@ -1166,16 +1166,19 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 .sama-tabs .nav-pills {
     row-gap: 2px;
 }
-.sama-product-card .sama-product-buttons .fa-file-pdf {
+.fa-file-pdf {
     font-family: 'Font Awesome 6 Free';
+}
+.sama-detail-product {
+    box-shadow: 0px 20px 53px -25px rgba(0,0,0,0.15);
 }
 .sama-product-des {
     display: none;
 }
 .sama-detail-product .sama-content-col {
     box-shadow: 20px 0 53px -25px rgba(0,0,0,0.15);
+    padding-right: 7%;
 }
-
 .sama-detail-product .sama-product-title strong, .sama-detail-product .sama-product-title span {
     color: #ec2424;
 }
@@ -1253,3 +1256,60 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
     display: none;
 }
 /* SelectBox CSS Code Ends Here */
+.sama-social-icons {
+    position: absolute;
+        bottom: 0;
+    left: 52%; 
+}
+.sama-social-icons span.str{
+    top: 0;
+    left: 100%;
+    font-size: 20px;
+    width: 140px;
+}
+.sama-social-icons span.str1{
+    top: 0;
+    left: 100%;
+    font-size: 20px;
+    width: 230px !important;
+}
+.sama-social-icons .text, .sama-social-icons .text1     {display: block;}
+.fa-file-pdf,.fa-file-pdf:before {
+    font-family: 'Font Awesome 6 Free';
+}
+.sama-social-icons .btnn:hover, .sama-social-icons .btnn2:hover {
+    transform: scale(1.05);
+}
+.sama-tabs { border-top: 1px solid #f3f3f3; }
+.sama-detail-product:before {
+    background-size: 35% 80%;
+}
+.sama-product-id {
+    font-size: 20px;
+    font-weight: bold;
+}
+.sama-detail-product p {
+    color: #000;
+    font-weight: 500;
+}
+
+.sama-tabs .nav-pills li button {
+    height: fit-content;
+    width: 160px;
+}
+.sama-second-social {
+    left: 60%;
+}
+
+.sama-second-social .btnn {
+    margin-left: -50px;
+}
+
+.sama-second-social .btnn2 {
+    bottom: 180px;
+    margin-left: 180px;
+}
+.sama-second-detail-product.bgSR:before{
+     height: 100%;
+    left: 30%;
+}
