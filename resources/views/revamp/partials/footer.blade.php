@@ -319,8 +319,12 @@
 
 <script>
     $(document).ready(function() {
-        $(".Flyoutbtn1").on("click", function() {
-            $(this).toggleClass("active");
+        $(".Flyoutbtn1 span").on("click", function() {
+            if($(".Flyoutbtn1").hasClass("active")) {
+                $(".Flyoutbtn1").removeClass("active");
+            } else {
+                $(".Flyoutbtn1").addClass("active");
+            }
         });
     });
 </script>
