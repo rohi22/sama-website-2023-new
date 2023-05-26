@@ -757,7 +757,7 @@ footer .social_Links a:hover {
 .Flyoutbtn {
     top: 20vh;
     right: 0px;
-    position: fixed;
+    position: absolute;
     margin-bottom: 1px;
     cursor: pointer;
     transition: all 0.3s;
@@ -804,15 +804,28 @@ footer .social_Links a:hover {
     z-index: 9999;
 }
 
-.Flyoutbtn:hover span:nth-child(2),
+/* .Flyoutbtn:hover span:nth-child(2),
 .Flyoutbtn:hover>div {
+    display: flex;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1) !important;
+} */
+
+.Flyoutbtn2:hover span:nth-child(2),
+.Flyoutbtn2:hover>div,
+.Flyoutbtn3:hover span:nth-child(2),
+.Flyoutbtn3:hover>div {
+    display: flex;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1) !important;
+}
+
+.Flyoutbtn1.active span:nth-child(2),
+.Flyoutbtn1.active>div {
     display: flex;
     box-shadow: 0 4px 20px rgba(0, 0, 0, .1) !important;
 }
 
 .Flyoutbtn>div {
     flex-direction: column;
-    width: 100%;
     max-width: 360px;
     cursor: default !important;
     overflow-y: auto;
@@ -827,6 +840,12 @@ footer .social_Links a:hover {
     font-size: 6.5rem;
     opacity: 0.5;
     transform: rotate(-25deg);
+}
+
+@media(max-width: 360px){
+    .Flyoutbtn>div {
+        max-width: 310px;
+    }
 }
 
 .form-floating>.form-control,
@@ -1058,20 +1077,19 @@ ul.sam-ul li i {
 .product-detail-btn {
     display: flex;
     padding: 30px 0 0 30px;
-    gap: 80px;
+    gap: 100px;
 }
-
 .product-detail-btn .product-btn {
     position: relative;
     border: 0;
-    padding: 12px 50px;
+    padding: 9px 10px;
     background: #ec2424;
     color: #fff;
     border-radius: 0 7px 7px 0;
     font-weight: 600;
     width: 100%;
     display: block;
-	transition: 0.3s all ease-in-out;
+    transition: 0.3s all ease-in-out;
 }
 .product-detail-btn .product-btn:hover span.btn-text {
     transform: scale(1.2);
@@ -1093,7 +1111,7 @@ ul.sam-ul li i {
 
 .product-detail-btn .product-btn.catalogue span.dot.text-white {
     background: #000;
-    left: -40px;
+    left: -65px;
 }
 @media(max-width: 992px) {
     .devider::after {
@@ -1251,16 +1269,150 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 .sama-tabs .nav-pills {
     row-gap: 2px;
 }
-.sama-product-card .sama-product-buttons .fa-file-pdf {
+.fa-file-pdf {
     font-family: 'Font Awesome 6 Free';
+}
+.sama-detail-product {
+    box-shadow: 0px 20px 53px -25px rgba(0,0,0,0.15);
 }
 .sama-product-des {
     display: none;
 }
 .sama-detail-product .sama-content-col {
     box-shadow: 20px 0 53px -25px rgba(0,0,0,0.15);
+    padding-right: 7%;
 }
-
 .sama-detail-product .sama-product-title strong, .sama-detail-product .sama-product-title span {
     color: #ec2424;
+}
+
+
+/* SelectBox CSS Code Starts Here */
+.select-hidden {
+    display: none;
+    visibility: hidden;
+    padding-right: 10px;
+}
+
+.form-floating>.select~label {
+    opacity: .65;
+    transform: scale(.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+.select {
+    cursor: pointer;
+    padding: 1.625rem 0.75rem 0.625rem 0.75rem;
+    position: relative;
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #dee2e6;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select-styled {
+    position: relative;
+}
+
+.select-options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #fff;
+    width: calc(100% + 2px);
+    margin-left: -1px;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.select-options li {
+    padding: 12px;
+    border: 0;
+    border-top: 1px solid #dee2e6;
+}
+
+.select-options li:hover,
+.select-options li .is-selected {
+    background: #dee2e6;
+}
+
+.select-options li &[rel="hide"] {
+    display: none;
+}
+/* SelectBox CSS Code Ends Here */
+.sama-social-icons {
+    position: absolute;
+        bottom: 0;
+    left: 52%; 
+}
+.sama-social-icons span.str{
+    top: 0;
+    left: 100%;
+    font-size: 20px;
+    width: 140px;
+}
+.sama-social-icons span.str1{
+    top: 0;
+    left: 100%;
+    font-size: 20px;
+    width: 230px !important;
+}
+.sama-social-icons .text, .sama-social-icons .text1     {display: block;}
+.fa-file-pdf,.fa-file-pdf:before {
+    font-family: 'Font Awesome 6 Free';
+}
+.sama-social-icons .btnn:hover, .sama-social-icons .btnn2:hover {
+    transform: scale(1.05);
+}
+.sama-tabs { border-top: 1px solid #f3f3f3; }
+.sama-detail-product:before {
+    background-size: 35% 80%;
+}
+.sama-product-id {
+    font-size: 20px;
+    font-weight: bold;
+}
+.sama-detail-product p {
+    color: #000;
+    font-weight: 500;
+}
+
+.sama-tabs .nav-pills li button {
+    height: fit-content;
+    width: 160px;
+}
+.sama-second-social {
+    left: 60%;
+}
+
+.sama-second-social .btnn {
+    margin-left: -50px;
+}
+
+.sama-second-social .btnn2 {
+    bottom: 180px;
+    margin-left: 180px;
+}
+.sama-second-detail-product.bgSR:before{
+     height: 100%;
+    left: 30%;
 }

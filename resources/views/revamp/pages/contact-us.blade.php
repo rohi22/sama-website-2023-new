@@ -154,8 +154,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="mb-3">
+                                    <div class="form-floating mb-3">
                                         <input type="tel" class="form-control PhoneNmbr" placeholder="Phone Number" name="phone" value="{{old('phone')}}" id="c_phone">
+                                        <label for="phone">Phone Number</label>
                                         <small id="c_phone_error" class="text-danger"></small>
                                     </div>
                                 </div>
@@ -171,7 +172,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-floating mb-3">
                                         <select class="form-select" name="country" value="{{old('country')}}" id="c_country">
-                                            <option value="">Please Select</option>
+                                            <option value="">Select Country</option>
                                              @forelse($countries as $i)
                                                 <option value="{{$i->Code}}">{{$i->Name}}</option>>
                                             @empty
@@ -193,9 +194,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="form-floating">
+                                    <div class="form-floating mb-3">
                                         <textarea class="form-control w-100" style="height: auto;" rows="8" placeholder="Leave a comment here" name="msg" value="{{old('msg')}}" id="c_msg"></textarea>
-                                        <label for="c_msg">Messge</label>
+                                        <label for="c_msg">Message</label>
                                         <small id="c_msg_error" class="text-danger"></small>
                                     </div>
                                 </div>
@@ -326,25 +327,135 @@ function contactSubmit()
 
 }
     $(document).ready(function(){
-      $("#c_country").change(function(){
-        var country = $(this).val();
+    //   $("#c_country").change(function(){
+    //     var country = $(this).val();
 
-        $.ajax({
-              url: "{{url('/get_city')}}",
-              type: 'POST',
-              data: {country:country,_token:'{{ csrf_token() }}'},
-              success: function(res)
-               {
-                $("#c_city").html(res);
-                console.log(res);
+    //     $.ajax({
+    //           url: "{{url('/get_city')}}",
+    //           type: 'POST',
+    //           data: {country:country,_token:'{{ csrf_token() }}'},
+    //           success: function(res)
+    //            {
+    //             $("#c_city").html(res);
+    //             console.log(res);
 
-               },
-               error: function(res)
-               {
-                console.log(res);
-               }
-            });
-      });
+    //            },
+    //            error: function(res)
+    //            {
+    //             console.log(res);
+    //            }
+    //         });
+    //   });
 });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#c_country").change(function() {
+            var country = $(this).val();
+
+            $.ajax({
+                url: "{{ url('/get_city') }}",
+                type: 'POST',
+                data: {
+                    country: country,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(res) {
+                    if ($("#cityUl").length && $("#cityUl").length) {
+                // if (number == 1) {
+                    $("#cityUl").parent().html(
+                        '<select class="form-select" id="c_city" name="city"> <option value="">Select City</option></select><label for="c_city">City</label>'
+                        );
+                    $("#cityUl").remove();
+                    $("#ccityUl").remove();
+                // }
+            }
+
+                    $("#c_city").html(res);
+
+                    var i = 0;
+                    $('#c_city').each(function() {
+                        i++;
+                        var $this = $(this),
+                        numberOfOptions = $(this).children('option').length;
+                        // console.log($this);
+
+                        updateCityCountry($this, numberOfOptions, "cityUl", i);
+                    });
+
+                },
+                error: function(res) {
+                    console.log(res);
+                }
+            });
+        });
+
+        $('#c_country').each(function() {
+            var $this = $(this),
+            numberOfOptions = $(this).children('option').length;
+            // console.log($this);
+
+            updateCityCountry($this, numberOfOptions, "countryUl");
+        });
+
+        $('#c_city').each(function() {
+            var $this = $(this),
+            numberOfOptions = $(this).children('option').length;
+
+            updateCityCountry($this, numberOfOptions, "cityUl");
+        });
+    });
+
+    function updateCityCountry($this, numberOfOptions, name, number = 1) {
+
+        $this.addClass('select-hidden');
+        $this.wrap('<div class="select" id="' + name + '"></div>');
+        $this.after('<div class="select-styled" id="c' + name + '"></div>');
+
+        var $styledSelect = $this.next('div.select-styled');
+        $styledSelect.text($this.children('option').eq(0).text());
+
+        var $list = $('<ul />', {
+            'class': 'select-options'
+        }).insertAfter($styledSelect);
+
+        for (var i = 0; i < numberOfOptions; i++) {
+            $('<li />', {
+                text: $this.children('option').eq(i).text(),
+                value: $this.children('option').eq(i).val()
+            }).appendTo($list);
+            if ($this.children('option').eq(i).is(':selected')) {
+                $('li[value="' + $this.children('option').eq(i).val() + '"]').addClass(
+                    'is-selected')
+            }
+        }
+
+        var $listItems = $list.children('li');
+
+        $styledSelect.click(function(e) {
+            e.stopPropagation();
+            $('div.select-styled.active').not(this).each(function() {
+            $(this).removeClass('active').next('ul.select-options').hide();
+            });
+            $(this).toggleClass('active').next('ul.select-options').toggle();
+        });
+
+        $listItems.click(function(e) {
+            e.stopPropagation();
+            $styledSelect.text($(this).text()).removeClass('active');
+            $this.val($(this).attr('value'));
+            $list.hide();
+            var list_val = $this.val();
+            // console.log(list_val);
+            $("#c_country").find("option[value='" + list_val + "']").change();
+            // console.log($this.val());
+        });
+
+        $(document).click(function() {
+            $styledSelect.removeClass('active');
+            $list.hide();
+        });
+    }
 </script>
 @endpush
