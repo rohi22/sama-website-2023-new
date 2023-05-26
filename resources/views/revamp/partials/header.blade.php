@@ -483,79 +483,39 @@ i.menu-btn.fa.fa-bars.custm {
                </div>
                <nav class="sam-nav">
                   <ul class="d-flex flex-column flex-lg-row nav-col">
-                     <li>
-                        <a href="{{asset('revamp/category/machines')}}">Machines <i class="fa fa-chevron-down ms-2"></i></a>
-                        <div class="SUBLinks">
-                           <div class="container p-0">
-                              <ul class="menu-carousel">
-                                 @forelse($machines as $machine)
-                                 <li>
-                                    <a href="{{asset('revamp/sub-category/'.$machine->cat_slug)}}">
-                                    <span><img src="{{asset('uploads/'.$machine->cat_icon)}}" /></span>
-                                    <span>{{$machine->cat_title}}</span>
-                                    </a>
-                                 </li>
-                                 @empty
-                                 @endforelse
-                              </ul>
-                           </div>
-                        </div>
-                     </li>
-                     <li>
-                        <a href="{{asset('revamp/category/processing-series')}}">Processing Line <i class="fa fa-chevron-down ms-2"></i></a>
-                        <div class="SUBLinks">
-                           <div class="container p-0">
-                              <ul class="menu-carousel owl-carousel">
-                                 @forelse($processingSeries as $processing)
-                                 <li>
-                                    <a href="{{asset('revamp/sub-category/'.$processing->cat_slug)}}">
-                                    <span><img src="{{asset('uploads/'.$processing->cat_icon)}}" /></span>
-                                    <span>{{$processing->cat_title}}</span>
-                                    </a>
-                                 </li>
-                                 @empty
-                                 @endforelse
-                              </ul>
-                           </div>
-                        </div>
-                     </li>
-                     <li>
-                        <a href="{{asset('revamp/category/bakery-series')}}">Bakery Series <i class="fa fa-chevron-down ms-2"></i></a>
-                        <div class="SUBLinks">
-                           <div class="container p-0">
-                              <ul class="menu-carousel owl-carousel">
-                                 @forelse($bakerySeries as $bakery)
-                                 <li>
-                                    <a href="{{asset('revamp/sub-category/'.$bakery->cat_slug)}}">
-                                    <span><img src="{{asset('uploads/'.$bakery->cat_icon)}}" /></span>
-                                    <span>{{$bakery->cat_title}}</span>
-                                    </a>
-                                 </li>
-                                 @empty
-                                 @endforelse
-                              </ul>
-                           </div>
-                        </div>
-                     </li>
-                     <li>
-                        <a href="{{asset('revamp/category/pharmaceutical-line')}}">Pharmaceutical Line <i class="fa fa-chevron-down ms-2"></i></a>
-                        <div class="SUBLinks">
-                           <div class="container p-0">
-                              <ul class="menu-carousel owl-carousel">
-                                 @forelse($pharmaLine as $pharma)
-                                 <li>
-                                    <a href="{{asset('revamp/sub-category/'.$pharma->cat_slug)}}">
-                                    <span><img src="{{asset('uploads/'.$pharma->cat_icon)}}" /></span>
-                                    <span>{{$pharma->cat_title}}</span>
-                                    </a>
-                                 </li>
-                                 @empty
-                                 @endforelse
-                              </ul>
-                           </div>
-                        </div>
-                     </li>
-                     <li><a href="{{asset('revamp/category/snack-processing')}}">Snack Processing Line</a></li>
+                     
+                                   @foreach($categories as $i)
+              <li>
+                @php
+                $subcategories = DB::table('categories')->where('parent_id','=',$i->id)->where('status',
+                1)->orderBy('cat_order','ASC')->get(['categories.*']);
+                \Log::info(strtoupper($i->cat_title .'--'. count($subcategories)));
+                @endphp
+                <a href="{{asset('/revamp/category/'.$i->cat_slug)}}">{{strtoupper($i->cat_title)}}
+                  @if(count($subcategories))
+                  <i class="fa fa-chevron-down ms-2"></i>
+                </a>
+                @endif
+                @if(count($subcategories))
+                <div class="SUBLinks">
+                  <div class="container p-0">
+                    <ul class="menu-carousel">
+
+                      @forelse($subcategories as $machine)
+                      <li>
+                        <a href="{{asset('revamp/sub-category/'.$machine->cat_slug)}}">
+                          <span><img src="{{asset('uploads/'.$machine->cat_icon)}}" /></span>
+                          <span>{{$machine->cat_title}}</span>
+                        </a>
+                      </li>
+                      @empty
+                      @endforelse
+                    </ul>
+                  </div>
+                </div>
+                @endif
+              </li>
+              @endforeach
                      <li><a href="{{asset('revamp/category/accessories')}}">Accessories</a></li>
                      <li><a href="{{route('contactUs')}}">Contact us</a></li>
                   </ul>
@@ -586,22 +546,25 @@ i.menu-btn.fa.fa-bars.custm {
                <a class="logo-sidebar "href="{{url('/revamp')}}"><img src="https://www.samaengineering.com/uploads/logos/samalogo.png" height="50px" alt="Logo"></a>
                <a class="logo-sidebar "href="{{url('/revamp')}}"><h2 style="color:#fff; font-size:20px; font-weight:600;">Sama Engineering</h2></a>
                <ul class="sama-ul">
-                  @forelse($categories as $parent)
-                  @if(sizeof($parent->subcategories) > 0)
-                  <li class="pushy-submenu">
-                     <button>{{$parent->cat_title}}</button>
-                     <ul>
-                        @forelse($parent->subcategories as $child)
-                        <li class="pushy-link suby" style="font-size: 12px;"><button><a href="{{asset('sub-category/'.$child->cat_slug)}}">{{$child->cat_title}}</a></button></li>
-                        @empty
-                        @endforelse
-                     </ul>
+                   @forelse($categories as $parent)
+              @if(sizeof($parent->subcategories) > 0)
+              <li class="pushy-submenu">
+                <button><a href="{{url('/revamp/category/'.$parent->cat_slug)}}">{{$parent->cat_title}}</a></button>
+                <ul class="sub-menu" style="display:none">
+                  @forelse($parent->subcategories as $child)
+                  <li class="pushy-link suby" style="font-size: 12px;"><button><a
+                        href="{{asset('/revamp/sub-category/'.$child->cat_slug)}}">{{$child->cat_title}}</a></button>
                   </li>
-                  @else
-                  <li class="pushy-link"><button><a href="{{asset('category/'.$parent->cat_slug)}}">{{$parent->cat_title}}</a></button></li>
-                  @endif
                   @empty
                   @endforelse
+                </ul>
+              </li>
+              @else
+              <li class="pushy-link"><button><a
+                    href="{{asset('category/'.$parent->cat_slug)}}">{{$parent->cat_title}}</a></button></li>
+              @endif
+              @empty
+              @endforelse
                </ul>
                <ul class="THLinks sama-ul">
                   <!--<li><a href="{{url('blog')}}"><button>Case Study</button></a></li>-->
@@ -701,6 +664,9 @@ i.menu-btn.fa.fa-bars.custm {
                 // $(".close-icon").css("display","block")
             }
         });
+        $('.pushy-submenu').on('click', function() {
+      $(this).find('.sub-menu:first').toggle();
+    });
     });
 </script>
 <script>
