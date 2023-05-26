@@ -239,12 +239,12 @@
 
  <div class="Flyoutbtn Flyoutbtn1">
      <span class="bg-TColor text-white"><i class="fa fa-phone"></i></span>
-     <div class="CFrom bg-XLGray shadow py-5 px-3">
+     <div class="CFrom bg-XLGray shadow py-3 px-3">
          <i class="fa fa-envelope-o text-danger position-absolute"></i>
-         <form autocomplete="off">
+         <form id="sitebtn-contact">
              @csrf
-             <h4>Contact us</h4>
-             <p>With the Pakistan's No. 1 packaging machines & processing systems provider.</p>
+             <h4 class="mb-2">Contact us</h4>
+             <p class="mt-1">With the Pakistan's No. 1 packaging machines & processing systems provider.</p>
 
              <div class="form-floating mb-2">
                  <input type="text" class="form-control" id="cwname" name="name" placeholder="Full Name"
@@ -319,10 +319,8 @@
 
 <script>
     $(document).ready(function() {
-        $(".Flyoutbtn1").on("mouseenter", function() {
-            $(this).addClass("active");
-        }).on("mouseleave", function() {
-            $(this).removeClass("active");
+        $(".Flyoutbtn1").on("click", function() {
+            $(this).toggleClass("active");
         });
     });
 </script>
