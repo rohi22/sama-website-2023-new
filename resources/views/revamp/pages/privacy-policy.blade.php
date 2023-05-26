@@ -53,7 +53,7 @@
     </section>
     <section>
         <div class="container">
-            <div class="row text-start">
+            <div class="row" style="text-align: justify;">
                 <div class="col-lg-12">
                     <h2>Privacy Policy for Sama Engineering</h2>
                     <p>At Sama Engineering, accessible from https://samaengineering.com, one of our main priorities is

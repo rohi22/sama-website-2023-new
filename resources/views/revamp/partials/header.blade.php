@@ -532,7 +532,7 @@ i.menu-btn.fa.fa-bars.custm {
                 @endif
               </li>
               @endforeach
-                     <li><a href="{{asset('revamp/category/accessories')}}">Accessories</a></li>
+                     <!-- <li><a href="{{asset('revamp/category/accessories')}}">Accessories</a></li> -->
                      <li><a href="{{route('contactUs')}}">Contact us</a></li>
                   </ul>
                </nav>
