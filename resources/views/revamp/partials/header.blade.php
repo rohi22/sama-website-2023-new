@@ -13,6 +13,7 @@ button.fa.fa-search.search-btn.sb {
     color: white;
 }
 .input-group {
+    margin-left: 10px;
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -433,6 +434,18 @@ i.menu-btn.fa.fa-bars.custm {
       font-size: 22px !important;
     }
 }
+  .search-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-btn {
+        margin-right: -38px;
+        z-index: 1;
+    }
+    .myeditclass::placeholder {
+            color: #ec2424;
+      }
 </style>
 <header id="Header">
    <div class="THeader bg-TColor text-white top-header">
@@ -455,10 +468,12 @@ i.menu-btn.fa.fa-bars.custm {
                      <li>
                      <div class="input-group" style="">
                      <form method="get" action="{{route('revamp.search')}}">
-                      <input type="text" style="width:150px !important;height: 37px; border-radius: initial; font-size:12px;     margin-left: 25px;" placeholder="Search.." 
+                     <input type="text" style="width: 39px !important; height: 37px; border-radius: initial; position: absolute; top: 0px; left: -16px;" 
                       class="myeditclass form-control" name="search" value="">
-                      <button type="submit" class="fa fa-search search-btn sb customwork" style="position: absolute; top: 11px; right: 148px; border-inline-end-style: none; 
-                        border-bottom-style: none; margin-top: -11px; border-color: #ec2424;padding:6px;margin-right:0px; height: 37px;"
+                      <input type="text" style="width:150px !important;height: 37px; border-radius: initial; font-size:12px; margin-left: 25px;" placeholder="Search.." 
+                      class="myeditclass form-control" name="search" value="">
+                      <button type="submit" class="fa fa-search search-btn sb customwork" style="position: absolute; top: 15px; right: 166px; border-inline-end-style: none; 
+                        border-bottom-style: none; margin-top: -11px; border-color: #ec2424;padding:6px;margin-right:0px; height: 29px; border-radius: 8px;"
                          value="Search" href="{{route('revamp.search')}}">
                       </button>
                         <!-- <button type="submit" 
