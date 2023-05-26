@@ -40,9 +40,16 @@
             height: 70px;
         }
 
+<<<<<<< HEAD
+.pagination li.active .page-link,.pagination li .page-link:hover {
+    background-color: #EC2424;
+    color: #fff;
+}
+=======
         .tab-pane:not(.active) {
             display: none;
         }
+>>>>>>> 705e7ccb710f3f6698ffda9d1c32233c9921f115
 
         #pills-44 {
             display: flex;
@@ -128,10 +135,10 @@
             </div>
         </div>
     </section>
-    <section class="py-0 bgSR">
+    <section class="py-0 bgSR sama-detail-product">
         <div class="container">
             <div class="row d-lg-flex align-items-lg-center">
-                <div class="col-lg-6 pt-5 pb-4">
+                <div class="col-lg-6 pt-0 pb-0 sama-content-col">
                     @php
                         
                         $title = $product->p_title;
@@ -152,10 +159,10 @@
                         $coloredTitle = str_replace($firstThreeWords, $redText, $title);
                         
                     @endphp
-                    <h1 class="mb-2">@php echo $coloredTitle @endphp
+                    <h1 class="mb-2 sama-product-title">@php echo $coloredTitle @endphp
                     <!-- <br><span class="text-TColor">{{ $data->cat_title }}</span> -->
                     </h1>
-                    <h3 class="mb-4">@if(isset($product->sku)) {{$product->sku}} @else P-{{ $product->id + 1000 }} @endif</h3>
+                    <h3 class="mb-4 sama-product-id">@if(isset($product->sku)) {{$product->sku}} @else P-{{ $product->id + 1000 }} @endif</h3>
                     <div class="row">
                         @forelse($bag_images as $index=>$gallery)
                             <div class="col-3">
@@ -167,12 +174,12 @@
                         @endforelse
                     </div>
                     <p class="mb-5">{!! $product->p_short_desc !!}</p>
-                    <div class="d-flex flex-wrap flex-row mb-4 row">
+                    <div class="d-flex flex-wrap flex-row mt-4 mb-4 row">
                         @forelse($attributes as $index=>$i)
                             @if ($index <= 3)
                                 <div class="col-lg-6">
                                     <label
-                                        class="bg-white border border-danger border-danger-light rounded me-3 mb-3 text-center px-4 py-3 w-100"
+                                        class="bg-white border border-danger border-danger-light rounded me-3 mb-3 text-center px-2 py-2 w-100"
                                         style="min-height:150px">
                                         <h2 class="text-TColor">{{ $i->label }}</h2>
                                         <span class="text-PColor">{{ $i->name }}</span>
@@ -191,9 +198,9 @@
 
 
                 </div>
-                <div class="col-lg-4 offset-lg-1 p-4 mb-4 bg-white">
+                <div class="col-lg-4 offset-lg-1 p-4 pt-0 pb-0 mb-0 bg-white">
                     <div class="mb-4 Gridimg">
-                        <div class="d-grid justify-content-end">
+                        <div class="d-grid justify-content-end sama-social-icons">
                             <button type="button" class="btnn" onclick="showMOdal()">
                                 <span class="dot text-white"><i class="fa fa-youtube-play fa-2x"></i></span>
                                 <span class="str"><span class="text text-white">Play Video</span></span>
@@ -201,7 +208,7 @@
                             <button type="button" class="btnn2 btn-download"
                                 data-url="{{ asset('uploads/pdf/' . $product->p_pdf) }}">
                                 <span class="dot1 text-white"><i class="fa fa-file-pdf fa-2x"></i></span>
-                                <span class="str1"><span class="text1 text-white">E-catalogue</span></span>
+                                <span class="str1"><span class="text1 text-white">Download E-catalogue</span></span>
                             </button>
                         </div>
                         <img src="{{ asset('uploads/product/' . $product->p_main_image) }}" width="550px" height="550px"
@@ -211,10 +218,10 @@
             </div>
         </div>
     </section>
-    <section class="py-0 sama-tabs">
+    <section class="py-0 pt-5 sama-tabs">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 d-flex justify-content-center">
+                <div class="col-lg-12 d-flex  justify-content-start">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="pills-11-tab" data-bs-toggle="pill"

@@ -59,7 +59,7 @@
     height:60px !important;
 }
 
-            .hoverphone:hover .dropdown-content {display: block;}
+.hoverphone:hover .dropdown-content {display: block;}
             .dropdown-content {
                 right:0px;
                 display:none;
