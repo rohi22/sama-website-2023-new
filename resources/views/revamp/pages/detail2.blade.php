@@ -43,12 +43,14 @@
             display: flex;
             align-items: center;
         }
-    </style>
+
+
+</style>
 @endpush
 @section('content')
     @include('revamp.components.video_modal')
-    <section class="py-0 PLBanner top-banner">
-        <div class="container-fluid">
+    <section class="py-0 product-detail-banner">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="imGBox">
@@ -56,9 +58,35 @@
                     </div>
                 </div>
             </div>
+
         </div>
+		<div class="banner-breadcrumb bg-LGray">
+			    <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="d-flex flex-row w-100 sama-breadcrumbs">
+                        <li>
+                            <a href="{{ url('/') }}" class=""><i class="fa fa-home me-2"></i> HOME
+                                &nbsp;&nbsp; |</a>
+                        </li>
+
+                        @if (isset($data) && !empty($data))
+                            <li class="text-TColor">
+                                &nbsp;&nbsp; <a href="{{ url('category/' . $data->cat_slug) }}"
+                                    style="color:#EC2424">{{ $data->cat_title }}</a> &nbsp;&nbsp; |
+                            </li>
+                        @endif
+
+                        <li class="text-TColor">
+                            &nbsp;&nbsp; {{ $product->p_title }} &nbsp;&nbsp;
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+		</div>
     </section>
-    <section class="py-3 bg-LGray">
+    <!--<section class="py-3 bg-LGray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -82,8 +110,8 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section class="py-0 bgSR sama-second-detail-product">
+    </section>-->
+    <section class="py-0 bgSR">
         <div class="container">
             <div class="row d-flex align-items-center py-5">
                 <div class="col-lg-6 py-5 pb-4">
@@ -134,7 +162,12 @@
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
-                    <div class="mb-4 Gridimg">
+					<div class="product-detail-wrapper">
+					
+					
+                    <!--<div class="mb-4 Gridimg">
+					
+
                         @php
                             $bag_images = DB::table('product_main_images')
                                 ->where('p_id', '=', $product->id)
@@ -146,22 +179,82 @@
                         @empty
                         @endforelse
 
-                    </div>
-                    <div class="d-grid justify-content-end sama-second-social sama-social-icons">
-                        <button type="button" data-href="{{ $product->p_video_link }}" class="video-btn btnn">
+                    </div>-->
+					
+						<div class="detail-slider-list">
+							 
+								@php
+									$bag_images = DB::table('product_main_images')
+										->where('p_id', '=', $product->id)
+										->get();
+								@endphp
+								@forelse($bag_images as $index=>$gallery)
+									 <div class="col-xl-12">
+										<div class="slider-list-item">
+											<img src="{{ asset('uploads/product/' . $gallery->p_bag_image) }}" width="120px"
+											alt="{{ $gallery->p_bag_image }}" />
+										</div>	
+									</div>	
+								@empty
+								@endforelse
+							
+						</div>
+					
+						
+					
+					<div class="product-detail-btn">
+						<button type="button" data-href="{{ $product->p_video_link }}" class="product-btn video-btn">
                             <span class="dot text-white"><i class="fa fa-youtube-play fa-2x"></i></span>
-                            <span class="str"><span class="text text-white">Play Video</span></span>
+                            <span class="btn-text">Play Video</span>
                         </button>
-                        <button type="button" class="btnn2"
+						<button type="button" class="product-btn catalogue"
                             onClick="return window.open('{{ asset('uploads/pdf/' . $product->p_pdf) }}', '_blank')">
-                            <span class="dot1 text-white"><i class="fa fa-file-pdf fa-2x"></i></span>
-                            <span class="str1"><span class="text1 text-white">E-catalogue</span></span>
+                            <span class="dot text-white"><i class="fa fa-file-pdf fa-2x"></i></span>
+                            <span class="btn-text">Download E-catalogue</span>
                         </button>
-                    </div>
+					</div>
+					
+                
                 </div>
             </div>
         </div>
     </section>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				 <div class="col-lg-12 pt-5 pb-4">
+                    <h2>Additional Accessories</h2>
+                </div>
+				
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-1" role="tabpanel"
+                            aria-labelledby="pills-1-tab" tabindex="0">
+
+                            <div class="row">
+                                <div class="col-lg-12 MachineSlider owl-carousel mt-3">
+                                    @forelse($relatedProduct as $item)
+                                        @php
+                                            $similar = App\Product::find($item->child_product);
+                                        @endphp
+                                        @include('revamp.components.product', ['item' => $similar])
+                                    @empty
+                                        @foreach ($categoryProduct as $item)
+                                            @include('revamp.components.product', ['item' => $item])
+                                        @endforeach
+                                    @endforelse
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</section>
     <section class="py-0 @if(count($accessoriesProduct)==0) d-none @endif">
         <div class="container">
             <div class="row">
@@ -279,4 +372,48 @@
             });
         });
     </script>
+	<script>
+	 // trending-carousel
+    $('.detail-slider-list').slick({
+        arrows: false,
+        infinite: false,
+        speed: 800,
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        prevArrow:"<button type='button' class='slick-prev pull-left'><span class='material-symbols-outlined'>arrow_right_alt</span></button>",
+        nextArrow:"<button type='button' class='slick-next pull-right'><span class='material-symbols-outlined'>arrow_right_alt</span></button>",
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 3,
+                    slidesToScroll: 2,
+                    infinite: false
+                }
+			},
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                  
+                }
+			},
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                }
+			}
+			// You can unslick at a given breakpoint now by adding:
+			// settings: "unslick"
+			// instead of a settings object
+		]
+    });
+
+	</script>
 @endpush

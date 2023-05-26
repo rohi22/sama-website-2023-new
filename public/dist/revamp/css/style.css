@@ -600,7 +600,7 @@ section {
 }
 
 .bgSR:before {
-    content: " ";
+   /* content: " ";
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -609,7 +609,20 @@ section {
     background: url(../images/S-Sign.svg) no-repeat bottom left;
     background-size: 80% 80%;
     pointer-events: none;
+    z-index: -1;*/
+	content: " ";
+    position: absolute;
+    bottom: auto;
+    top: 0;
+    right: 160px;
+    width: 851px;
+    height: 461px;
+    background: url(../images/S-Sign.svg) no-repeat;
+    background-size: cover;
+    pointer-events: none;
     z-index: -1;
+    background-position: center center;
+    left: auto;
 }
 
 .bgSB:before {
@@ -1039,7 +1052,90 @@ ul.sam-ul li i {
 }
 .sama-fifth .col-lg-12 {
 	transform: translateY(-60%);}
+/* detail-page */
+.product-detail-banner {
+	
+}
+.product-detail-banner .imGBox {
+    width: 100%;
+    height: 500px;
+}
+.product-detail-banner .imGBox>img {
+    width: 100%;
+	height:100%;
+	object-fit:contain;
+}
+.banner-breadcrumb {
+    padding: 15px 0;
+}
+.detail-slider-list .slider-list-item {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 10px;
+    -webkit-box-shadow: rgba(17,17,26,.1) 0px 0px 16px;
+    -moz-box-shadow: rgba(17,17,26,.1) 0px 0px 16px;
+    box-shadow: rgba(17,17,26,.1) 0px 0px 16px;
+    height: 150px;
+}
 
+.detail-slider-list  .slick-slide {
+    height: auto;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.detail-slider-list .slider-list-item>img {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-slider-list .slick-track {
+    padding: 10px 0px;
+}
+.product-detail-btn {
+    display: flex;
+    padding: 30px 0 0 30px;
+    gap: 80px;
+}
+
+.product-detail-btn .product-btn {
+    position: relative;
+    border: 0;
+    padding: 12px 50px;
+    background: #ec2424;
+    color: #fff;
+    border-radius: 0 7px 7px 0;
+    font-weight: 600;
+    width: 100%;
+    display: block;
+	transition: 0.3s all ease-in-out;
+}
+.product-detail-btn .product-btn:hover span.btn-text {
+    transform: scale(1.2);
+}
+
+.product-detail-btn .product-btn span.btn-text {
+    display: block;
+    transition: 0.3s all ease-in-out;
+}
+.product-detail-btn .product-btn span.dot.text-white {
+    position: absolute;
+    top: -19px;
+    left: -30px;
+}
+
+.product-detail-btn .product-btn.catalogue {
+    background: #000;
+}
+
+.product-detail-btn .product-btn.catalogue span.dot.text-white {
+    background: #000;
+    left: -40px;
+}
 @media(max-width: 992px) {
     .devider::after {
         visibility: hidden;
@@ -1127,8 +1223,16 @@ ul.sam-ul li i {
 /*        min-height: 524px;*/
 /*}*/
     .THeader { display: none; }
+	
     /*.ProcessSlider-row p, .ProcessSlider-row a.btn, .ProcessSlider-row .Gridimg { display: none; }*/
-    }
+ .product-detail-btn {
+    flex-direction: column;
+}
+.product-detail-btn .product-btn.catalogue span.dot.text-white {
+    left: -30px;
+}
+ }
+
 /*My New Code*/
 .nav-pills {
     row-gap: 2px;

@@ -163,6 +163,7 @@ if($(".AboutSlider").length){
     $( ".owl-next").html('<i class="fa fa-chevron-right"></i>');
   });
   
+
 //   $(document).ready(function() {
 //   if ( $(window).width() > 767 ) {
 //     startCarousel();
