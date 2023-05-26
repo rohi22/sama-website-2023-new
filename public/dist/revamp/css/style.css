@@ -744,7 +744,7 @@ footer .social_Links a:hover {
 .Flyoutbtn {
     top: 20vh;
     right: 0px;
-    position: absolute;
+    position: fixed;
     margin-bottom: 1px;
     cursor: pointer;
     transition: all 0.3s;
@@ -786,7 +786,8 @@ footer .social_Links a:hover {
     font-size: 24px;
 }
 
-.Flyoutbtn:hover {
+.Flyoutbtn2:hover,
+.Flyoutbtn3:hover {
     transform: translateX(-0%);
     z-index: 9999;
 }
@@ -811,6 +812,11 @@ footer .social_Links a:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, .1) !important;
 }
 
+.Flyoutbtn1.active {
+    transform: translateX(-0%);
+    z-index: 9999;
+}
+
 .Flyoutbtn>div {
     flex-direction: column;
     max-width: 360px;
@@ -829,9 +835,25 @@ footer .social_Links a:hover {
     transform: rotate(-25deg);
 }
 
-@media(max-width: 360px){
+#sitebtn-contact .form-floating>.form-control {
+    padding: 0.7rem 0.75rem 0.25rem !important;
+    height: 44px !important;
+}
+
+#sitebtn-contact .form-floating>label {
+    padding: 0.5rem 0.75rem !important;
+}
+
+@media(max-width: 380px){
     .Flyoutbtn>div {
-        max-width: 310px;
+        max-width: 70%;
+    }
+
+    #RecaptchaField2 iframe,
+    #RecaptchaField3 iframe,
+    .g-recaptcha iframe {
+        transform:scale(0.70);
+        transform-origin:0 0;
     }
 }
 
