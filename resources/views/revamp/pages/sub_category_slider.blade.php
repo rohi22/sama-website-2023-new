@@ -8,14 +8,18 @@
     .sub-cat-card {
         background-color: white;
         padding: 10px;
-        border-radius: 5px;
+        border-radius: 0px;
         transition: background-color 0.3s ease;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 200px;
+        height: 130px;
+        border: none;
         /* Adjust the height as needed */
+    }
+    .sub-cat-card:hover {
+        box-shadow: 0 0 9px rgba(0, 0, 0, 0.3); 
     }
 /* 
     .sub-cat-card:hover {
@@ -29,8 +33,8 @@
     background-color: #EC2424;
     border-color: #EC2424;
     color: white;
-    font-size: 0.75rem;
-    padding: 10px 4px;
+    font-size: 11px;
+    padding: 7px 2px;
     text-transform: uppercase;
 }
     .card-content {
@@ -41,7 +45,14 @@
 
     .card-content span {
         display: block;
-        margin-top: 25px;
+        margin-top: 0px;
+    }
+    span.text {
+    font-size: 11px;
+    color: black;
+    }
+    .owl-stage-outer{
+        margin-top: 15px;
     }
 
     /* .card-content img {
@@ -64,14 +75,16 @@
     }
     @media (min-width: 992px) {
         .owl-carousel {
-            max-width: 1200px; /* Adjust the value as per your preference */
+            max-width: 1095px; /* Adjust the value as per your preference */
             margin: 0 auto; /* Center the carousel horizontally */
         }
     }
     button.owl-next{
         margin-right: 25px !important;
     }
-    
+    .CategorySlider .custom-width {
+        width: 171px; /* Set the desired width for the carousel items */
+    }
 </style>
 @if($currentCat->menu_mode==1 && count($subcategories) > 0)
 <section class="p-0">
@@ -81,9 +94,9 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab" tabindex="0">
                         <div class="row">
-                            <div class="col-lg-12 CategorySlider owl-carousel mt-3">
+                            <div class="col-lg-12 CategorySlider owl-carousel mt-3 mb-3" style="background: #f3f3f37a;">
                                 @foreach($subcategories as $cat)
-                                <a href="{{url('revamp/sub-category/'.$cat->cat_slug)}}" class="card sub-cat-card">
+                                <a href="{{url('revamp/sub-category/'.$cat->cat_slug)}}" class="card sub-cat-card custom-width">
                                     <div class="card-content">
                                         <span><img src="{{url('uploads/'.$cat->cat_icon)}}" /></span>
                                         <span class="text">{{$cat->cat_title}}</span>
@@ -127,7 +140,7 @@
                     items: 4 // Number of items to show on medium screens
                 },
                 992: {
-                    items: 6 // Number of items to show on large screens
+                    items: 5 // Number of items to show on large screens
                 }
             }
         });
