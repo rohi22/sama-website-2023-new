@@ -1099,20 +1099,19 @@ ul.sam-ul li i {
 .product-detail-btn {
     display: flex;
     padding: 30px 0 0 30px;
-    gap: 80px;
+    gap: 100px;
 }
-
 .product-detail-btn .product-btn {
     position: relative;
     border: 0;
-    padding: 12px 50px;
+    padding: 9px 10px;
     background: #ec2424;
     color: #fff;
     border-radius: 0 7px 7px 0;
     font-weight: 600;
     width: 100%;
     display: block;
-	transition: 0.3s all ease-in-out;
+    transition: 0.3s all ease-in-out;
 }
 .product-detail-btn .product-btn:hover span.btn-text {
     transform: scale(1.2);
@@ -1134,7 +1133,7 @@ ul.sam-ul li i {
 
 .product-detail-btn .product-btn.catalogue span.dot.text-white {
     background: #000;
-    left: -40px;
+    left: -65px;
 }
 @media(max-width: 992px) {
     .devider::after {
