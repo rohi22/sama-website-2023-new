@@ -468,11 +468,12 @@ i.menu-btn.fa.fa-bars.custm {
                      <li>
                      <div class="input-group" style="">
                      <form method="get" action="{{route('revamp.search')}}">
-                     <input type="text" style="width: 39px !important; height: 37px; border-radius: initial; position: absolute; top: 0px; left: -16px;" 
+                     <input type="text" style="width: 53px !important; height: 37px; border-radius: initial; position: absolute; top: 0px; left: -16px; border-inline-style: none;" 
                       class="myeditclass form-control" name="search" value="">
+                      <span style="color: #f73d3d9e; position: absolute; left: 28px; font-size: 26px;">|</span>
                       <input type="text" style="width:150px !important;height: 37px; border-radius: initial; font-size:12px; margin-left: 25px;" placeholder="Search.." 
                       class="myeditclass form-control" name="search" value="">
-                      <button type="submit" class="fa fa-search search-btn sb customwork" style="position: absolute; top: 15px; right: 166px; border-inline-end-style: none; 
+                      <button type="submit" class="fa fa-search search-btn sb customwork" style="position: absolute; top: 15px; right: 163px; border-inline-end-style: none; 
                         border-bottom-style: none; margin-top: -11px; border-color: #ec2424;padding:6px;margin-right:0px; height: 29px; border-radius: 8px;"
                          value="Search" href="{{route('revamp.search')}}">
                       </button>
