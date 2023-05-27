@@ -446,6 +446,13 @@ i.menu-btn.fa.fa-bars.custm {
     .myeditclass::placeholder {
             color: #ec2424;
       }
+    .fa-magnifying-glass:before, .fa-search:before {
+    content: "\f002";
+    font-size: 13px !important;
+    position: relative !important;
+    top: -3px !important;
+    left: -1px !important;
+    }
 </style>
 <header id="Header">
    <div class="THeader bg-TColor text-white top-header">
@@ -468,13 +475,13 @@ i.menu-btn.fa.fa-bars.custm {
                      <li>
                      <div class="input-group" style="">
                      <form method="get" action="{{route('revamp.search')}}">
-                     <input type="text" style="width: 53px !important; height: 37px; border-radius: initial; position: absolute; top: 0px; left: -16px; border-inline-style: none;" 
+                     <input type="text" style="width: 40px !important; height: 37px; border-radius: initial; position: absolute; top: 0px; left: -6px; border-inline-style: none;" 
                       class="myeditclass form-control" name="search" value="">
                       <span style="color: #f73d3d9e; position: absolute; left: 28px; font-size: 26px;">|</span>
-                      <input type="text" style="width:150px !important;height: 37px; border-radius: initial; font-size:12px; margin-left: 25px;" placeholder="Search.." 
+                      <input type="text" style="width:150px !important;height: 37px; border-radius: initial; font-size:12px; margin-left: 33px;" placeholder="Search.." 
                       class="myeditclass form-control" name="search" value="">
-                      <button type="submit" class="fa fa-search search-btn sb customwork" style="position: absolute; top: 15px; right: 163px; border-inline-end-style: none; 
-                        border-bottom-style: none; margin-top: -11px; border-color: #ec2424;padding:6px;margin-right:0px; height: 29px; border-radius: 8px;"
+                      <button type="submit" class="fa fa-search search-btn sb customwork" style="position: absolute; top: 17px; right: 168px; border-inline-end-style: none; 
+                        border-bottom-style: none; margin-top: -11px; border-color: #ec2424;padding:6px;margin-right:0px; height: 25px; border-radius: 6px; width: 25px;"
                          value="Search" href="{{route('revamp.search')}}">
                       </button>
                         <!-- <button type="submit" 
@@ -573,7 +580,7 @@ i.menu-btn.fa.fa-bars.custm {
                      </li>
                      <li><a href="{{asset('revamp/category/snack-processing')}}">Snack Processing Line</a></li>
                      <li><a href="{{asset('revamp/category/accessories')}}">Accessories</a></li>
-                     <li><a href="{{route('contactUs')}}">Contact us</a></li>
+                     <li><a href="{{route('contactUs')}}">CONTACT US</a></li>
                   </ul>
                </nav>
             </div>
