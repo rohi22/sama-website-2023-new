@@ -140,12 +140,12 @@
             <div class="row d-lg-flex align-items-lg-center">
                 <div class="col-lg-6 pt-0 pb-0 sama-content-col">
                     @php
-                        
+
                         $title = $product->p_title;
-                        
+
                         // Split the title into an array of words using either space or hyphen as separators
                         $words = preg_split('/[\s-]+/', $title);
-                        
+
                         if(strpos($title, ' ') !== false){
                             // Get the first three words of the title
                             $firstThreeWords = implode(' ', array_slice($words, 0, 3));
@@ -154,10 +154,10 @@
                         }
                         // Wrap the first three words in a span element with a CSS class for styling
                         $redText = "<span style='color: red;'>{$firstThreeWords}</span>";
-                        
+
                         // Replace the original first three words with the colored text
                         $coloredTitle = str_replace($firstThreeWords, $redText, $title);
-                        
+
                     @endphp
                     <h1 class="mb-2 sama-product-title">@php echo $coloredTitle @endphp
                     <!-- <br><span class="text-TColor">{{ $data->cat_title }}</span> -->
@@ -222,7 +222,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 d-flex  justify-content-start">
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="pills-11-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-11" type="button" role="tab" aria-controls="pills-11"

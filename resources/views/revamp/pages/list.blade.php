@@ -80,7 +80,7 @@
         <div class="row">
             @if (isset($childcategories))
             <div class="col-lg-12 d-flex justify-content-between">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
                     @forelse($childcategories as $cc)
                     <li class="nav-item" role="presentation">
                         <button class="nav-link " id="id{{ $cc->id }}" data-bs-toggle="pill"
@@ -99,13 +99,13 @@
                     <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab"
                         tabindex="0">
                         <div class="row" id="ajaxContent">
-                            
+
                             @foreach($products as $p)
                                 @if($currentCat->theme_mode==0 || $currentCat->theme_mode==2 || request()->segment(3) == 'accessories')
                                 <div class="col-lg-3">
                                     @include('revamp.components.product', ['item' => $p])
                                 </div>
-                               
+
 
                                 @endif
                             @endforeach
