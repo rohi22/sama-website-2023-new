@@ -206,7 +206,7 @@ nav.sam-nav {
 .SUBLinks {
     position: absolute;
     left: -4%;
-    top: 40px;
+    top: 30px;
     width: 100%;
     background: var(--LGray);
     height: auto;
@@ -1054,7 +1054,7 @@ ul.sam-ul li i {
 	transform: translateY(-60%);}
 /* detail-page */
 .product-detail-banner {
-	
+
 }
 .product-detail-banner .imGBox {
     width: 100%;
@@ -1222,7 +1222,7 @@ ul.sam-ul li i {
 /*        min-height: 524px;*/
 /*}*/
     .THeader { display: none; }
-	
+
     /*.ProcessSlider-row p, .ProcessSlider-row a.btn, .ProcessSlider-row .Gridimg { display: none; }*/
  .product-detail-btn {
     flex-direction: column;
@@ -1384,7 +1384,7 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 .sama-social-icons {
     position: absolute;
         bottom: 0;
-    left: 52%; 
+    left: 52%;
 }
 .sama-social-icons span.str{
     top: 0;
@@ -1419,8 +1419,10 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 }
 
 .sama-tabs .nav-pills li button {
-    height: fit-content;
-    width: 160px;
+    /* height: fit-content;
+    width: 160px; */
+    text-transform: uppercase;
+    font-size: 12px;
 }
 .sama-second-social {
     left: 60%;
