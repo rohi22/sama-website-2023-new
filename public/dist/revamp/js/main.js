@@ -55,23 +55,29 @@ if($(".MachineSlider").length){
 if ($(".CategorySlider").length) {
     $(".CategorySlider").owlCarousel({
       autoplay: true,
-      loop: true,
-      margin: 15,
+      loop: false,
+      margin: 10,
       dots: true,
-      nav: false,
+      nav: true,
       responsiveClass: true,
       responsive: {
         0: {
-          items: 2
+            items: 1 // Number of items to show on small screens
+        },
+        425: {
+            items: 2 // Number of items to show on small screens
+        },
+        768: {
+            items: 4 // Number of items to show on medium screens
         },
         992: {
-          items: 2
-        },
-        1200: {
-          items: 5
+            items: 6 // Number of items to show on large screens
         }
-      },
-      navText: ["", ""]
+    },
+    navText: [
+      "<i class='fas fa-arrow-left'></i>", // Previous arrow
+      "<i class='fas fa-arrow-right'></i>" // Next arrow
+  ],
     });
   }
   

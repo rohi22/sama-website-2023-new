@@ -549,47 +549,47 @@
     }
 
     .myeditclass::placeholder {
-        color: #ec2424;
+            color: #ec2424;
+      }
+    .fa-magnifying-glass:before, .fa-search:before {
+    content: "\f002";
+    font-size: 13px !important;
+    position: relative !important;
+    top: -3px !important;
+    left: -1px !important;
     }
 </style>
 <header id="Header">
-    <div class="THeader bg-TColor text-white top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 d-flex align-items-center justify-content-lg-between justify-content-center">
-                    <div>
-                        <ul class="THLinks">
-                            <li><a href="tel:{{ $footer_content->f_phone_1 }}"><i class="fa fa-phone me-2"></i>
-                                    <span>{{ $footer_content->f_phone_1 }}</span></a></li>
-                            <li><a href="mailto:{{ $footer_content->f_email_2 }}"><i class="fa fa-envelope me-2"></i>
-                                    <span>{{ $footer_content->f_email_1 }}</span></a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul class="THLinks">
-                            <li><a href="{{ url('blog') }}">Case Study</a></li>
-                            <li><a href="{{ route('aboutUs') }}">About us</a></li>
-                            <li><a href="{{ route('spareParts') }}">Spare Parts</a></li>
-                            <li><a href="{{ route('becomeAnAgent') }}">Become Agent</a></li>
-                            <li><a href="{{ route('eCatalogue') }}">E-Catalogue</a></li>
-                            <li>
-                                <div class="input-group" style="">
-                                    <form method="get" action="{{ route('revamp.search') }}">
-                                        <input type="text"
-                                            style="width: 53px !important; height: 37px; border-radius: initial; position: absolute; top: 0px; left: -16px; border-inline-style: none;"
-                                            class="myeditclass form-control" name="search" value="">
-                                        <span
-                                            style="color: #f73d3d9e; position: absolute; left: 28px; font-size: 26px;">|</span>
-                                        <input type="text"
-                                            style="width:150px !important;height: 37px; border-radius: initial; font-size:12px; margin-left: 25px;"
-                                            placeholder="Search.." class="myeditclass form-control" name="search"
-                                            value="">
-                                        <button type="submit" class="fa fa-search search-btn sb customwork"
-                                            style="position: absolute; top: 15px; right: 163px; border-inline-end-style: none;
-                        border-bottom-style: none; margin-top: -11px; border-color: #ec2424;padding:6px;margin-right:0px; height: 29px; border-radius: 8px;"
-                                            value="Search" href="{{ route('revamp.search') }}">
-                                        </button>
-                                        <!-- <button type="submit"
+   <div class="THeader bg-TColor text-white top-header">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12 d-flex align-items-center justify-content-lg-between justify-content-center">
+               <div>
+                  <ul class="THLinks">
+                     <li><a href="tel:{{$footer_content->f_phone_1}}"><i class="fa fa-phone me-2"></i> <span>{{$footer_content->f_phone_1}}</span></a></li>
+                     <li><a href="mailto:{{$footer_content->f_email_2}}"><i class="fa fa-envelope me-2"></i> <span>{{$footer_content->f_email_1}}</span></a></li>
+                  </ul>
+               </div>
+               <div>
+                  <ul class="THLinks">
+                     <li><a href="{{url('blog')}}">Case Study</a></li>
+                     <li><a href="{{route('aboutUs')}}">About us</a></li>
+                     <li><a href="{{route('spareParts')}}">Spare Parts</a></li>
+                     <li><a href="{{route('becomeAnAgent')}}">Become Agent</a></li>
+                     <li><a href="{{route('eCatalogue')}}">E-Catalogue</a></li>
+                     <li>
+                     <div class="input-group" style="">
+                     <form method="get" action="{{route('revamp.search')}}">
+                     <input type="text" style="width: 40px !important; height: 37px; border-radius: initial; position: absolute; top: 0px; left: -6px; border-inline-style: none;" 
+                      class="myeditclass form-control" name="search" value="">
+                      <span style="color: #f73d3d9e; position: absolute; left: 28px; font-size: 26px;">|</span>
+                      <input type="text" style="width:150px !important;height: 37px; border-radius: initial; font-size:12px; margin-left: 33px;" placeholder="Search.." 
+                      class="myeditclass form-control" name="search" value="">
+                      <button type="submit" class="fa fa-search search-btn sb customwork" style="position: absolute; top: 17px; right: 168px; border-inline-end-style: none; 
+                        border-bottom-style: none; margin-top: -11px; border-color: #ec2424;padding:6px;margin-right:0px; height: 25px; border-radius: 6px; width: 25px;"
+                         value="Search" href="{{route('revamp.search')}}">
+                      </button>
+                        <!-- <button type="submit" 
                           >
                         </button> -->
                                     </form>
