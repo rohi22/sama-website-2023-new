@@ -6,6 +6,7 @@
     }
 
     .sub-cat-card {
+        border: 1px solid #eee;
         background-color: white;
         padding: 10px;
         border-radius: 0px;
@@ -15,13 +16,12 @@
         justify-content: center;
         align-items: center;
         height: 130px;
-        border: none;
         /* Adjust the height as needed */
     }
     .sub-cat-card:hover {
-        box-shadow: 0 0 9px rgba(0, 0, 0, 0.3); 
+        box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
     }
-/* 
+/*
     .sub-cat-card:hover {
         background-color: #EC2424;
         color: white;
@@ -83,7 +83,7 @@
         margin-right: 25px !important;
     }
     .CategorySlider .custom-width {
-        width: 171px; /* Set the desired width for the carousel items */
+        width: 170px; /* Set the desired width for the carousel items */
     }
 </style>
 @if($currentCat->menu_mode==1 && count($subcategories) > 0)
@@ -94,7 +94,7 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab" tabindex="0">
                         <div class="row">
-                            <div class="col-lg-12 CategorySlider owl-carousel mt-3 mb-3" style="background: #f3f3f37a;">
+                            <div class="col-lg-12 CategorySlider owl-carousel mt-3 mb-3" style="/* background: #f3f3f37a; */">
                                 @foreach($subcategories as $cat)
                                 <a href="{{url('revamp/sub-category/'.$cat->cat_slug)}}" class="card sub-cat-card custom-width">
                                     <div class="card-content">
@@ -140,7 +140,7 @@
                     items: 4 // Number of items to show on medium screens
                 },
                 992: {
-                    items: 5 // Number of items to show on large screens
+                    items: 6 // Number of items to show on large screens
                 }
             }
         });

@@ -227,15 +227,16 @@
             <div class="row">
                 <div class="col-lg-12 d-flex  justify-content-start">
                     <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-11-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-11" type="button" role="tab" aria-controls="pills-11"
-                                aria-selected="true">Description</button>
+                            <button class="nav-link active" id="pills-11-tab" data-bs-toggle="pill" data-bs-target="#pills-11"
+                                type="button" role="tab" aria-controls="pills-11"
+                                aria-selected="false">Specifications</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-22-tab" data-bs-toggle="pill" data-bs-target="#pills-22"
-                                type="button" role="tab" aria-controls="pills-22"
-                                aria-selected="false">Specifications</button>
+                            <button class="nav-link" id="pills-22-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-22" type="button" role="tab" aria-controls="pills-22"
+                                aria-selected="true">Description</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-33-tab" data-bs-toggle="pill" data-bs-target="#pills-33"
@@ -249,16 +250,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="tab-pane fade show active py-2" id="pills-11" role="tabpanel"
-                    aria-labelledby="pills-11-tab" tabindex="0">
-                    <div class="col-lg-12 mb-4">
-                        <p>
-                            {!! $product->p_long_desc !!}
-                        </p>
-                    </div>
-                </div>
-                <div class="tab-pane fade py-2" id="pills-22" role="tabpanel" aria-labelledby="pills-22-tab"
-                    tabindex="1">
+                <div class="tab-pane fade show active py-2" id="pills-11" role="tabpanel" aria-labelledby="pills-11-tab"
+                    tabindex="0">
                     <div class="col-lg-12 mb-4">
                         <div class="row">
                             @forelse($attributes as $i)
@@ -270,6 +263,14 @@
                                 <center>No record found</center>
                             @endforelse
                         </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade py-2" id="pills-22" role="tabpanel"
+                    aria-labelledby="pills-22-tab" tabindex="1">
+                    <div class="col-lg-12 mb-4">
+                        <p>
+                            {!! $product->p_long_desc !!}
+                        </p>
                     </div>
                 </div>
                 <div class="tab-pane fade py-2" id="pills-33" role="tabpanel" aria-labelledby="pills-33-tab"
