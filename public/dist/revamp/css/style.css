@@ -1313,7 +1313,6 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
     box-shadow: 52px 0 52px -52px rgba(0,0,0,0.15);
     padding-right: 7%;
     z-index: 1;
-    line-break: anywhere;
 }
 .sama-detail-product .sama-product-title strong, .sama-detail-product .sama-product-title span {
     color: #ec2424;
