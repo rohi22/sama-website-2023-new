@@ -558,6 +558,20 @@
     top: -3px !important;
     left: -1px !important;
     }
+    ul.d-flex.flex-column.flex-lg-row.nav-col.cstm {
+    gap: 20px !important; 
+    }
+    .sam-nav ul {
+    flex-wrap: wrap;
+    gap: 0px !important;
+    row-gap: 0;
+    justify-content: flex-start;
+    float: right;
+    }
+    .sam-nav ul>li>a {
+    padding: 0;
+    font-size: 10px;
+}
 </style>
 <header id="Header">
    <div class="THeader bg-TColor text-white top-header">
@@ -611,7 +625,7 @@
                                 height="80px" alt="Logo"></a>
                     </div>
                     <nav class="sam-nav">
-                        <ul class="d-flex flex-column flex-lg-row nav-col">
+                        <ul class="d-flex flex-column flex-lg-row nav-col cstm">
 
                             @foreach ($categories as $i)
                                 <li>
