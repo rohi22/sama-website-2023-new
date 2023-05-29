@@ -570,7 +570,32 @@
     }
     .sam-nav ul>li>a {
     padding: 0;
-    font-size: 10px;
+    font-size: 11.5px;
+}
+.SUBLinks ul.menu-carousel li {
+    width: 19%;
+    margin: 2.5px;
+    margin-left: 6px;
+}
+.sam-nav ul>li {
+    padding: 0px 0px;
+}
+.owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
+    width: 32px;
+    height: 32px;
+}
+.owl-carousel .owl-nav button.owl-prev:hover, .owl-carousel .owl-nav button.owl-next:hover {
+    background: #aba59a;
+    color: white;
+    margin-left: -11px;
+}
+.owl-carousel .owl-nav button.owl-next {
+    right: -14px;
+    /* transform: translate(100%, -50%); */
+}
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
+    color: #aba59a;
+    margin-left: -9px;
 }
 </style>
 <header id="Header">

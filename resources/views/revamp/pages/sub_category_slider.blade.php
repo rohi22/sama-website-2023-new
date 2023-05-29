@@ -97,11 +97,36 @@
     .owl-dots {
     display: none;
     }
+
     .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
     color: #aba59a;
+    margin-left: -40px;
 }
 .owl-stage-outer {
     margin-top: 0px;
+}
+.SUBLinks {
+    left: 6% !important; 
+    padding: 2px !important;
+}
+.SUBLinks ul.menu-carousel li {
+    width: 19%;
+    margin: 1.5px 0px;
+    margin-left: 2px;
+}
+.SUBLinks ul.menu-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
+}
+.owl-carousel .owl-nav button.owl-next {
+    right: -40px;
+    /* transform: translate(100%, -50%); */
+}
+.owl-carousel .owl-nav button.owl-prev:hover, .owl-carousel .owl-nav button.owl-next:hover {
+    background: #aba59a;
+    color: white;
+    margin-left: -40px;
 }
 </style>
 @if($currentCat->menu_mode==1 && count($subcategories) > 0)
