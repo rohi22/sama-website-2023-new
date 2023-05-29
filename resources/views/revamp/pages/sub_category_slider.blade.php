@@ -17,6 +17,7 @@
         height: auto;
         border: none;
         margin-top: 12px;
+        margin-bottom: 12px;
         /* Adjust the height as needed */
     }
     .sub-cat-card:hover {
@@ -35,8 +36,8 @@
     background-color: #EC2424;
     border-color: #EC2424;
     color: white;
-    font-size: 11px;
-    padding: 7px 2px;
+    font-size: 10px;
+    padding: 10px 0px;
     text-transform: uppercase;
 }
     .card-content {
@@ -50,11 +51,17 @@
         margin-top: 0px;
     }
     span.text {
-    font-size: 11px;
+    font-size: 10px;
     color: black;
+    padding: 10px 0px;
     }
     .owl-stage-outer{
         margin-top: 0px;
+    }
+    .owl-carousel .owl-item img {
+    display: block;
+    width: 65%;
+    margin: 15px 30px 17px;
     }
 
     /* .card-content img {
@@ -92,6 +99,9 @@
     }
     .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
     color: #aba59a;
+}
+.owl-stage-outer {
+    margin-top: 0px;
 }
 </style>
 @if($currentCat->menu_mode==1 && count($subcategories) > 0)
