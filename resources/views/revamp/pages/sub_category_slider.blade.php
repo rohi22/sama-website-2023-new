@@ -7,19 +7,21 @@
 
     .sub-cat-card {
         background-color: white;
-        padding: 10px;
+        padding: 0px;
         border-radius: 0px;
         transition: background-color 0.3s ease;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 130px;
+        height: auto;
         border: none;
+        margin-top: 12px;
         /* Adjust the height as needed */
     }
     .sub-cat-card:hover {
-        box-shadow: 0 0 9px rgba(0, 0, 0, 0.3); 
+        box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2) !important;
+        transition: all 0.3s !important;
     }
 /* 
     .sub-cat-card:hover {
@@ -52,7 +54,7 @@
     color: black;
     }
     .owl-stage-outer{
-        margin-top: 15px;
+        margin-top: 0px;
     }
 
     /* .card-content img {
@@ -85,6 +87,12 @@
     .CategorySlider .custom-width {
         width: 171px; /* Set the desired width for the carousel items */
     }
+    .owl-dots {
+    display: none;
+    }
+    .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
+    color: #aba59a;
+}
 </style>
 @if($currentCat->menu_mode==1 && count($subcategories) > 0)
 <section class="p-0">
@@ -118,31 +126,6 @@
 <!-- Include the Owl Carousel library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
-    $(document).ready(function () {
-        // Initialize Owl Carousel
-        $(".CategorySlider").owlCarousel({
-            items: 3, // Number of items to show at a time
-            loop: true, // Enable infinite loop
-            margin: 10, // Space between items
-            nav: true, // Show navigation arrows
-            navText: [
-                "<i class='fa fa-chevron-left'></i>", // Previous arrow
-                "<i class='fa fa-chevron-right'></i>" // Next arrow
-            ],
-            responsive: {
-                0: {
-                    items: 1 // Number of items to show on small screens
-                },
-                425: {
-                    items: 2 // Number of items to show on small screens
-                },
-                768: {
-                    items: 4 // Number of items to show on medium screens
-                },
-                992: {
-                    items: 5 // Number of items to show on large screens
-                }
-            }
-        });
+    $(document).ready(function () {     
     });
 </script>
