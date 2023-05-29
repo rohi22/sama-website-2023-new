@@ -40,18 +40,17 @@
             height: 70px;
         }
 
-<<<<<<< HEAD
-.pagination li.active .page-link,.pagination li .page-link:hover {
-    background-color: #EC2424;
-    color: #fff;
-}
-=======
-        .tab-pane:not(.active) {
+        <<<<<<< HEAD .pagination li.active .page-link,
+        .pagination li .page-link:hover {
+            background-color: #EC2424;
+            color: #fff;
+        }
+
+        =======.tab-pane:not(.active) {
             display: none;
         }
->>>>>>> 705e7ccb710f3f6698ffda9d1c32233c9921f115
 
-        #pills-44 {
+        >>>>>>>705e7ccb710f3f6698ffda9d1c32233c9921f115 #pills-44 {
             display: flex;
             gap: 5px;
         }
@@ -137,7 +136,7 @@
     </section>
     <section class="py-0 bgSR sama-detail-product">
         <div class="container">
-            <div class="row d-lg-flex align-items-lg-center">
+            <div class="row d-lg-flex align-items-lg-center position-relative">
                 <div class="col-lg-6 pt-0 pb-0 sama-content-col">
                     @php
 
@@ -146,10 +145,10 @@
                         // Split the title into an array of words using either space or hyphen as separators
                         $words = preg_split('/[\s-]+/', $title);
 
-                        if(strpos($title, ' ') !== false){
+                        if (strpos($title, ' ') !== false) {
                             // Get the first three words of the title
                             $firstThreeWords = implode(' ', array_slice($words, 0, 3));
-                        }else{
+                        } else {
                             $firstThreeWords = implode('-', array_slice($words, 0, 3));
                         }
                         // Wrap the first three words in a span element with a CSS class for styling
@@ -160,20 +159,25 @@
 
                     @endphp
                     <h1 class="mb-2 sama-product-title">@php echo $coloredTitle @endphp
-                    <!-- <br><span class="text-TColor">{{ $data->cat_title }}</span> -->
+                        <!-- <br><span class="text-TColor">{{ $data->cat_title }}</span> -->
                     </h1>
-                    <h3 class="mb-4 sama-product-id">@if(isset($product->sku)) {{$product->sku}} @else P-{{ $product->id + 1000 }} @endif</h3>
-                    <div class="row">
+                    <h3 class="mt-0 mb-4 sama-product-id">
+                        @if (isset($product->sku))
+                            {{ $product->sku }}
+                        @else
+                            P-{{ $product->id + 1000 }}
+                        @endif
+                    </h3>
+                    <div class="col-12 sama-product-slider owl-carousel">
                         @forelse($bag_images as $index=>$gallery)
-                            <div class="col-3">
-                                <img src="{{ asset('uploads/product/' . $gallery->p_bag_image) }}" alt="..."
-                                    style="height:120px; width:150px;">
+                            <div class="product-slider-image">
+                                <img src="{{ asset('uploads/product/' . $gallery->p_bag_image) }}" alt="...">
                             </div>
                         @empty
                             <center>No record found</center>
                         @endforelse
                     </div>
-                    <p class="mb-5">{!! $product->p_short_desc !!}</p>
+                    <p class="mt-5 mb-4">{{ strip_tags($product->p_short_desc) }}</p>
                     <div class="d-flex flex-wrap flex-row mt-4 mb-4 row">
                         @forelse($attributes as $index=>$i)
                             @if ($index <= 3)
@@ -190,30 +194,30 @@
                         @endforelse
 
                     </div>
-                    @forelse($tags as $i)
+                    {{-- @forelse($tags as $i)
                         <a href="{{ url('revamp/tag/' . $i->gt_slug) }}"><label
                                 class="bg-TColor-Light px-3 py-2 text-TColor rounded me-2 mb-2">{{ ucwords($i->gt_title) }}</label></a>
                     @empty
-                    @endforelse
+                    @endforelse --}}
 
 
                 </div>
-                <div class="col-lg-4 offset-lg-1 p-4 pt-0 pb-0 mb-0 bg-white">
-                    <div class="mb-4 Gridimg">
-                        <div class="d-grid justify-content-end sama-social-icons">
-                            <button type="button" class="btnn" onclick="showMOdal()">
-                                <span class="dot text-white"><i class="fa fa-youtube-play fa-2x"></i></span>
-                                <span class="str"><span class="text text-white">Play Video</span></span>
-                            </button>
-                            <button type="button" class="btnn2 btn-download"
-                                data-url="{{ asset('uploads/pdf/' . $product->p_pdf) }}">
-                                <span class="dot1 text-white"><i class="fa fa-file-pdf fa-2x"></i></span>
-                                <span class="str1"><span class="text1 text-white">Download E-catalogue</span></span>
-                            </button>
-                        </div>
-                        <img src="{{ asset('uploads/product/' . $product->p_main_image) }}" width="550px" height="550px"
+                <div class="col-lg-6 px-4 mb-0 bg-white">
+                    <div class="Gridimg">
+                        <img class="w-100 h-100" src="{{ asset('uploads/product/' . $product->p_main_image) }}" width="550px" height="550px"
                             alt="...">
                     </div>
+                </div>
+                <div class="d-grid justify-content-end sama-social-icons">
+                    <button type="button" class="btnn" onclick="showMOdal()">
+                        <span class="dot text-white"><i class="fa fa-youtube-play fa-2x"></i></span>
+                        <span class="str"><span class="text text-white">Play Video</span></span>
+                    </button>
+                    <button type="button" class="btnn2 btn-download"
+                        data-url="{{ asset('uploads/pdf/' . $product->p_pdf) }}">
+                        <span class="dot1 text-white"><i class="fa fa-file-pdf fa-2x"></i></span>
+                        <span class="str1"><span class="text1 text-white">Download E-catalogue</span></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -233,19 +237,19 @@
                                 type="button" role="tab" aria-controls="pills-22"
                                 aria-selected="false">Specifications</button>
                         </li>
-                        <li class="nav-item d-none" role="presentation">
+                        <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-33-tab" data-bs-toggle="pill" data-bs-target="#pills-33"
                                 type="button" role="tab" aria-controls="pills-33"
                                 aria-selected="false">Tags</button>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item d-none" role="presentation">
                             <button class="nav-link" id="pills-44-tab" data-bs-toggle="pill" data-bs-target="#pills-44"
                                 type="button" role="tab" aria-controls="pills-44"
                                 aria-selected="false">Bags</button>
                         </li>
                     </ul>
                 </div>
-                <div class="tab-pane fade show active py-4" id="pills-11" role="tabpanel"
+                <div class="tab-pane fade show active py-2" id="pills-11" role="tabpanel"
                     aria-labelledby="pills-11-tab" tabindex="0">
                     <div class="col-lg-12 mb-4">
                         <p>
@@ -253,7 +257,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pills-22" role="tabpanel" aria-labelledby="pills-22-tab"
+                <div class="tab-pane fade py-2" id="pills-22" role="tabpanel" aria-labelledby="pills-22-tab"
                     tabindex="1">
                     <div class="col-lg-12 mb-4">
                         <div class="row">
@@ -268,17 +272,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pills-33" role="tabpanel" aria-labelledby="pills-33-tab"
+                <div class="tab-pane fade py-2" id="pills-33" role="tabpanel" aria-labelledby="pills-33-tab"
                     tabindex="2">
-                    @forelse($tags as $i)
-                        <a href="{{ url('revamp/tag/' . $i->gt_slug) }}" class="btn btn-lg btn-danger"
-                            style="margin:5px;">{{ $i->gt_title }}</a>
-                    @empty
-
+                    <div class="d-flex flex-wrap">
+                        @forelse($tags as $i)
+                            <a class="bg-TColor-Light px-3 py-2 text-TColor rounded me-2 mb-2" href="{{ url('revamp/tag/' . $i->gt_slug) }}">{{ ucwords($i->gt_title) }}</a>
+                        @empty
+                    </div>
                         <center>No record found</center>
                     @endforelse
                 </div>
-                <div class="tab-pane fade" id="pills-44" role="tabpanel" aria-labelledby="pills-44-tab"
+                <div class="tab-pane fade py-2" id="pills-44" role="tabpanel" aria-labelledby="pills-44-tab"
                     tabindex="">
 
                     @forelse($bag_images as $index=>$gallery)
@@ -293,7 +297,7 @@
             </div>
         </div>
     </section>
-    <section class="py-0 @if(count($accessoriesProduct)==0) d-none @endif">
+    <section class="py-0 @if (count($accessoriesProduct) == 0) d-none @endif">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pt-5 pb-4">
@@ -452,6 +456,35 @@
             if (!$('#myVideo').hasClass('show')) {
                 $('#productvideo').attr('src', ' ');
             }
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize Owl Carousel
+            $(".sama-product-slider").owlCarousel({
+                items: 4, // Number of items to show at a time
+                loop: true, // Enable infinite loop
+                margin: 5, // Space between items
+                nav: false, // Show navigation arrows
+                dots: false,
+                autoplay: true,
+                navText: [
+                    "<i class='fa fa-chevron-left'></i>", // Previous arrow
+                    "<i class='fa fa-chevron-right'></i>" // Next arrow
+                ],
+                // responsive: {
+                //     0: {
+                //         items: 1 // Number of items to show on small screens
+                //     },
+                //     425: {
+                //         items: 2 // Number of items to show on small screens
+                //     },
+                //     768: {
+                //         items: 4 // Number of items to show on medium screens
+                //     }
+                // }
+            });
         });
     </script>
 @endpush
