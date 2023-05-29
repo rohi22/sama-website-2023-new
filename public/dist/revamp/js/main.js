@@ -156,17 +156,33 @@ if($(".AwardSlider").length){
 }
 if($(".AboutSlider").length){      
     $(".AboutSlider").owlCarousel({
-      autoplay: true,
-      items: 1,
-      loop: true,
-      margin: 25,
-      dots: false,
-      nav: true,
-      autoHeight:true
-    });
-}
-    $( ".owl-prev").html('<i class="fa fa-chevron-left"></i>');
-    $( ".owl-next").html('<i class="fa fa-chevron-right"></i>');
+    autoplay: true,
+    items: 1,
+    loop: true,
+    margin: 25,
+    dots: false,
+    nav: true,
+    autoHeight:true,
+    responsiveClass: true,
+    responsive: {
+      0: {
+          items: 1 // Number of items to show on small screens
+      },
+      425: {
+          items: 2 // Number of items to show on small screens
+      },
+      768: {
+          items: 4 // Number of items to show on medium screens
+      },
+      992: {
+          items: 6 // Number of items to show on large screens
+      }
+  }
+});
+}  
+
+    $( ".owl-prev").html('<i class="fas fa-arrow-left"></i>');
+    $( ".owl-next").html('<i class="fas fa-arrow-right"></i>');
   });
   
 
