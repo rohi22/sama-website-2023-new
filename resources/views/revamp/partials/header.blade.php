@@ -596,9 +596,14 @@
 .SUBLinks ul.menu-carousel li {
     width: 19%;
     margin: 2.5px;
-    margin-left: 6px;
+}
+.SUBLinks ul.menu-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
 }
 .sam-nav ul>li {
+    flex: auto;
     padding: 0px 0px;
 }
 .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
@@ -617,6 +622,12 @@
 .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
     color: #aba59a;
     margin-left: -9px;
+}
+.owl-carousel .owl-stage-outer {
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: translate3d(0,0,0);
+    background: #f3f3f3;
 }
 </style>
 <header id="Header">
