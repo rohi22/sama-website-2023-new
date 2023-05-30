@@ -62,16 +62,22 @@ if ($(".CategorySlider").length) {
       responsiveClass: true,
       responsive: {
         0: {
-            items: 1 // Number of items to show on small screens
+            items: 2 // Number of items to show on small screens
         },
         425: {
-            items: 2 // Number of items to show on small screens
+            items: 3 // Number of items to show on small screens
+        },
+        520: {
+            items: 4 // Number of items to show on small screens
         },
         768: {
             items: 4 // Number of items to show on medium screens
         },
+        981: {
+            items: 5 // Number of items to show on medium screens
+        },
         992: {
-            items: 6 // Number of items to show on large screens
+            items: 7 // Number of items to show on large screens
         }
     },
     navText: [
@@ -166,16 +172,22 @@ if($(".AboutSlider").length){
     responsiveClass: true,
     responsive: {
       0: {
-          items: 1 // Number of items to show on small screens
-      },
-      425: {
           items: 2 // Number of items to show on small screens
       },
+      425: {
+          items: 3 // Number of items to show on small screens
+      },
+      520: {
+        items: 4 // Number of items to show on small screens
+    },
       768: {
           items: 4 // Number of items to show on medium screens
       },
+      981: {
+        items: 5 // Number of items to show on medium screens
+    },
       992: {
-          items: 6 // Number of items to show on large screens
+          items: 7 // Number of items to show on large screens
       }
   }
 });
