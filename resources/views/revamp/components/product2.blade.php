@@ -6,7 +6,7 @@
         </div>
     </a>
     <div class="d-grid d-md-flex justify-content-md-end mx-3 sama-product-buttons">
-        <button data-href="{{ $item->p_video_link }}" type="button" class="video-btn btn-list text-white" >
+        <button data-href="{{ $item->p_video_link }}" type="button" class="video-btn btn-list text-white">
             <i class="fa fa-youtube fa-2x"></i>
         </button>
         <a href="{{ asset('uploads/pdf/' . $item->p_pdf) }}" target="_blank">
@@ -19,8 +19,9 @@
     <a href="{{ asset('revamp/product/' . $item->p_slug) }}" class="d-flex w-100 flex-column sama-product-content">
         <div class="card-body">
             <h5 class="card-title mb-3 truncate-2">{{ $item->p_title }}</h5>
-            <?php echo $item->p_short_desc; ?>
-            <p class="card-text mb-4 truncate-2"> {!! Illuminate\Support\Str::words($item->p_short_desc, 10) !!}</p>
+            <?php //echo $item->p_short_desc;
+            ?>
+            <p class="card-text mb-4 truncate-3">{!! strip_tags(Illuminate\Support\Str::words($item->p_short_desc, 30)) !!}</p>
             <div class="d-flex flex-row">
                 @php
                     $bag_images = DB::table('product_main_images')

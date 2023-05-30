@@ -388,20 +388,41 @@
         width: calc(100% - 200px);
     }
 
-    .sam-nav ul {
+    .sam-nav>ul {
         flex-wrap: wrap;
-        gap: 20px;
-        row-gap: 0;
+        gap: 18px;
+        row-gap: 12px;
         justify-content: flex-start;
         float: right;
     }
 
-    .sam-nav ul>li {
+    .sam-nav>ul>li {
         padding: 4px 0px;
     }
 
-    .sam-nav ul>li>a {
-        padding: 0;
+    .sam-nav>ul>li>a {
+        padding: 0 0 14px 0;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        position: relative;
+    }
+
+    .sam-nav>ul>li>a:after {
+        content: "";
+        width: 100%;
+        position: absolute;
+        border-bottom: 3px solid #ec2424;
+        left: 0px;
+        bottom: 0px;
+        border-radius: 10px;
+        transition: transform 0.5s;
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+
+    .sam-nav>ul>li:hover a:after {
+        transform: scaleX(1);
+        transform-origin: left;
     }
 
     @media only screen and (min-width: 981px) and (max-width: 1200px) {
@@ -422,10 +443,10 @@
             max-width: 970px;
         }
 
-        .sam-nav .nav-col a {
+        /* .sam-nav .nav-col a {
             padding: 26px 5px;
             font-size: 0.82rem;
-        }
+        } */
 
         .sam-nav .nav-col .SUBLinks a {
             padding: 0;
@@ -570,7 +591,32 @@
     }
     .sam-nav ul>li>a {
     padding: 0;
-    font-size: 10px;
+    font-size: 11.5px;
+}
+.SUBLinks ul.menu-carousel li {
+    width: 19%;
+    margin: 2.5px;
+    margin-left: 6px;
+}
+.sam-nav ul>li {
+    padding: 0px 0px;
+}
+.owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
+    width: 32px;
+    height: 32px;
+}
+.owl-carousel .owl-nav button.owl-prev:hover, .owl-carousel .owl-nav button.owl-next:hover {
+    background: #aba59a;
+    color: white;
+    margin-left: -11px;
+}
+.owl-carousel .owl-nav button.owl-next {
+    right: -14px;
+    /* transform: translate(100%, -50%); */
+}
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
+    color: #aba59a;
+    margin-left: -9px;
 }
 </style>
 <header id="Header">
@@ -619,7 +665,7 @@
     <div class="bg-white text-white position-relative shadow-sm logo-header">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 d-flex align-items-center justify-content-lg-between justify-content-center">
+                <div class="col-lg-12 d-flex align-items-center justify-content-between">
                     <div class="logo py-2">
                         <a href="{{ url('/revamp') }}"><img src="{{ asset('uploads/logos/' . $logos->header_logo) }}"
                                 height="80px" alt="Logo"></a>
@@ -644,22 +690,19 @@
 
                                     @if (count($subcategories))
                                         <div class="SUBLinks">
-                                            <div class="container p-0">
-                                                <ul class="menu-carousel">
-
-                                                    @forelse($subcategories as $machine)
-                                                        <li>
-                                                            <a
-                                                                href="{{ asset('revamp/sub-category/' . $machine->cat_slug) }}">
-                                                                <span><img
-                                                                        src="{{ asset('uploads/' . $machine->cat_icon) }}" /></span>
-                                                                <span>{{ $machine->cat_title }}</span>
-                                                            </a>
-                                                        </li>
-                                                    @empty
-                                                    @endforelse
-                                                </ul>
-                                            </div>
+                                            <ul class="menu-carousel">
+                                                @forelse($subcategories as $machine)
+                                                    <li>
+                                                        <a
+                                                            href="{{ asset('revamp/sub-category/' . $machine->cat_slug) }}">
+                                                            <span><img
+                                                                    src="{{ asset('uploads/' . $machine->cat_icon) }}" /></span>
+                                                            <span>{{ $machine->cat_title }}</span>
+                                                        </a>
+                                                    </li>
+                                                @empty
+                                                @endforelse
+                                            </ul>
                                         </div>
                                     @endif
                                 </li>

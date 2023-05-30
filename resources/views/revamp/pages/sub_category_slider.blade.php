@@ -6,6 +6,7 @@
     }
 
     .sub-cat-card {
+        border: 1px solid #eee;
         background-color: white;
         padding: 0px;
         border-radius: 0px;
@@ -24,7 +25,7 @@
         box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2) !important;
         transition: all 0.3s !important;
     }
-/* 
+/*
     .sub-cat-card:hover {
         background-color: #EC2424;
         color: white;
@@ -92,16 +93,41 @@
         margin-right: 25px !important;
     }
     .CategorySlider .custom-width {
-        width: 171px; /* Set the desired width for the carousel items */
+        width: 170px; /* Set the desired width for the carousel items */
     }
     .owl-dots {
     display: none;
     }
+
     .owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
     color: #aba59a;
+    margin-left: -40px;
 }
 .owl-stage-outer {
     margin-top: 0px;
+}
+.SUBLinks {
+    left: 6% !important; 
+    padding: 2px !important;
+}
+.SUBLinks ul.menu-carousel li {
+    width: 19%;
+    margin: 1.5px 0px;
+    margin-left: 2px;
+}
+.SUBLinks ul.menu-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
+}
+.owl-carousel .owl-nav button.owl-next {
+    right: -40px;
+    /* transform: translate(100%, -50%); */
+}
+.owl-carousel .owl-nav button.owl-prev:hover, .owl-carousel .owl-nav button.owl-next:hover {
+    background: #aba59a;
+    color: white;
+    margin-left: -40px;
 }
 </style>
 @if($currentCat->menu_mode==1 && count($subcategories) > 0)
@@ -112,7 +138,7 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab" tabindex="0">
                         <div class="row">
-                            <div class="col-lg-12 CategorySlider owl-carousel mt-3 mb-3" style="background: #f3f3f37a;">
+                            <div class="col-lg-12 CategorySlider owl-carousel mt-3 mb-3" style="/* background: #f3f3f37a; */">
                                 @foreach($subcategories as $cat)
                                 <a href="{{url('revamp/sub-category/'.$cat->cat_slug)}}" class="card sub-cat-card custom-width">
                                     <div class="card-content">
