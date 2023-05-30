@@ -6,6 +6,7 @@
     }
 
     .sub-cat-card {
+        border: 1px solid #eee;
         background-color: white;
         padding: 0px;
         border-radius: 0px;
@@ -24,7 +25,7 @@
         box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2) !important;
         transition: all 0.3s !important;
     }
-/* 
+/*
     .sub-cat-card:hover {
         background-color: #EC2424;
         color: white;
@@ -92,7 +93,7 @@
         margin-right: 25px !important;
     }
     .CategorySlider .custom-width {
-        width: 171px; /* Set the desired width for the carousel items */
+        width: 170px; /* Set the desired width for the carousel items */
     }
     .owl-dots {
     display: none;
@@ -137,7 +138,7 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab" tabindex="0">
                         <div class="row">
-                            <div class="col-lg-12 CategorySlider owl-carousel mt-3 mb-3" style="background: #f3f3f37a;">
+                            <div class="col-lg-12 CategorySlider owl-carousel mt-3 mb-3" style="/* background: #f3f3f37a; */">
                                 @foreach($subcategories as $cat)
                                 <a href="{{url('revamp/sub-category/'.$cat->cat_slug)}}" class="card sub-cat-card custom-width">
                                     <div class="card-content">

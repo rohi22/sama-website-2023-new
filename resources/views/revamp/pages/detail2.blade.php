@@ -43,14 +43,36 @@
             display: flex;
             align-items: center;
         }
-
-
-</style>
+    </style>
 @endpush
 @section('content')
     @include('revamp.components.video_modal')
     <section class="py-0 product-detail-banner">
-        <div class="container">
+        <div class="banner-breadcrumb bg-LGray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="d-flex flex-row w-100 sama-breadcrumbs">
+                            <li>
+                                <a href="{{ url('/') }}" class=""><i class="fa fa-home me-2"></i> HOME
+                                    &nbsp;&nbsp; |</a>
+                            </li>
+
+                            @if (isset($data) && !empty($data))
+                                <li class="text-TColor">
+                                    &nbsp;&nbsp; <a href="{{ url('category/' . $data->cat_slug) }}">{{ $data->cat_title }}</a> &nbsp;&nbsp; |
+                                </li>
+                            @endif
+
+                            <li class="text-TColor">
+                                &nbsp;&nbsp; <span style="color:#EC2424">{{ $product->p_title }}</span> &nbsp;&nbsp;
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid px-0">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="imGBox">
@@ -60,61 +82,37 @@
             </div>
 
         </div>
-		<div class="banner-breadcrumb bg-LGray">
-			    <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="d-flex flex-row w-100 sama-breadcrumbs">
-                        <li>
-                            <a href="{{ url('/') }}" class=""><i class="fa fa-home me-2"></i> HOME
-                                &nbsp;&nbsp; |</a>
-                        </li>
 
-                        @if (isset($data) && !empty($data))
-                            <li class="text-TColor">
-                                &nbsp;&nbsp; <a href="{{ url('category/' . $data->cat_slug) }}"
-                                    style="color:#EC2424">{{ $data->cat_title }}</a> &nbsp;&nbsp; |
-                            </li>
-                        @endif
-
-                        <li class="text-TColor">
-                            &nbsp;&nbsp; {{ $product->p_title }} &nbsp;&nbsp;
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-		</div>
     </section>
     <!--<section class="py-3 bg-LGray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="d-flex flex-row w-100">
-                        <li>
-                            <a href="{{ url('/') }}" class="text-TColor"><i class="fa fa-home me-2"></i> HOME
-                                &nbsp;&nbsp; |</a>
-                        </li>
-
-                        @if (isset($data) && !empty($data))
-                            <li class="text-TColor">
-                                &nbsp;&nbsp; <a href="{{ url('category/' . $data->cat_slug) }}"
-                                    style="color:#EC2424">{{ $data->cat_title }}</a> &nbsp;&nbsp; |
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="d-flex flex-row w-100">
+                            <li>
+                                <a href="{{ url('/') }}" class="text-TColor"><i class="fa fa-home me-2"></i> HOME
+                                    &nbsp;&nbsp; |</a>
                             </li>
-                        @endif
 
-                        <li class="text-TColor">
-                            &nbsp;&nbsp; {{ $product->p_title }} &nbsp;&nbsp;
-                        </li>
-                    </ul>
+                            @if (isset($data) && !empty($data))
+    <li class="text-TColor">
+                                    &nbsp;&nbsp; <a href="{{ url('category/' . $data->cat_slug) }}"
+                                        style="color:#EC2424">{{ $data->cat_title }}</a> &nbsp;&nbsp; |
+                                </li>
+    @endif
+
+                            <li class="text-TColor">
+                                &nbsp;&nbsp; {{ $product->p_title }} &nbsp;&nbsp;
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>-->
+        </section>-->
     <section class="py-0 bgSR">
         <div class="container">
-            <div class="row d-flex align-items-center py-5">
-                <div class="col-lg-6 py-5 pb-4">
+            <div class="row d-flex align-items-center py-2">
+                <div class="col-lg-6 pb-4">
 
                     @php
 
@@ -122,10 +120,10 @@
 
                         // Split the title into an array of words using either space or hyphen as separators
                         $words = preg_split('/[\s-]+/', $title);
-                        if(strpos($title, '-') !== false){
+                        if (strpos($title, '-') !== false) {
                             // Get the first three words of the title
                             $firstThreeWords = implode('-', array_slice($words, 0, 3));
-                        }else{
+                        } else {
                             $firstThreeWords = implode(' ', array_slice($words, 0, 3));
                         }
                         // Wrap the first three words in a span element with a CSS class for styling
@@ -137,10 +135,16 @@
                     @endphp
                     <h1 class="mb-2">@php echo $coloredTitle @endphp
                         <!-- <br>
-                                     <span class="text-TColor">{{ $product->cat_title }}</span> -->
+                                         <span class="text-TColor">{{ $product->cat_title }}</span> -->
                     </h1>
 
-                    <h3 class="mb-4">@if(isset($product->sku)) {{$product->sku}} @else P-{{ $product->id + 1000 }} @endif</h3>
+                    <h3 class="mt-0 mb-4">
+                        @if (isset($product->sku))
+                            {{ $product->sku }}
+                        @else
+                            P-{{ $product->id + 1000 }}
+                        @endif
+                    </h3>
                     <p>
                         {!! $product->p_short_desc !!}
                     </p>
@@ -162,60 +166,137 @@
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
-					<div class="product-detail-wrapper">
-					
-					
-                    <!--<div class="mb-4 Gridimg">
-					
+                    <div class="product-detail-wrapper">
 
-                        @php
-                            $bag_images = DB::table('product_main_images')
-                                ->where('p_id', '=', $product->id)
-                                ->get();
-                        @endphp
-                        @forelse($bag_images as $index=>$gallery)
-                            <img src="{{ asset('uploads/product/' . $gallery->p_bag_image) }}" width="120px"
-                                alt="{{ $gallery->p_bag_image }}" />
+
+                        <!--<div class="mb-4 Gridimg">
+
+
+                            @php
+                                $bag_images = DB::table('product_main_images')
+                                    ->where('p_id', '=', $product->id)
+                                    ->get();
+                            @endphp
+                            @forelse($bag_images as $index=>$gallery)
+    <img src="{{ asset('uploads/product/' . $gallery->p_bag_image) }}" width="120px"
+                                    alt="{{ $gallery->p_bag_image }}" />
                         @empty
-                        @endforelse
+    @endforelse
 
-                    </div>-->
-					
-						<div class="detail-slider-list">
-							 
-								@php
-									$bag_images = DB::table('product_main_images')
-										->where('p_id', '=', $product->id)
-										->get();
-								@endphp
-								@forelse($bag_images as $index=>$gallery)
-									 <div class="col-xl-12">
-										<div class="slider-list-item">
-											<img src="{{ asset('uploads/product/' . $gallery->p_bag_image) }}" width="120px"
-											alt="{{ $gallery->p_bag_image }}" />
-										</div>	
-									</div>	
-								@empty
-								@endforelse
-							
-						</div>
-					
-						
-					
-					<div class="product-detail-btn">
-						<button type="button" data-href="{{ $product->p_video_link }}" class="product-btn video-btn">
-                            <span class="dot text-white"><i class="fa fa-youtube-play fa-2x"></i></span>
-                            <span class="btn-text">Play Video</span>
-                        </button>
-						<button type="button" class="product-btn catalogue"
-                            onClick="return window.open('{{ asset('uploads/pdf/' . $product->p_pdf) }}', '_blank')">
-                            <span class="dot text-white"><i class="fa fa-file-pdf fa-2x"></i></span>
-                            <span class="btn-text">Download E-catalogue</span>
-                        </button>
-					</div>
-					
-                
+                        </div>-->
+
+                        <div class="detail-slider-list">
+
+                            @php
+                                $bag_images = DB::table('product_main_images')
+                                    ->where('p_id', '=', $product->id)
+                                    ->get();
+                            @endphp
+                            @forelse($bag_images as $index=>$gallery)
+                                <div class="col-xl-12">
+                                    <div class="slider-list-item">
+                                        <img src="{{ asset('uploads/product/' . $gallery->p_bag_image) }}" width="120px"
+                                            alt="{{ $gallery->p_bag_image }}" />
+                                    </div>
+                                </div>
+                            @empty
+                            @endforelse
+
+                        </div>
+
+
+
+                        <div class="product-detail-btn">
+                            <button type="button" data-href="{{ $product->p_video_link }}" class="product-btn video-btn">
+                                <span class="dot text-white"><i class="fa fa-youtube-play fa-2x"></i></span>
+                                <span class="btn-text">Play Video</span>
+                            </button>
+                            <button type="button" class="product-btn catalogue"
+                                onClick="return window.open('{{ asset('uploads/pdf/' . $product->p_pdf) }}', '_blank')">
+                                <span class="dot text-white"><i class="fa fa-file-pdf fa-2x"></i></span>
+                                <span class="btn-text">Download E-catalogue</span>
+                            </button>
+                        </div>
+
+
+                    </div>
                 </div>
+            </div>
+    </section>
+
+
+    <section class="py-0 pt-5 sama-tabs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 d-flex  justify-content-start">
+                    <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-11-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-11" type="button" role="tab" aria-controls="pills-11"
+                                aria-selected="true">Description</button>
+                        </li>
+                        {{-- <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-22-tab" data-bs-toggle="pill" data-bs-target="#pills-22"
+                                type="button" role="tab" aria-controls="pills-22"
+                                aria-selected="false">Specifications</button>
+                        </li> --}}
+                        {{-- <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-33-tab" data-bs-toggle="pill" data-bs-target="#pills-33"
+                                type="button" role="tab" aria-controls="pills-33"
+                                aria-selected="false">Tags</button>
+                        </li> --}}
+                        {{-- <li class="nav-item d-none" role="presentation">
+                            <button class="nav-link" id="pills-44-tab" data-bs-toggle="pill" data-bs-target="#pills-44"
+                                type="button" role="tab" aria-controls="pills-44"
+                                aria-selected="false">Bags</button>
+                        </li> --}}
+                    </ul>
+                </div>
+                <div class="tab-pane fade show active py-2" id="pills-11" role="tabpanel"
+                    aria-labelledby="pills-11-tab" tabindex="0">
+                    <div class="col-lg-12 mb-4">
+                        <p>
+                            {!! $product->p_long_desc !!}
+                        </p>
+                    </div>
+                </div>
+                {{-- <div class="tab-pane fade py-2" id="pills-22" role="tabpanel" aria-labelledby="pills-22-tab"
+                    tabindex="1">
+                    <div class="col-lg-12 mb-4">
+                        <div class="row">
+                            @forelse($attributes as $i)
+                                <div class="col-md-4">
+                                    <label><strong>{{ $i->label }}</strong></label>
+                                    <p>{{ $i->name }}</p>
+                                </div>
+                            @empty
+                                <center>No record found</center>
+                            @endforelse
+                        </div>
+                    </div>
+                </div> --}}
+                {{-- <div class="tab-pane fade py-2" id="pills-33" role="tabpanel" aria-labelledby="pills-33-tab"
+                    tabindex="2">
+                    <div class="d-flex flex-wrap">
+                        @forelse($tags as $i)
+                            <a class="bg-TColor-Light px-3 py-2 text-TColor rounded me-2 mb-2" href="{{ url('revamp/tag/' . $i->gt_slug) }}">{{ ucwords($i->gt_title) }}</a>
+                        @empty
+                    </div>
+                        <center>No record found</center>
+                    @endforelse
+                </div> --}}
+                {{-- <div class="tab-pane fade py-2" id="pills-44" role="tabpanel" aria-labelledby="pills-44-tab"
+                    tabindex="">
+
+                    @forelse($bag_images as $index=>$gallery)
+                        <div>
+                            <img src="{{ asset('uploads/product/' . $gallery->p_bag_image) }}" alt="..."
+                                style="height:120px; width:150px;">
+                        </div>
+                    @empty
+                        <center>No record found</center>
+                    @endforelse
+                </div> --}}
             </div>
         </div>
     </section>
@@ -272,13 +353,13 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				 <div class="col-lg-12 pt-5 pb-4">
+				 <div class="col-lg-12 pt-3 pb-4">
                     <h2>Additional Accessories</h2>
                 </div>
-				
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
+
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-1" role="tabpanel"
                             aria-labelledby="pills-1-tab" tabindex="0">
@@ -301,10 +382,10 @@
                         </div>
                     </div>
                 </div>
-			</div>
-		</div>
-	</section>
-    <section class="py-0 @if(count($accessoriesProduct)==0) d-none @endif">
+            </div>
+        </div>
+    </section>
+    <section class="py-0 @if (count($accessoriesProduct) == 0) d-none @endif">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 pt-5 pb-4">
@@ -421,48 +502,46 @@
             });
         });
     </script>
-	<script>
-	 // trending-carousel
-    $('.detail-slider-list').slick({
-        arrows: false,
-        infinite: false,
-        speed: 800,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        prevArrow:"<button type='button' class='slick-prev pull-left'><span class='material-symbols-outlined'>arrow_right_alt</span></button>",
-        nextArrow:"<button type='button' class='slick-next pull-right'><span class='material-symbols-outlined'>arrow_right_alt</span></button>",
-        responsive: [
-            {
-                breakpoint: 1200,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 3,
-                    slidesToScroll: 2,
-                    infinite: false
-                }
-			},
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                  
-                }
-			},
-            {
-                breakpoint: 576,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                }
-			}
-			// You can unslick at a given breakpoint now by adding:
-			// settings: "unslick"
-			// instead of a settings object
-		]
-    });
+    <script>
+        // trending-carousel
+        $('.detail-slider-list').slick({
+            arrows: false,
+            infinite: false,
+            speed: 800,
+            slidesToShow: 3,
+            slidesToScroll: 2,
+            prevArrow: "<button type='button' class='slick-prev pull-left'><span class='material-symbols-outlined'>arrow_right_alt</span></button>",
+            nextArrow: "<button type='button' class='slick-next pull-right'><span class='material-symbols-outlined'>arrow_right_alt</span></button>",
+            responsive: [{
+                    breakpoint: 1200,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 3,
+                        slidesToScroll: 2,
+                        infinite: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
 
-	</script>
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    </script>
 @endpush

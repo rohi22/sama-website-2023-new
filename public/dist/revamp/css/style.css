@@ -205,14 +205,16 @@ nav.sam-nav {
 }
 .SUBLinks {
     position: absolute;
-    left: -4%;
-    top: 30px;
+    left: auto;
+    top: 38px;
     width: 100%;
+    max-width: 720px;
     background: var(--LGray);
     height: auto;
     display: none;
-    padding: 10px;
+    padding: 8px;
     box-shadow: 0px 12px 25px rgb(0 0 0 / 8%);
+    z-index: 1;
 }
 .sam-nav li:nth-child(3) .SUBLinks, .sam-nav li:nth-child(4) .SUBLinks {right: 9%;}
 
@@ -221,14 +223,13 @@ nav>ul>li:hover .SUBLinks {
 }
 
 .menu-carousel li a {
-    background-color: white;
+    background-color: #ffffff;
     padding: 0px;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
     align-items: center;
-    /*border: 1px solid var(--LGray);*/
-    min-height: 125px;
+    height: 100%;
 }
 
 .menu-carousel li a img {
@@ -354,8 +355,6 @@ section {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    /* number of lines to show */
-    line-clamp: 2;
     -webkit-box-orient: vertical;
 }
 
@@ -364,8 +363,6 @@ section {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    /* number of lines to show */
-    line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 
@@ -610,18 +607,18 @@ section {
     background-size: 80% 80%;
     pointer-events: none;
     z-index: -1;*/
-	content: " ";
+    content: " ";
     position: absolute;
     bottom: auto;
     top: 0;
-    right: 160px;
-    width: 851px;
-    height: 461px;
+    right: 0;
+    width: 100%;
+    height: 100%;
     background: url(../images/S-Sign.svg) no-repeat;
-    background-size: cover;
+    background-size: 64% 100%;
     pointer-events: none;
     z-index: -1;
-    background-position: center center;
+    background-position: center right;
     left: auto;
 }
 
@@ -1039,10 +1036,11 @@ ul.sam-ul li i {
     flex-wrap: wrap;
     justify-content: flex-start;
     flex-direction: row;
+    gap: 4px;
 }
 .SUBLinks ul.menu-carousel li {
-      width: 19%;
-    margin: 3.5px;
+    width: 173px;
+    min-height: 125px;
 }
 .sama-section h2 {
     margin: 0;
@@ -1058,12 +1056,23 @@ ul.sam-ul li i {
 }
 .product-detail-banner .imGBox {
     width: 100%;
-    height: 500px;
+    height: 340px;
 }
 .product-detail-banner .imGBox>img {
     width: 100%;
-	height:100%;
-	object-fit:contain;
+	height: 100%;
+	object-fit: cover;
+}
+.product-detail-banner:after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 170px;
+    background: -moz-linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 1) 84%);
+    background: -webkit-linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 1) 84%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 1) 84%);
 }
 .banner-breadcrumb {
     padding: 15px 0;
@@ -1098,42 +1107,37 @@ ul.sam-ul li i {
 }
 .product-detail-btn {
     display: flex;
-    padding: 30px 0 0 30px;
-    gap: 100px;
+    padding: 30px 0 0 0;
 }
 .product-detail-btn .product-btn {
     position: relative;
     border: 0;
-    padding: 9px 10px;
+    background: transparent;
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transition: 0.3s all ease-in-out;
+}
+.product-detail-btn .product-btn:hover {
+    transform: scale(1.05);
+}
+.product-detail-btn .product-btn span.btn-text {
+    transition: 0.3s all ease-in-out;
     background: #ec2424;
+    padding: 9px 10px;
     color: #fff;
     border-radius: 0 7px 7px 0;
-    font-weight: 600;
-    width: 100%;
-    display: block;
-    transition: 0.3s all ease-in-out;
+    margin-left: -8px;
 }
-.product-detail-btn .product-btn:hover span.btn-text {
-    transform: scale(1.2);
-}
-
-.product-detail-btn .product-btn span.btn-text {
-    display: block;
-    transition: 0.3s all ease-in-out;
+.product-detail-btn .catalogue span.btn-text {
+    background: #000;
 }
 .product-detail-btn .product-btn span.dot.text-white {
-    position: absolute;
-    top: -19px;
-    left: -30px;
+    position: relative;
 }
-
-.product-detail-btn .product-btn.catalogue {
-    background: #000;
-}
-
 .product-detail-btn .product-btn.catalogue span.dot.text-white {
     background: #000;
-    left: -65px;
 }
 @media(max-width: 992px) {
     .devider::after {
@@ -1226,9 +1230,10 @@ ul.sam-ul li i {
     /*.ProcessSlider-row p, .ProcessSlider-row a.btn, .ProcessSlider-row .Gridimg { display: none; }*/
  .product-detail-btn {
     flex-direction: column;
+    gap: 10px;
 }
-.product-detail-btn .product-btn.catalogue span.dot.text-white {
-    left: -30px;
+.product-detail-btn .product-btn {
+    justify-content: center;
 }
  }
 
@@ -1252,6 +1257,10 @@ ul.sam-ul li i {
     z-index: 1;
     top: 30px;
     display: flex !important;
+}
+.sama-breadcrumbs {
+    flex-wrap: wrap;
+    text-transform: uppercase;
 }
 .sama-breadcrumbs li a {
     color: #000;
@@ -1301,13 +1310,21 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
     display: none;
 }
 .sama-detail-product .sama-content-col {
-    box-shadow: 20px 0 53px -25px rgba(0,0,0,0.15);
+    box-shadow: 52px 0 52px -52px rgba(0,0,0,0.15);
     padding-right: 7%;
+    z-index: 1;
 }
 .sama-detail-product .sama-product-title strong, .sama-detail-product .sama-product-title span {
     color: #ec2424;
+
 }
 
+@media (max-width: 991px) {
+    .sama-detail-product .sama-content-col {
+        box-shadow: unset;
+        padding-right: calc(1.5rem * .5);
+    }
+}
 
 /* SelectBox CSS Code Starts Here */
 .select-hidden {
@@ -1383,8 +1400,9 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 /* SelectBox CSS Code Ends Here */
 .sama-social-icons {
     position: absolute;
-        bottom: 0;
-    left: 52%;
+    top: calc(100% + 20px);
+    left: 50%;
+    z-index: 1;
 }
 .sama-social-icons span.str{
     top: 0;
@@ -1407,7 +1425,11 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 }
 .sama-tabs { border-top: 1px solid #f3f3f3; }
 .sama-detail-product:before {
-    background-size: 35% 80%;
+    background-size: 35% auto;
+    background-position: bottom left;
+    inset: 0;
+    width: 100%;
+    height: 100%;
 }
 .sama-product-id {
     font-size: 20px;
@@ -1419,10 +1441,16 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
 }
 
 .sama-tabs .nav-pills li button {
-    /* height: fit-content;
-    width: 160px; */
+    height: auto;
+    /* width: 160px; */
     text-transform: uppercase;
     font-size: 12px;
+}
+.sama-tabs .tab-pane {
+    display: none;
+}
+.sama-tabs .tab-pane.active {
+    display: block;
 }
 .sama-second-social {
     left: 60%;
@@ -1437,6 +1465,27 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
     margin-left: 180px;
 }
 .sama-second-detail-product.bgSR:before{
-     height: 100%;
+    height: 100%;
     left: 30%;
+}
+
+@media (max-width: 991px) {
+    .sama-social-icons {
+        justify-content: flex-start !important;
+        position: relative;
+        top: unset;
+        left: unset;
+        margin-bottom: 24px;
+        gap: 10px;
+    }
+    .btnn,
+    .btnn2 {
+        position: relative;
+        bottom: unset;
+        margin-left: unset;
+    }
+    .sama-social-icons span.str,
+    .sama-social-icons span.str1 {
+        left: auto;
+    }
 }
