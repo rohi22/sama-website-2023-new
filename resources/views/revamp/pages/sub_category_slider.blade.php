@@ -117,7 +117,7 @@
     /* transform: translate(100%, -50%); */
 }
 .owl-carousel .owl-nav button.owl-prev:hover, .owl-carousel .owl-nav button.owl-next:hover {
-    background: #aba59a;
+    background: #ec2424;
     color: white;
     margin-left: -40px;
 }
