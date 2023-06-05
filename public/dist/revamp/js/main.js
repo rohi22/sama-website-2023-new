@@ -107,6 +107,14 @@ if($(".TwoItemSlider").length){
       dots: false,
       arrow: false,
       margin: 5,
+      responsive:{
+        0:{
+            items:1
+        },
+        480:{
+            items:2
+        }
+    }
     });
 }
 

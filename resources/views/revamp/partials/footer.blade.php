@@ -164,7 +164,7 @@
                  <h4>Contact Details</h4>
                  <div class="row">
                      <div class="col-lg-6">
-                         <div class="w-100 d-flex mb-3 sama-information">
+                         <div class="w-100 d-flex mb-0 sama-information">
 
                              <span
                                  class="iconBox d-flex justify-content-center align-items-center text-white bg-TColor">
@@ -305,9 +305,9 @@
          responsiveClass: true,
          responsive: {
              0: {
-                 items: 2
+                 items: 1
              },
-             992: {
+             480: {
                  items: 2
              },
              1000: {

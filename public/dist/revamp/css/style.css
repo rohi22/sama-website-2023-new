@@ -172,7 +172,7 @@ header.fixed .THeader {
 .THLinks li a {
     color: white;
     font-size: 0.75rem;
-    padding: 10px 15px;
+    padding: 10px 8px;
 }
 
 .THLinks li a:hover {
@@ -1158,7 +1158,15 @@ ul.sam-ul li i {
 
 }
 @media screen and (max-width:980px){
-.mobo-menu {
+    .sama-content-col label {
+        min-height: unset !important;
+    }
+    
+    .sama-content-col label h2 {
+        margin: 10px !important;
+        line-height: 1;
+    }
+    .mobo-menu {
     display:block;
 }
 .logo-header, .THeader {
@@ -1221,21 +1229,7 @@ ul.sam-ul li i {
 .sama-fourth{
     padding-bottom: 120px;
 }
-@media screen and (max-width:767px){
-/*    .MachineSlider .PrCard{*/
-/*        min-height: 524px;*/
-/*}*/
-    .THeader { display: none; }
 
-    /*.ProcessSlider-row p, .ProcessSlider-row a.btn, .ProcessSlider-row .Gridimg { display: none; }*/
- .product-detail-btn {
-    flex-direction: column;
-    gap: 10px;
-}
-.product-detail-btn .product-btn {
-    justify-content: center;
-}
- }
 
 /*My New Code*/
 .nav-pills {
@@ -1325,7 +1319,31 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
         padding-right: calc(1.5rem * .5);
     }
 }
-
+@media screen and (max-width:767px){
+    /*    .MachineSlider .PrCard{*/
+    /*        min-height: 524px;*/
+    /*}*/
+    ul.pagination{    
+        margin-bottom: 30px;
+    }
+    .pagination li .page-link{
+        padding: 10.6px 10px !important;
+    }
+    ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link {
+        font-size: 28px;
+        padding: 1px 10px !important;
+    }
+        .THeader { display: none; }
+    
+        /*.ProcessSlider-row p, .ProcessSlider-row a.btn, .ProcessSlider-row .Gridimg { display: none; }*/
+     .product-detail-btn {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .product-detail-btn .product-btn {
+        justify-content: center;
+    }
+     }
 /* SelectBox CSS Code Starts Here */
 .select-hidden {
     display: none;

@@ -112,7 +112,7 @@
   display:none;
   }
 }
-@media screen and (max-width : 906px){
+@media screen and (max-width : 980px){
  .desktop_slider{
   display:none;
   }
