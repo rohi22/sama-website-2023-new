@@ -26,8 +26,8 @@
     }
 
     button.fa.fa-search.search-btn.sb {
-        background: #ec2424;
-        color: white;
+        background: transparent;
+    color: #ec2424;
     }
 
     .input-group {
@@ -115,7 +115,7 @@
     }
 
     a.sama-toggle-selector {
-        margin-left: -110%;
+        /* margin-left: -110%; */
         background-color: transparent;
         float: left;
         color: #fff;
@@ -167,7 +167,7 @@
     }
 
     a.logo-sidebar {
-        padding: 0 10px !important;
+        padding: 5% 0 0 10px !important;
     }
 
     .logo-sidebar {
@@ -288,6 +288,7 @@
 
         img.img-responsive.main-log-navs {
             width: 40%;
+            margin: 0 auto;
         }
 
         .sama-header-row .sama-ul li {
@@ -317,10 +318,10 @@
         .sama-header-row .pushy {
             width: 80%;
         }
-
+/* 
         a.logo-sidebar img {
             width: 60%;
-        }
+        } */
 
         .sama-second .InSlider a {
             min-height: 161px;
@@ -339,18 +340,21 @@
     @media screen and (max-width:767px) {
         img.img-responsive.main-log-navs {
             width: 65%;
+            margin: 0 auto;
         }
     }
 
     @media screen and (max-width:768px) {
         img.img-responsive.main-log-navs {
             width: 30% !important;
+            margin: 0 auto;
         }
     }
 
     @media only screen and (max-width:538px) {
         img.img-responsive.main-log-navs {
             width: 55% !important;
+            margin: 0 auto ;
         }
 
         i.fa.fa-search {
@@ -360,14 +364,15 @@
             font-size: 24px;
         }
 
-        img.img-responsive.main-log-navs {
+        /* img.img-responsive.main-log-navs {
             margin-right: 85px;
-        }
+        } */
     }
 
     @media only screen and (max-width:375px) {
         img.img-responsive.main-log-navs {
             width: 55% !important;
+            margin: 0 auto;
         }
 
         i.fa.fa-search {
@@ -381,11 +386,12 @@
     @media screen and (max-width:320px) {
         img.img-responsive.main-log-navs {
             width: 55% !important;
+            margin: 0 auto;
         }
     }
 
     .sam-nav {
-        width: calc(100% - 200px);
+        width: calc(100% - 150px);
     }
 
     .sam-nav>ul {
@@ -413,7 +419,7 @@
         position: absolute;
         border-bottom: 3px solid #ec2424;
         left: 0px;
-        bottom: 0px;
+        bottom: -88%;
         border-radius: 10px;
         transition: transform 0.5s;
         transform: scaleX(0);
@@ -421,11 +427,15 @@
     }
 
     .sam-nav>ul>li:hover a:after {
-        transform: scaleX(1);
+        transform: scaleX(1) scaleY(1.2);
         transform-origin: left;
     }
 
     @media only screen and (min-width: 981px) and (max-width: 1200px) {
+        .top-header .container {
+    max-width: 1240px;
+}
+        .sam-nav ul>li>a{font-size: 10px !important;}
         .sam-nav .nav-col {
             flex-direction: row !important;
         }
@@ -440,7 +450,7 @@
 
         .logo-header .container,
         .top-header .container {
-            max-width: 970px;
+            max-width: 1080px;
         }
 
         /* .sam-nav .nav-col a {
@@ -454,7 +464,7 @@
 
         .sam-nav .nav-col {
             width: 100%;
-            margin-left: 1%;
+            margin-left: 0%;
         }
 
         .sama-second .InSlider a span {
@@ -594,17 +604,22 @@
     font-size: 11.5px;
 }
 .SUBLinks ul.menu-carousel li {
-    width: 19%;
-    margin: 2.5px;
+    width: 18.8%;
+    margin: 4px;
+    padding-right: 0;
 }
 .SUBLinks ul.menu-carousel {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center !important;
+    justify-content: flex-start !important;
 }
 .sam-nav ul>li {
-    flex: auto;
-    padding: 0px 0px;
+    /* flex: auto; */
+    padding: 0px 10px 0px 0px ;
+}
+.sam-nav ul>li>a .fa-chevron-down {
+    position: absolute;
+    top: 1%;
 }
 .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
     width: 32px;
@@ -627,7 +642,16 @@
     position: relative;
     overflow: hidden;
     -webkit-transform: translate3d(0,0,0);
-    background: #f3f3f3;
+    /* background: #f3f3f3; */
+}
+.sama-second .InSlider.owl-carousel .owl-stage-outer{
+    background: none;
+}
+a.textlogo-sidebar {
+    padding: 0 15px !important;
+}
+.sama-searchbar .myeditclass::placeholder {
+    color: #ec242459 !important;
 }
 </style>
 <header id="Header">
@@ -649,15 +673,14 @@
                      <li><a href="{{route('becomeAnAgent')}}">Become Agent</a></li>
                      <li><a href="{{route('eCatalogue')}}">E-Catalogue</a></li>
                      <li>
-                     <div class="input-group" style="">
+                     <div class="input-group sama-searchbar" style="">
                      <form method="get" action="{{route('revamp.search')}}">
-                     <input type="text" style="width: 40px !important; height: 37px; border-radius: initial; position: absolute; top: 0px; left: -6px; border-inline-style: none;" 
+                     <input type="text" style="width: 40px !important;height: 32px;border-radius: initial;position: absolute;top: 3px; border:0;" 
                       class="myeditclass form-control" name="search" value="">
-                      <span style="color: #f73d3d9e; position: absolute; left: 28px; font-size: 26px;">|</span>
-                      <input type="text" style="width:150px !important;height: 37px; border-radius: initial; font-size:12px; margin-left: 33px;" placeholder="Search.." 
+                      <span style="color: #ec2424; position: absolute; left: 28px; font-size: 0px;">|</span>
+                      <input type="text" style="width:150px !important;height: 32px;border-radius: initial;font-size:12px;top: 4px;margin-left: 33px;margin-top: 3px; border:0;" placeholder="Search.." 
                       class="myeditclass form-control" name="search" value="">
-                      <button type="submit" class="fa fa-search search-btn sb customwork" style="position: absolute; top: 17px; right: 168px; border-inline-end-style: none; 
-                        border-bottom-style: none; margin-top: -11px; border-color: #ec2424;padding:6px;margin-right:0px; height: 25px; border-radius: 6px; width: 25px;"
+                      <button type="submit" class="fa fa-search search-btn sb customwork" style=" position: absolute; top: 17px; right: 160px; border-inline-end-style: none; border-bottom-style: none; margin-top: -11px; border-color: transparent; padding:6px; margin-right:0px; height: 25px; border-radius: 0px;  width: 25px; border-right: 1px solid; padding-right: 20px; "
                          value="Search" href="{{route('revamp.search')}}">
                       </button>
                         <!-- <button type="submit" 
@@ -732,9 +755,9 @@
             <div class="col-2 menu-col">
                 <nav class="pushy pushy-left  sama-nav-mob" data-focus="#first-link">
                     <div class="btn-box text-center sama-toggle sama-inner-toggle" style="padding-bottom:0px;">
-                        <a class="sama-toggle-selector">
+                        <!-- <a class="sama-toggle-selector">
                             <i class="menu-btn fa fa-bars custm"></i>
-                        </a>
+                        </a> -->
                     </div>
                     <div class="pushy-content">
                         <div class="">
@@ -750,7 +773,7 @@
                         <a class="logo-sidebar " href="{{ url('/revamp') }}"><img
                                 src="https://www.samaengineering.com/uploads/logos/samalogo.png" height="50px"
                                 alt="Logo"></a>
-                        <a class="logo-sidebar " href="{{ url('/revamp') }}">
+                        <a class="textlogo-sidebar " href="{{ url('/revamp') }}">
                             <h2 style="color:#fff; font-size:20px; font-weight:600;">Sama Engineering</h2>
                         </a>
                         <ul class="sama-ul">
@@ -825,10 +848,11 @@
                     </a>
                 </div>
             </div>
+            <div class="col-2"></div>
         </div>
 
 
-        <div class="col-2"></div>
+        
         <div class="site-overlay"></div>
         <!--<div class="btn-box text-center" onclick="hoverphone()" style="margin-top:28px;width:15%;float:left;">-->
         <!--        <div class="dropdown">-->
@@ -861,7 +885,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </header>
 
