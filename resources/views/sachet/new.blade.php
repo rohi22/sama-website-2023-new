@@ -3,6 +3,16 @@
 @endif
 @extends('app.app')
 @section('content')
+<style>
+    .sama-form-dash label { 
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+     } 
+     .sama-form-dash p { 
+        margin-bottom: 0; font-size: 12px; 
+        }
+</style>
  <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -38,8 +48,11 @@
                                 <!-- row -->
                                 <div class="col-md-8">
                                     <div class="form-group @if($errors->has('sachet_image')) has-danger @endif row">
+                                    <div class="col-md-3 text-right sama-form-dash">        
                                         <label class="control-label text-right col-md-3">Upload Sachet Images</label>
-                                        <div class="col-md-9">
+                                        <p>60px × 50px</p>
+                                    </div>    
+                                    <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger"   name="sachet_image" id="picture">
                                             <small class="form-control-feedback">@if($errors->has('sachet_image')) {{ $errors->first('sachet_image') }} @endif</small> 
                                         </div>

@@ -3,6 +3,16 @@
 @endif
 @extends('app.app')
 @section('content')
+<style>
+    .sama-form-dash label { 
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+     } 
+     .sama-form-dash p { 
+        margin-bottom: 0; font-size: 12px; 
+        }
+</style>
  <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -59,21 +69,30 @@
                                         </div>
                                     </div>
                                     <div class="form-group @if($errors->has('s_main_image')) has-danger @endif row">
+                                    <div class="col-md-3 text-right sama-form-dash">
                                         <label class="control-label text-right col-md-3">Main Image</label>
+                                        <p>770px by 1900px</p>
+                                        </div>
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger"  name="s_main_image">
                                             <small class="form-control-feedback">@if($errors->has('s_main_image')) {{ $errors->first('s_main_image') }} @endif</small> 
                                         </div>
                                     </div>
                                     <div class="form-group @if($errors->has('s_background_image')) has-danger @endif row">
+                                    <div class="col-md-3 text-right sama-form-dash">    
                                         <label class="control-label text-right col-md-3">Background Image</label>
+                                        <p>1235px × 412 px</p>
+                                    </div>
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger"  name="s_background_image">
                                             <small class="form-control-feedback">@if($errors->has('s_background_image')) {{ $errors->first('s_background_image') }} @endif</small> 
                                         </div>
                                     </div>
                                     <div class="form-group @if($errors->has('s_gallery_images')) has-danger @endif row">
+                                    <div class="col-md-3 text-right sama-form-dash">    
                                         <label class="control-label text-right col-md-3">Gallery Images</label>
+                                        <p>px × px</p>
+                                    </div>
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger"  name="s_gallery_images[]" multiple>
                                             <small class="form-control-feedback">@if($errors->has('s_gallery_images')) {{ $errors->first('s_gallery_images') }} @endif</small> 

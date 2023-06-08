@@ -3,6 +3,15 @@
 @endif
 @extends('app.app')
 @section('content')
+<style>
+    .sama-form-dash label { 
+        max-width: 100%;
+        padding: 0;
+     } 
+     .sama-form-dash p { 
+        margin-bottom: 0; font-size: 12px; 
+        }
+</style>
  <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -73,7 +82,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group @if($errors->has('image')) has-danger @endif row">
+                                    <div class="col-md-3 text-right sama-form-dash">        
                                         <label class="control-label text-right col-md-3">Image</label>
+                                        <p>px x px</p>
+                                    </div>
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger" name="image" accept="image/png, image/gif, image/jpeg">
                                             <small class="form-control-feedback">@if($errors->has('image')) {{ $errors->first('image') }} @endif</small> 

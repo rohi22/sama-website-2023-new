@@ -5,6 +5,16 @@
 @extends('app.app')
 @section('content')
 
+<style>
+    .sama-form-dash label { 
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+     } 
+     .sama-form-dash p { 
+        margin-bottom: 0; font-size: 12px; 
+        }
+</style>
  <div class="container-fluid">
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
@@ -40,7 +50,11 @@
                                 <!-- row -->
                                 <div class="col-md-8"> 
                                     <div class="form-group @if($errors->has('s_image1')) has-danger @endif row">
+                                    <div class="col-md-3 text-right sama-form-dash">        
                                         <label class="control-label text-right col-md-3">Large Image</label>
+                                        <p>px × px</p>
+                                    </div>     
+                                    
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger" name="s_image1" id="img1">
                                             <small class="form-control-feedback">@if($errors->has('s_image1')) {{ $errors->first('s_image1') }} @endif</small> 
@@ -54,7 +68,11 @@
                                     </div>
 
                                     <div class="form-group @if($errors->has('s_image2')) has-danger @endif row">
+                                    <div class="col-md-3 text-right sama-form-dash">        
                                         <label class="control-label text-right col-md-3">Small 1 Image</label>
+                                        <p>px × px</p>
+                                    </div>     
+                                    
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger" name="s_image2" id="img2">
                                             <small class="form-control-feedback">@if($errors->has('s_image2')) {{ $errors->first('s_image2') }} @endif</small> 
@@ -68,7 +86,10 @@
                                     </div>
 
                                     <div class="form-group @if($errors->has('s_image3')) has-danger @endif row">
-                                        <label class="control-label text-right col-md-3">Small 3 Image</label>
+                                    <div class="col-md-3 text-right sama-form-dash">        
+                                    <label class="control-label text-right col-md-3">Small 3 Image</label>
+                                        <p>px × px</p>
+                                    </div>
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger"name="s_image3" id="img3">
                                             <small class="form-control-feedback">@if($errors->has('s_image3')) {{ $errors->first('s_image3') }} @endif</small> 
