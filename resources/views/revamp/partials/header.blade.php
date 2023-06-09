@@ -306,6 +306,8 @@
         .sama-header-row .sama-ul .suby a {
             font-size: 14px;
         }
+        .sama-header-row .sama-ul li.opened button:after {
+            transform:rotate(90deg);}
     }
 
     @media screen and (max-width:767px) {
@@ -920,6 +922,23 @@ a.textlogo-sidebar {
             $(this).find('.sub-menu:first').toggle();
         });
     });
+    // $('li.pushy-submenu').click(function(){
+    //     $(this).addClass('opened');
+       
+    // });
+    // $('li.pushy-submenu .opened').click(function(){
+    //     $(this).removeClass('opened');
+       
+    // });
+    // $(document).ready(function() {
+        $("li.pushy-submenu").on("click", function() {
+            if($(this).hasClass("opened")) {
+                $(this).removeClass("opened");
+            } else {
+                $(this).addClass("opened");
+            }
+        });
+    // });
 </script>
 <script>
     $(document).ready(function() {

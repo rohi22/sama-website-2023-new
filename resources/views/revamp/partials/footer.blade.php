@@ -10,7 +10,7 @@
          border-radius: 10px;
          width: 3rem;
          height: 3rem;
-         transform: rotate(-45deg);
+         /* transform: rotate(-45deg); */
          border: 0;
          /* box-shadow: -2px 2px 3px -1px #333, inset 0 0 1px 1px #333; */
          cursor: pointer;
@@ -20,8 +20,9 @@
          margin-right: -2rem;
          color: #fff;
          text-shadow: 0 0 5px #333;
-         background: #cf1d25;
+         background: transparent;
      }
+
 
      footer .btn-scroll-top i {
          transform: rotate(45deg);
@@ -213,7 +214,8 @@
              </div>
          </div>
      </div>
-     <button class="btn-scroll-top" id="scrollToTop"><i class="fa fa-arrow-up transform-45-degree"></i></button>
+     <button class="btn-scroll-top" id="scrollToTop"> <img src="{{asset('images/top.png')}}"></button>
+     <!-- <i class="fa fa-arrow-up transform-45-degree"></i> -->
      <div class="container border-top f-bottom sama-copyright">
          <div class="row">
              <div
