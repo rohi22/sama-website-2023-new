@@ -242,7 +242,7 @@
  <div class="Flyoutbtn Flyoutbtn1">
      <span class="bg-TColor text-white">
         <!-- <i class="fa fa-phone"></i> -->
-        <img src="{{asset('images/phone.jpg')}}">
+        <img src="{{asset('uploads/images/phone.jpg')}}">
     </span>
      <div class="CFrom bg-XLGray shadow py-3 px-3">
          <i class="fa fa-envelope-o text-danger position-absolute"></i>
@@ -291,7 +291,7 @@
  <div class="Flyoutbtn Flyoutbtn2">
      <span class="bg-BColor text-white">
         <!-- <i class="fa fa-envelope"></i> -->
-        <img src="{{asset('images/email.jpg')}}">
+        <img src="{{asset('uploads/images/email.jpg')}}">
      </span>
      <span class="bg-BColor"><a href="mailto:{{ $footer_content->f_email_1 }}"
              class="text-white">{{ $footer_content->f_email_1 }}</a></span>
@@ -299,7 +299,7 @@
  <div class="Flyoutbtn Flyoutbtn3">
      <span class="bg-success text-white">
         <!-- <i class="fa fa-whatsapp"></i> -->
-        <img src="{{asset('images/whatsapp.jpg')}}">
+        <img src="{{asset('uploads/images/whatsapp.jpg')}}">
     </span>
      <span class="bg-success"><a href="https://wa.me/{{ str_replace('+', '', $footer_content->f_phone_4) }}"
              class="text-white">{{ $footer_content->f_phone_4 }}</a></span>
