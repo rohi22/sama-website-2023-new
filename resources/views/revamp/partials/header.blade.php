@@ -297,6 +297,7 @@
 
         .sama-header-row .sama-ul li button {
             font-size: 20px;
+            height: fit-content;
         }
 
         .sama-header-row .sama-ul a {
@@ -315,6 +316,7 @@
         .sama-header-row .sama-ul a,
         .sama-header-row .sama-ul li button {
             font-size: 16px;
+
         }
 
         .sama-header-row .pushy {
