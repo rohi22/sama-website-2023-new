@@ -366,3 +366,6 @@ function stopCarousel() {
       utilsScript: "phone-picker/js/utils.js",
     });
     
+    $('li.pushy-submenu').click(function(){
+        $(this).addClass('opened');
+    });

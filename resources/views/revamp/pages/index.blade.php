@@ -56,7 +56,7 @@
          width: 46% !important;
       }
       .sama-small-img img{
-         width: 60% !important;
+         /* width: 60% !important; */
          margin: 0 auto;
       }
 
@@ -95,7 +95,7 @@
          display: none;
       }
 
-      .sama-machine-des {
+      /* .sama-machine-des {
          display: none;
       }
 
@@ -106,7 +106,7 @@
       .sama-small-img:first-child,
       .sama-small-img:nth-child(2) {
          display: block;
-      }
+      } */
    }
    @media screen and (max-width:360px) {
       .InSlider li {

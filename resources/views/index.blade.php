@@ -22,39 +22,6 @@
 <meta name="twitter:creator" content="@InsectMarketing">
 @endsection
 @section('content')
-
-<style>
-.sb{ 
-    padding:7.2px !important;
-}
-@media screen and (max-width: 600px) {
-  #paddingmobile {
-    padding:0px !important;
-    margin:10px !important;
-  }
-}
-    .flag {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    max-width: 25ch;
-}
-#more {display: none;}
-
-.btnMore{
-    font-size: 50px;width: 100px;background: none;border: none;
-}
-.btnMore:focus{
-    font-size: 50px;width: 100px;background: none;border: none;
-}
-p{
-    font-family: Helvetica;
-}
-.opacity8{
-        opacity: 0.6;
-}
-
-</style>    
     <!-- --------------------------------------------Hero -->
 
     @include('slider')
@@ -186,28 +153,7 @@ p{
                       </a>
                     </div>
               </div>
-              <style>
-                @media screen and (max-width: 600px) {
-                  .fa-angle-left {
-                    font-size:35px !important;
-                    opacity:1;
-                    color:black;
-                  }
-                }
-                @media screen and (max-width: 600px) {
-                  .fa-angle-right {
-                    font-size:35px !important;
-                    opacity:1;
-                    color:black;
-                  }
-                }
-                  .fa-angle-left{
-                      color:white;font-size:80px;
-                  }
-                  .fa-angle-right{
-                      color:white;font-size:80px;
-                  }
-              </style>
+              
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <i class="fa fa-angle-left" aria-hidden="true"></i>
                 <span class="sr-only">Previous</span>
@@ -233,35 +179,7 @@ p{
     
     
     <!-- -------------------------- Main-Heading --> 
-<style>
-    @media screen and (max-width: 600px) {
-  #hide_catalogue {
-    display:none;
-  }
-}
-@media screen and (max-width: 600px) {
-  #show_catalogue {
-    display:block !important;
-  }
-}
-@media screen and (max-width: 600px) {
-  .my-col-xs-6 {
-   width:49%;
-   
-  }
-}
-.btn-maan{
-    color:white;
-    background-color:#cf1d25;
-    border:none;
-    width:100%;
-    padding-top:5px;
-    padding-bottom:5px;
-    padding-left:20px;
-    padding-right:20px;
-    display:block;
-}
-</style>
+
 
     <!-- ---------------------------slider3 -->
     <div class="container-fluid" id="hide_catalogue">
