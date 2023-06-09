@@ -3,6 +3,7 @@
     return Redirect::to($any, 301); 
 })->where('any', '.*');
 */
+header('Access-Control-Allow-Origin: http://localhost:8080');
 Route::get('/login',function (){return view('login');});
 Route::post('user.login','LoginController@login');
 Route::get('/logout','LoginController@logout');

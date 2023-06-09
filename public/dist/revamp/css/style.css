@@ -1139,6 +1139,7 @@ ul.sam-ul li i {
 .product-detail-btn .product-btn.catalogue span.dot.text-white {
     background: #000;
 }
+
 @media(max-width: 992px) {
     .devider::after {
         visibility: hidden;
@@ -1507,3 +1508,11 @@ ul.pagination li:first-child .page-link, ul.pagination li:last-child .page-link 
         left: auto;
     }
 }
+    .sama-form-dash label { 
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+     } 
+     .sama-form-dash p { 
+        margin-bottom: 0; font-size: 12px; 
+        }

@@ -870,9 +870,9 @@ a.textlogo-sidebar {
         <!--                    </div>-->
         <!--                </div>-->
         <!--</div>-->
-        <div class="row">
+        <div class="row" style="position: absolute; width: 100%;">
             <div class="col-md-12">
-                <div class="search">
+                <div class="search" style="position: relative;">
                     <div class="search-content">
                         <a class="search-button" id="show-search-box"><i
                                 style="position: absolute; left: 90%; top: -290%; font-size: 22px;"

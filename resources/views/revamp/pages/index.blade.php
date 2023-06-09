@@ -55,6 +55,10 @@
       .sama-small-img {
          width: 46% !important;
       }
+      .sama-small-img img{
+         width: 60% !important;
+         margin: 0 auto;
+      }
 
       .InSlider {
          display: flex !important;
@@ -103,6 +107,14 @@
       .sama-small-img:nth-child(2) {
          display: block;
       }
+   }
+   @media screen and (max-width:360px) {
+      .InSlider li {
+    width: 30%;
+    margin: 1px; }
+    .sama-second .InSlider li a{
+      font-size: 10px;
+    }
    }
    @media screen and (max-width : 1920px){
   .desktop_slider{

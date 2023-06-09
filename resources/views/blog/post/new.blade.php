@@ -10,6 +10,14 @@
 .label {
     line-height: 2 !important;
 }
+.sama-form-dash label { 
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+     } 
+     .sama-form-dash p { 
+        margin-bottom: 0; font-size: 12px; 
+        }
 </style>
  <div class="container-fluid">
     <!-- ============================================================== -->
@@ -80,7 +88,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group @if($errors->has('p_image')) has-danger @endif row">
+                                    <div class="col-md-3 text-right sama-form-dash">        
                                         <label class="control-label text-right col-md-3">Upload Image</label>
+                                        <p>839px × 472px</p>
+                                    </div>    
+                                    
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger" name="p_image" id="picture">
                                             <small class="form-control-feedback">@if($errors->has('p_image')) {{ $errors->first('p_image') }} @endif</small> 

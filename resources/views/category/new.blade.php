@@ -10,6 +10,14 @@
 .label {
     line-height: 2 !important;
 }
+    .sama-form-dash label { 
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+     } 
+     .sama-form-dash p { 
+        margin-bottom: 0; font-size: 12px; 
+        }
 </style>
  <div class="container-fluid">
     <!-- ============================================================== -->
@@ -119,7 +127,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group @if($errors->has('cat_image')) has-danger @endif row">
+                                    <div class="col-md-3 text-right sama-form-dash">        
                                         <label class="control-label text-right col-md-3">Picture</label>
+                                        <p>px × px</p>
+                                    </div>
+                                        
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger"   name="cat_image" id="picture">
                                             <small class="form-control-feedback">@if($errors->has('cat_image')) {{ $errors->first('cat_image') }} @endif</small> 
@@ -132,7 +144,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group @if($errors->has('cat_icon')) has-danger @endif row">
-                                        <label class="control-label text-right col-md-3">Icon</label>
+                                        <div class="col-md-3 text-right sama-form-dash">        
+                                            <label class="control-label text-right col-md-3">Icon</label>
+                                            <p>px × px</p>
+                                        </div>
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger"   name="cat_icon" id="icon">
                                             <small class="form-control-feedback">@if($errors->has('cat_icon')) {{ $errors->first('cat_icon') }} @endif</small> 
@@ -145,7 +160,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group @if($errors->has('cat_og_img')) has-danger @endif row">
+                                    <div class="col-md-3 text-right sama-form-dash">        
                                         <label class="control-label text-right col-md-3">OG Image</label>
+                                        <p>px × px</p>
+                                    </div>
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger"   name="cat_og_img" id="cat_og_img">
                                             <small class="form-control-feedback">@if($errors->has('cat_og_img')) {{ $errors->first('cat_og_img') }} @endif</small> 

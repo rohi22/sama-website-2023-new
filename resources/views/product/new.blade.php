@@ -20,6 +20,14 @@
 .label {
     line-height: 2 !important;
 }
+    .sama-form-dash label { 
+        max-width: 100%;
+        padding: 0;
+        margin-bottom:0;
+     } 
+     .sama-form-dash p { 
+        margin-bottom: 0; font-size: 12px; 
+        }
 </style>
 
  <div class="container-fluid">
@@ -149,7 +157,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="control-label text-right col-md-3">Main Image</label>
+                                    <div class="col-md-3 text-right sama-form-dash">        
+                                    <label class="control-label text-right col-md-3">Main Image</label>
+                                        <p>525px × 241px</p>
+                                    </div>
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger" name="p_main_image" id="main_img">
                                             <small class="form-control-feedback color" id="main_img_error"></small> 
@@ -162,7 +173,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group @if($errors->has('cat_icon')) has-danger @endif row">
-                                        <label class="control-label text-right col-md-3">Bag Images</label>
+                                    <div class="col-md-3 text-right sama-form-dash">            
+                                    <label class="control-label text-right col-md-3">Bag Images</label>
+                                        <p>116px × 87px</p>
+                                    </div>
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger"  name="p_bag_image[]" multiple id="file_input">
                                             <small class="form-control-feedback color" id="file_input_error"></small> 
@@ -197,7 +211,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group @if($errors->has('p_og_img')) has-danger @endif row">
-                                        <label class="control-label text-right col-md-3">OG Image</label>
+                                    <div class="col-md-3 text-right sama-form-dash">        
+                                    <label class="control-label text-right col-md-3">OG Image</label>
+                                        <p>px × px</p>
+                                    </div>    
                                         <div class="col-md-9">
                                             <input type="file" class="form-control form-control-danger"   name="p_og_img" id="p_og_img">
                                             <small class="form-control-feedback">@if($errors->has('p_og_img')) {{ $errors->first('p_og_img') }} @endif</small> 
