@@ -214,7 +214,7 @@
              </div>
          </div>
      </div>
-     <button class="btn-scroll-top" id="scrollToTop"> <img src="{{asset('images/top.png')}}"></button>
+     <button class="btn-scroll-top" id="scrollToTop"> <img src="{{asset('uploads/images/top.png')}}"></button>
      <!-- <i class="fa fa-arrow-up transform-45-degree"></i> -->
      <div class="container border-top f-bottom sama-copyright">
          <div class="row">
